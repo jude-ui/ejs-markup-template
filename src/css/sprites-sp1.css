@@ -1,0 +1,92 @@
+/*
+Icon classes can be used entirely standalone. They are named after their original file names.
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+*/
+.icon-sp1_img_baseballbot {
+  background-image: url(../images/sprites-sp1.png);
+  background-position: -80px 0px;
+  width: 52px;
+  height: 52px;
+}
+.icon-sp1_img_fanwidget5 {
+  background-image: url(../images/sprites-sp1.png);
+  background-position: 0px -66px;
+  width: 57px;
+  height: 66px;
+}
+.icon-sp1_img_qrcode {
+  background-image: url(../images/sprites-sp1.png);
+  background-position: -142px -86px;
+  width: 22px;
+  height: 22px;
+}
+.icon-sp1_nav_w1 {
+  background-image: url(../images/sprites-sp1.png);
+  background-position: 0px 0px;
+  width: 70px;
+  height: 56px;
+}
+.icon-sp1_sample_48_48 {
+  background-image: url(../images/sprites-sp1.png);
+  background-position: -80px -62px;
+  width: 48px;
+  height: 48px;
+}
+.icon-sp1_sample_adlogo {
+  background-image: url(../images/sprites-sp1.png);
+  background-position: -142px -40px;
+  width: 36px;
+  height: 36px;
+}
+.icon-sp1_sample_flag {
+  background-image: url(../images/sprites-sp1.png);
+  background-position: -142px 0px;
+  width: 44px;
+  height: 30px;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2),
+       (min-resolution: 192dpi) {
+  .icon-sp1_img_baseballbot {
+    background-image: url(../images/sprites-sp1@2x.png);
+    background-size: 186px 132px;
+  }
+  .icon-sp1_img_fanwidget5 {
+    background-image: url(../images/sprites-sp1@2x.png);
+    background-size: 186px 132px;
+  }
+  .icon-sp1_img_qrcode {
+    background-image: url(../images/sprites-sp1@2x.png);
+    background-size: 186px 132px;
+  }
+  .icon-sp1_nav_w1 {
+    background-image: url(../images/sprites-sp1@2x.png);
+    background-size: 186px 132px;
+  }
+  .icon-sp1_sample_48_48 {
+    background-image: url(../images/sprites-sp1@2x.png);
+    background-size: 186px 132px;
+  }
+  .icon-sp1_sample_adlogo {
+    background-image: url(../images/sprites-sp1@2x.png);
+    background-size: 186px 132px;
+  }
+  .icon-sp1_sample_flag {
+    background-image: url(../images/sprites-sp1@2x.png);
+    background-size: 186px 132px;
+  }
+}

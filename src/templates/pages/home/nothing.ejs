@@ -1,0 +1,42 @@
+<%#
+  {
+    "class": "",
+    "group": "그룹 2",
+    "depth1": "01. 1뎁스 항목",
+    "depth2": "01. 2뎁스 항목",
+    "depth3": "",
+    "depth4": "",
+    "remark": ""
+  }
+#%>
+<% function thumbImg(sizeX,sizeY) {
+  return 'http://via.placeholder.com/'+sizeX+'x'+sizeY;
+} %>
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <%- include('../../partials/layout/head', {
+        title: 'm top', depth: 1
+    }) %>
+</head>
+<body>
+<div class="container-doc">
+  <%# header 파일은 상황에 맞게 선택하여 'header' 와 같이 수정하여 사용할 것 %>
+  <%- include('../../partials/layout/header_simple') %>
+
+  <main class="doc-main">
+    <article class="content-article">
+      <h2>{main-article 제목}</h2>
+      <ul>
+        <% for( let i = 1; i < 11; i++ ) { %>
+          <li>index : <%= i %> , count : <%= i + 1 %></li>
+        <% } %>
+      </ul>
+    </article>
+  </main>
+  
+  <%- include('../../partials/layout/footer') %>
+</div>
+</body>
+</html>

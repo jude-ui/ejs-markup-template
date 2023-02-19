@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>index</title>
+<style>
+@charset "UTF-8";
+body{margin:0;padding:0;font-family:'Apple SD Gothic Neo', '맑은 고딕', 'Malgun Gothic', '돋움', 'Dotum', sans-serif;background-color:#f5f5f5}
+.screen_out{overflow:hidden;position:absolute;width:0;height:0;line-height:0;text-indent:-9999px}
+.wrap{overflow:hidden;position:relative}
+.inner_wrap{position:relative;min-height:1050px;min-height:calc(100vh);padding:0 15px 100px;box-sizing:border-box}
+.tit_head{overflow:hidden}
+.tit_head .inner_head{max-width:1600px;margin:0 auto;padding:0 0 2px;border-bottom:2px solid black;box-sizing:border-box}
+.info_tit{display:flex}
+.info_tit h1{overflow:hidden;flex:1;min-width:0;margin:15px 0;font-size:36px;color:#1a1a1a;text-overflow:ellipsis;white-space:nowrap}
+.info_tit:after{display:block;clear:both;content:''}
+h1{float:left;color:#fff}
+.info_krew{color:royalblue;border-bottom: 1px solid black}
+.group_link{float:right;margin-top:23px;font-size:0;line-height:0}
+.group_link .link_txt{display:inline-block;font-size:13px;line-height:20px;color:#fff;vertical-align:top}
+.group_link .link_txt + .link_txt{margin-left:16px}
+strong{display:block;padding:10px 0;color:#000}
+.section_index{max-width:1600px;margin:20px auto 0;padding:5px 15px 15px;background-color:#fff;border-radius: 10px;box-sizing:border-box;box-shadow: 0px 0px 5px rgba(0,0,0,.1)}
+.section_index + .section_index{margin-top:30px}
+.tbl_comm{width:100%;border-spacing:0;border-collapse:collapse;border:1px solid #d0d0d0;table-layout:fixed;word-break:break-all;word-wrap:break-word}
+caption{padding:20px 0;font-size:24px;font-weight:600;text-align:left}
+.tbl_comm th:first-child, .tbl_comm td:first-child{border-left:0}
+.tbl_comm th, .tbl_comm td{padding:10px;border-left:1px solid #d0d0d0;line-height:18px;word-break:keep-all}
+.tbl_comm th{padding:12px 10px;font-size:13px;background-color:#ededed}
+.tbl_comm td{border-top:1px solid #d0d0d0;font-size:14px}
+.tbl_comm tr:hover td{background-color:transparent}
+.tbl_comm tr:hover td:not([rowspan]){background-color:#dadada}
+.tbl_comm [class*="point"]:hover td{opacity:0.8}
+.tbl_comm tbody td:first-child{font-weight:bold}
+.tbl_comm tbody .point_add td:not([rowspan]){background-color:#bfeccf} /* point 컬러 (추가) */
+.tbl_comm tbody .point_update td:not([rowspan]){background-color:#ffe99b} /* point 컬러 (수정) */
+.tbl_comm tbody .point_remove td:not([rowspan]){background-color:#ff8181} /* point 컬러 (제거) */
+.point_delete{background:#ff8181}
+.point_add{background:#bfeccf}
+.point_update{background:#ffe99b}
+.tbl_comm .link_preview{display:block;margin:-10px;padding:10px}
+.box_info{padding:12px 15px 10px}
+.txt_subinfo{display:flex;flex-direction:column;align-items:flex-start;padding-top:5px;font-size:14px;font-weight:600}
+.txt_subinfo div{margin-top:4px}
+a{color:#5087ef;word-break:break-all}
+a:visited{color:#5425e0}
+.btn_top{overflow:hidden;position:fixed;bottom:30px;right:30px;width:40px;height:40px;border:1px solid #1a1a1a;border-radius:4px;font-size:0;line-height:0;background:rgba(255,255,255,.8);text-indent:-9999px;opacity:0;-webkit-transition:opacity .3s;-moz-transition:opacity .3s;transition:opacity .3s;cursor:pointer;outline:0}
+.btn_top:before{position:absolute;top:calc(50% + 2px);left:50%;width:10px;height:10px;border:2px solid #1a1a1a;border-bottom:0 none;border-right:0 none;-webkit-transform:translate(-50%, -50%) rotate(45deg);-moz-transform:translate(-50%, -50%) rotate(45deg);-ms-transform:translate(-50%, -50%) rotate(45deg);transform:translate(-50%, -50%) rotate(45deg);content:''}
+.btn_top.on{opacity:1}
+.btn_top.on:hover{opacity:.5}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="inner_wrap">
+    <div class="tit_head">
+      <div class="inner_head">
+        <div class="info_tit">
+          <h1>프로젝트 이름</h1>
+          <!-- 불필요시 삭제 -->
+          <!-- <div class="group_link">
+            <strong class="screen_out">관련 링크</strong>
+            <a href="#none" class="link_txt">관련 프로젝트 링크 1</a>
+            <a href="#none" class="link_txt">관련 프로젝트 링크 2</a>
+          </div> -->
+          <!-- // 불필요시 삭제 -->
+        </div>
+        <strong class="info_krew">Made by. jude</strong><!-- 불필요시 삭제 -->
+      </div>
+    </div>
+    <div class="section_index box_info">
+      <div class="txt_subinfo">
+        <div class="point_add">녹색줄 : 신규 페이지</div>
+        <div class="point_update">노란줄 : 수정된 페이지</div>
+        <div class="point_delete">빨간줄 : 스펙아웃 또는 보류</div>
+      </div>
+    </div>
+    <!-- section_index -->
+
+    <% const pages = require('./page-list.json'); %>
+    <% for(const group in pages) { %>
+      <div class="section_index">
+        <table class="tbl_comm">
+          <caption><%= group %></caption>
+          <colgroup>
+            <col style="width:13%">
+            <col style="width:13%">
+            <col style="width:13%">
+            <col style="width:13%">
+            <col>
+            <col style="width:12%">
+          </colgroup>
+          <thead>
+            <tr>
+              <th>1 Depth</th>
+              <th>2 Depth</th>
+              <th>3 Depth</th>
+              <th>4 Depth</th>
+              <th>URL</th>
+              <th>기타</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% const getLabel = (curr, prev) => curr === prev? '': curr %>
+            <% pages[group].forEach( (item, idx) => { %>
+              <tr class="<%= item.class? item.class : ''%>">
+                <td><%= getLabel(item.depth1, idx === 0 ? null: pages[group][idx-1].depth1)  %></td><!-- 1 Depth-->
+                <td><%= getLabel(item.depth2, idx === 0 ? null: pages[group][idx-1].depth2) %></td><!-- 2 Depth-->
+                <td><%= getLabel(item.depth3, idx === 0 ? null: pages[group][idx-1].depth3) %></td><!-- 2 Depth-->
+                <td><%= item.depth4 %></td><!-- 4 Depth-->
+                <td><a href="" target="_blank" class="link_preview"><%= item.path %></a></td><!-- URL -->
+                <td><%- item.remark %></td><!-- 비고 -->
+              </tr>
+            <%}) %>
+          </tbody>
+        </table>
+      </div>
+    <% } %>
+    <!-- // section_index -->
+    <button type="button" class="btn_top">맨 위로</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  const option = {
+    wrap: '.wrap',
+    el: 'a.link_preview', // 미리보기 할 공통된 셀렉터
+    width: 360, // 미리보기 페이지의 가로 범위
+    height: 640, // 미리보기 페이지의 세로 범위
+    scale: 0.85, // 미리보기 페이지의 축소 스케일
+    frameX: 30, // 미리보기할 프레임의 마우스로부터의 X좌표 거리
+    frameY: -100, // 미리보기할 프레임의 마우스로부터의 Y좌표 거리
+    btnToTop: '.btn_top'
+  }
+  preview(option);
+  
+  // 링크 href 생성
+  const linkPreview = document.querySelectorAll('.link_preview')
+  linkPreview.forEach(el => {
+    let link = window.location.href.split('/').slice(0, -1).join('/') + `/${el.innerHTML}`;
+    el.setAttribute('href', link)
+  })
+
+
+  // page 미리 보기
+  function preview(option) {
+    document.addEventListener('DOMContentLoaded', function () {
+      setFramePreview();
+      scrollCheck();
+      moveTop();
+    });
+
+    // 맨 위로 버튼
+    var wrap = document.querySelector(option.wrap);
+    var btn = document.querySelector(option.btnToTop);
+    function moveTop() {
+      btn.addEventListener('click', function () {
+        window.scrollTo(0, 0);
+      });
+    }
+
+    // 스크롤 방향 체크
+    function scrollCheck() {
+      var delta = null;
+      wrap.addEventListener('mousewheel', checkScroll); // IE, Chrome, Opera
+      wrap.addEventListener('DOMMouseScroll', checkScroll); // FireFox
+      wrap.addEventListener('WheelEvent', checkScroll); // Safari
+
+      function checkScroll(e) {
+        delta = 0;
+        e.detail ? delta = e.detail * -40 : delta = e.wheelDelta;
+        if ( delta > 0 ) {
+          // 위로 스크롤
+          if ( !(btn.classList.contains('on')) ) {
+            btn.classList.add('on');
+          }
+        } else if ( delta < 0 ) {
+          // 밑으로 스크롤
+          if ( (btn.classList.contains('on')) ) {
+            btn.classList.remove('on');
+          }
+        }
+      }
+    }
+
+    function setFramePreview(){
+      var wrap = document.querySelector(option.wrap),
+        currentDomainUrl = '',
+        urlAfter = '',
+        element = document.querySelectorAll(option.el),
+        html = '<iframe id="popupView" frameborder="0" scrolling="no" style="position:absolute;z-index:9999;width:' + option.width + 'px;height:' + option.height + 'px;-webkit-transform:scale(' + option.scale + ');transform: scale(' + option.scale + ');-webkit-transform-origin:top left;transform-origin:top left;background:#fff;border-radius:10px;box-shadow:0 0 4px 0 rgba(0, 0, 0, 0.18), 0 4px 10px 0 rgba(0, 0, 0, 0.27), 0 16px 40px 0 rgba(85, 92, 107, 0.4)"></iframe>';
+
+      for(var i = 0, len = element.length ; i < len ; i++){
+        element[i].addEventListener('mouseenter', linkOver);
+        element[i].addEventListener('mouseleave', linkLeave);
+      }
+
+      function appendHtml(el, str) {
+        var div = document.createElement('div');
+        div.innerHTML = str;
+        while (div.children.length > 0) {
+          el.appendChild(div.children[0]);
+        }
+      }
+
+      // 링크 마우스 enter
+      function linkOver(e) {
+        appendHtml(wrap, html);
+
+        var targetX = e.pageX + option.frameX,
+          targetY = e.pageY + option.frameY,
+          popupView = document.querySelector('#popupView');
+
+        if ( this.getAttribute('href').split('.')[0] === 'http://html' ) {
+          currentDomainUrl = window.location.origin;
+          urlAfter = this.getAttribute('href').split('net')[1];
+          var setDomainUrl = currentDomainUrl + urlAfter;
+          this.setAttribute('href', setDomainUrl);
+          popupView.setAttribute('src', setDomainUrl);
+        } else {
+          var url = this.getAttribute('href');
+          popupView.setAttribute('src', url);
+        }
+
+        var winWid = window.innerWidth - 15
+          || document.documentElement.clientWidth,
+          winHei = window.innerHeight
+            || document.documentElement.clientHeight,
+          widMouseToFrameRightEdge = option.width*option.scale + option.frameX,
+          widMouseToWindowRightEdge = winWid - e.clientX,
+          heiMouseToFrameBottomEdge = option.height*option.scale + option.frameY,
+          heiMouseToWindowBottomEdge = winHei - e.clientY,
+          isFrameWidInside = widMouseToWindowRightEdge > widMouseToFrameRightEdge,
+          isFrameHeiInside = heiMouseToWindowBottomEdge > heiMouseToFrameBottomEdge;
+
+        if ( !(isFrameWidInside && isFrameHeiInside) ) {
+          if ( !isFrameWidInside && !isFrameHeiInside ) {
+            popupView.style.left = (e.pageX - option.frameX - option.width*option.scale).toFixed(0) + 'px';
+            correctionHeight();
+            return;
+          }
+          if ( !isFrameWidInside ) {
+            popupView.style.left = (e.pageX - option.frameX - option.width*option.scale).toFixed(0) + 'px';
+            popupView.style.top = targetY + 'px';
+          }
+          if ( !isFrameHeiInside ) {
+            popupView.style.left = targetX + 'px';
+            correctionHeight();
+          }
+        } else {
+          popupView.style.left = targetX + 'px';
+          popupView.style.top = targetY + 'px';
+        }
+
+        // 프레임 위치 조정
+        function correctionHeight() {
+          if ( heiMouseToFrameBottomEdge > e.clientY ) {
+            popupView.style.top = (e.pageY - e.clientY + 10) + 'px';
+          } else {
+            popupView.style.top = (e.pageY - option.height*option.scale - option.frameY).toFixed(0) + 'px';
+          }
+        }
+      }
+
+      function linkLeave() {
+        popupView.parentNode.removeChild(popupView);
+      }
+    }
+  }
+
+})();
+</script>
+</body>
+</html>

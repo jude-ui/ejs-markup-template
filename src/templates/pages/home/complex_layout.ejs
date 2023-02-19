@@ -1,0 +1,79 @@
+<%#
+  {
+    "class": "",
+    "group": "그룹 1",
+    "depth1": "01. 홈",
+    "depth2": "02. 복잡한 레이아웃",
+    "depth3": "",
+    "depth4": "",
+    "remark": ""
+  }
+#%>
+<% function thumbImg(sizeX,sizeY) {
+  return 'http://via.placeholder.com/'+sizeX+'x'+sizeY;
+} %>
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <%- include('../../partials/layout/head', {
+        title: '복잡한 레이아웃', depth: 1
+    }) %>
+</head>
+<body>
+<div class="direct-link"><!-- 웹접근성용 바로가기 링크 모음 -->
+  <a href="#mainContent">본문 바로가기</a>
+  <a href="#gnbContent">메뉴 바로가기</a>
+</div>
+<div class="container-doc">
+  <%# header 파일은 상황에 맞게 선택하여 'header' 와 같이 수정하여 사용할 것 %>
+  <%- include('../../partials/layout/header_complex') %>
+
+  <main class="doc-main">
+    <section class="inner-main">
+      <h2>{대메뉴명}</h2>
+      <!-- 알아서 구성 -->
+      <section class="main-sub"><!-- or aside -->
+        <h3>{main-sub 제목}</h3>
+      </section>
+
+      <div class="main-content">
+        <section class="content-feature">
+          <h3>{content-feature 제목}</h3>
+          <nav class="content-snb">
+            <h4>{nav-sub 제목}</h4>
+            <ul>
+              <li><a href="#none">SNB1</a></li>
+              <li><a href="#none">SNB2</a></li>
+            </ul>
+          </nav>
+          <!-- SNB 이후에 배너, 버튼과 같이 부가적인 요소 추가 될 수 있음-->
+        </section>
+
+        <section class="content-sub"><!-- or aside -->
+          <h3>{content-sub 제목}</h3>
+        </section>
+
+        <article id="mainContent" class="content-article"> <!-- mainContent 본문바로가기 링크임 - 페이지별 위치는 서비스에 맞게 변경하여 사용-->
+          <h3>{content-article 제목}</h3>
+        </article>
+
+        <aside class="content-aside">
+          <h3>{content-aside 제목}</h3>
+        </aside>
+
+        <section class="content-etc"><!-- or aside -->
+          <h3>{content-etc 제목}</h3>
+        </section>
+      </div>
+
+      <section class="main-etc"><!-- or aside -->
+        <h3>{main-etc 제목}</h3>
+      </section>
+    </section>
+  </main>
+
+  <%- include('../../partials/layout/footer') %>
+</div>
+</body>
+</html>

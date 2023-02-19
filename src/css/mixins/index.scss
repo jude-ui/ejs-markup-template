@@ -1,0 +1,40 @@
+@mixin ellipsis {
+  display:block;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap
+}
+
+@mixin transform( $val... ) {
+  -webkit-transform:$val;
+     -moz-transform:$val;
+      -ms-transform:$val;
+          transform:$val;
+}
+
+@mixin transition( $val... ) {
+  -webkit-transition:$val;
+     -moz-transition:$val;
+          transition:$val;
+}
+
+@mixin animation( $val... ) {
+  -webkit-animation:$val;
+     -moz-animation:$val;
+          animation:$val;
+}
+
+@mixin keyframes($animationName) {
+  @-webkit-keyframes #{$animationName} {
+      $browser: '-webkit-' !global;
+      @content;
+  }
+  @-moz-keyframes #{$animationName} {
+      $browser: '-moz-' !global;
+      @content;
+  }
+  @keyframes #{$animationName} {
+      $browser: '' !global;
+      @content;
+  }
+} $browser: null;
