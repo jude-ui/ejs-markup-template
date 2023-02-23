@@ -186,8 +186,7 @@ a:visited{color:#5425e0}
     }
 
     function setFramePreview(){
-      var wrap = document.querySelector(option.wrap),
-        currentDomainUrl = '',
+      var currentDomainUrl = '',
         urlAfter = '',
         element = document.querySelectorAll(option.el),
         html = '<iframe id="popupView" frameborder="0" scrolling="no" style="position:absolute;z-index:9999;width:' + option.width + 'px;height:' + option.height + 'px;-webkit-transform:scale(' + option.scale + ');transform: scale(' + option.scale + ');-webkit-transform-origin:top left;transform-origin:top left;background:#fff;border-radius:10px;box-shadow:0 0 4px 0 rgba(0, 0, 0, 0.18), 0 4px 10px 0 rgba(0, 0, 0, 0.27), 0 16px 40px 0 rgba(85, 92, 107, 0.4)"></iframe>';
