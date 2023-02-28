@@ -1,0 +1,23 @@
+.btn_comm{width:186px;height:132px;background:url(../images/sprites-btn.png) 0 0 no-repeat;background-size:186px 132px}
+.btn_img_baseballbot{width:52px;height:52px;background-position:-80px 0px}
+.btn_img_fanwidget5{width:57px;height:66px;background-position:0px -66px}
+.btn_img_qrcode{width:22px;height:22px;background-position:-142px -86px}
+.btn_nav_w1{width:70px;height:56px;background-position:0px 0px}
+.btn_sample_48_48{width:48px;height:48px;background-position:-80px -62px}
+.btn_sample_adlogo{width:36px;height:36px;background-position:-142px -40px}
+.btn_sample_flag{width:44px;height:30px;background-position:-142px 0px}
+
+@media
+only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio: 1.5),
+only screen and (min-resolution: 144dpi),
+only screen and (min-resolution: 1.5dppx) {
+  .btn_comm{background-image:url(../images/sprites-btn@2x.png)}
+  .btn_img_baseballbot{background-position:-90px 0px}
+  .btn_img_fanwidget5{background-position:0px -76px}
+  .btn_img_qrcode{background-position:-162px -106px}
+  .btn_nav_w1{background-position:0px 0px}
+  .btn_sample_48_48{background-position:-90px -72px}
+  .btn_sample_adlogo{background-position:-162px -50px}
+  .btn_sample_flag{background-position:-162px 0px}
+}

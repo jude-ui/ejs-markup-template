@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "rimraf build src/css/sprites && webpack --mode=production",
-    "start": "rimraf dev_src src/css/sprites && webpack serve --mode=development",
+    "start": "rimraf dev src/css/sprites && webpack serve --mode=development",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

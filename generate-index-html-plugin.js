@@ -49,11 +49,16 @@ class GenerateIndexHtmlPlugin {
       const nonMetaPages = []
       const errorMetaPages = []
 
-      ejsList.forEach((ejsPath) => {
+      ejsList.forEach(ejsPath => {
+        const regex = /\/[^\/]*_.*$/;
+        const isUnderscored = regex.test(ejsPath);
+        
         const vaild = this.vaildMeta(ejsPath)
         const meta = this.extractMeta(ejsPath)
-        if(!meta) {
-          nonMetaPages.push(ejsPath)
+        if (!meta) {
+          if (!isUnderscored) {
+            nonMetaPages.push(ejsPath)
+          }
         } else {
           if(!vaild) {
             errorMetaPages.push(ejsPath)
