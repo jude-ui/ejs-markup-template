@@ -63,6 +63,5 @@ sass 1.58.3
 sass-loader 13.2.0
 css-loader 6.7.3
 ejs-plain-loader 1.4.0
-extract-loader 5.1.0
 ```
 
