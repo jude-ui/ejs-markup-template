@@ -75,7 +75,7 @@ module.exports = (mode) => {
               },
             },
             "extract-loader",
-            "css-loader?url=false",
+            "css-loader",
             {
               loader: "sass-loader",
               options: {

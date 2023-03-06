@@ -53,14 +53,23 @@ module.exports = {
   ],
   devtool: sourceMap,
   devServer: {
-    contentBase: path.resolve(__dirname, 'dev'),
-    writeToDisk: true,
-    openPage: 'html',
-    watchContentBase: true,
-    port: port,
-    host: '0.0.0.0',
-    disableHostCheck: true,
-    public: `localhost:${port}`
+    static: {
+      directory: path.resolve(__dirname, "dev"),
+      watch: true,
+    },
+    devMiddleware: {
+      writeToDisk: true
+    },
+    // open: ['html/page-list.html'],
+    open: false,
+    allowedHosts: 'all',
+    port,
+    host: 'localhost',
+    // client: {
+    //   webSocketURL: {
+    //     port: 8082
+    //   }
+    // }
   },
   performance: {
     hints: false,

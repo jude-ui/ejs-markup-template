@@ -1,4 +1,13 @@
 # boilerplate-ejs
+- `v2.0.0 ` 23.03.07 업데이트
+    - webpack 업데이트
+    - webpack-cli 업데이트
+    - webpack-dev-server 업데이트
+    - node-sass 제거
+    - sass(dart-sass) 설치
+    - sass-loader 업데이트
+    - css-loader 업데이트
+    - webpack.config-dev.js의 devServer 옵션 마이그레이션
 - `v1.7.1 ` 21.10.28 업데이트
     - webpack performance 설정
 - `v1.7.0 ` 21.09.02 업데이트
@@ -44,10 +53,16 @@ ejs 템플릿 엔진을 이용하여 UI 마크업 개발을 위한 보일러플�
 
 ## Version Info
 ```
-node: 14.15.5
-npm: 7.5.6
-webpack 5.24.4
-webpack-cli 4.5.0
-webpack-dev-server 3.11.2
+node: 16.19.1
+npm: 8.19.3
+webpack 5.75.0
+webpack-cli 4.10.0
+webpack-dev-server 4.11.1
+
+sass 1.58.3
+sass-loader 13.2.0
+css-loader 6.7.3
+ejs-plain-loader 1.4.0
+extract-loader 5.1.0
 ```
 
