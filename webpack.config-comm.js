@@ -3,7 +3,7 @@ const CopyPlugin = require("copy-webpack-plugin");
 const RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
 const GenerateIndexHtmlPlugin = require('./generate-index-html-plugin');
 const CssOutputPlugin = require('./css-output-plugin');
-const { sprites, configJsEntry, isUseCss } = require("./config.lib");
+const { sprites, configJsEntry } = require("./config.lib");
 const fs = require('fs');
 const devServerConfig = fs.existsSync('./dev-server-config.js') ? require('./dev-server-config') : false
 const useSourceMap = devServerConfig && devServerConfig['USE_SOURCE_MAP'] ? devServerConfig['USE_SOURCE_MAP'] : false;
@@ -11,8 +11,8 @@ const useSourceMap = devServerConfig && devServerConfig['USE_SOURCE_MAP'] ? devS
 module.exports = (mode) => {
   const outputPath = mode === 'production' ? 'build' : 'dev'
   const cssOutputStyles = { // compressed < compact < nested < expanded
-    development: isUseCss ? 'compact' : 'compact',
-    production: isUseCss ? 'compressed' : 'compressed'
+    development: 'compact',
+    production: 'compressed'
   }
 
   const jsPattern = () => {

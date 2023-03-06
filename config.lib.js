@@ -6,7 +6,6 @@ const SpritesmithPlugin = require('webpack-spritesmith');
 const isRetina = true // sprite retina 이미지 사용 여부
 const retinaName = "@2x" // retina 이미지를 구분하는 이미지명의 접미사(suffix)
 const cssSpSrc = '/css' // sprite css가 빌드될 폴더 경로
-exports.isUseCss = false // css 사용시 false로 변경
 exports.configJsEntry = true
 
 exports.ejsEntries = () => {
