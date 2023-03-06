@@ -10,8 +10,8 @@ const useSourceMap = devServerConfig && devServerConfig['USE_SOURCE_MAP'] ? devS
 
 module.exports = (mode) => {
   const outputPath = mode === 'production' ? 'build' : 'dev'
-  const cssOutputStyles = { // compressed < compact < nested < expanded
-    development: 'compact',
+  const cssOutputStyles = { // compressed < expanded
+    development: 'expanded',
     production: 'compressed'
   }
 
@@ -79,7 +79,7 @@ module.exports = (mode) => {
             {
               loader: "sass-loader",
               options: {
-                implementation: require("node-sass"),
+                implementation: require("sass"),
                 sassOptions: {
                   outputStyle: cssOutputStyles[mode]
                 },
