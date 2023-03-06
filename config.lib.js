@@ -65,7 +65,15 @@ exports.HtmlWebpackPlugins = () => {
       template: item,
       filename: fileName,
       inject: false,
-      minify: false
+      minify: {
+        collapseWhitespace: true,
+        keepClosingSlash: true,
+        removeComments: false,
+        removeRedundantAttributes: true,
+        removeScriptTypeAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        useShortDoctype: true
+      }
     })
   });
 }
