@@ -17,7 +17,7 @@ body{margin:0;padding:0;font-family:'Apple SD Gothic Neo', '맑은 고딕', 'Mal
 h1{float:left;color:#fff}
 .info_krew{color:royalblue;border-bottom: 1px solid black}
 .group_link{float:right;margin-top:23px;font-size:0;line-height:0}
-.group_link .link_txt{display:inline-block;font-size:13px;line-height:20px;color:#fff;vertical-align:top}
+.group_link .link_txt{display:inline-block;font-size:13px;line-height:20px;vertical-align:top}
 .group_link .link_txt + .link_txt{margin-left:16px}
 strong{display:block;padding:10px 0;color:#000}
 .section_index{max-width:1600px;margin:20px auto 0;padding:5px 15px 15px;background-color:#fff;border-radius: 10px;box-sizing:border-box;box-shadow: 0px 0px 5px rgba(0,0,0,.1)}
@@ -28,13 +28,12 @@ caption{padding:20px 0;font-size:24px;font-weight:600;text-align:left}
 .tbl_comm th, .tbl_comm td{padding:10px;border-left:1px solid #d0d0d0;line-height:18px;word-break:keep-all}
 .tbl_comm th{padding:12px 10px;font-size:13px;background-color:#ededed}
 .tbl_comm td{border-top:1px solid #d0d0d0;font-size:14px}
-.tbl_comm tr:hover td{background-color:transparent}
-.tbl_comm tr:hover td:not([rowspan]){background-color:#dadada}
+.tbl_comm tr:hover td{background-color:#dadada}
 .tbl_comm [class*="point"]:hover td{opacity:0.8}
 .tbl_comm tbody td:first-child{font-weight:bold}
-.tbl_comm tbody .point_add td:not([rowspan]){background-color:#bfeccf} /* point 컬러 (추가) */
-.tbl_comm tbody .point_update td:not([rowspan]){background-color:#ffe99b} /* point 컬러 (수정) */
-.tbl_comm tbody .point_remove td:not([rowspan]){background-color:#ff8181} /* point 컬러 (제거) */
+.tbl_comm tbody .point_add td{background-color:#bfeccf} /* point 컬러 (추가) */
+.tbl_comm tbody .point_update td{background-color:#ffe99b} /* point 컬러 (수정) */
+.tbl_comm tbody .point_remove td, .tbl_comm tbody .point_remove a{font-weight:normal;color:#ffdcdc;background-color:#ff8181;text-decoration:line-through;pointer-events:none} /* point 컬러 (제거) */
 .point_delete{background:#ff8181}
 .point_add{background:#bfeccf}
 .point_update{background:#ffe99b}
@@ -228,15 +227,22 @@ a:visited{color:#5425e0}
             </tr>
           </thead>
           <tbody>
-            <% const getLabel = (curr, prev) => curr === prev? '': curr %>
+            <%# 뎁스 구분 세퍼레이터 %>
+            <% const separator = '_' %>
+            <% const getCellNameByDepth = (item, depth) => item?.depth.split(separator)[depth] %>
+            <% const mergeDuplicateDepth = (item, idx, depth) => { %>
+              <% return idx === 0 || getCellNameByDepth(item, depth) !== getCellNameByDepth(pages[group][idx - 1], depth)
+                  ? getCellNameByDepth(item, depth)
+                  : ''; %>
+            <% } %>
             <% pages[group].forEach( (item, idx) => { %>
-              <tr class="<%= item.class? item.class : ''%>">
-                <td><%= getLabel(item.depth1, idx === 0 ? null: pages[group][idx-1].depth1)  %></td><!-- 1 Depth-->
-                <td><%= getLabel(item.depth2, idx === 0 ? null: pages[group][idx-1].depth2) %></td><!-- 2 Depth-->
-                <td><%= getLabel(item.depth3, idx === 0 ? null: pages[group][idx-1].depth3) %></td><!-- 2 Depth-->
-                <td><%= item.depth4 %></td><!-- 4 Depth-->
-                <td><a href="" target="_blank" class="link_preview"><%= item.path %></a></td><!-- URL -->
-                <td><%- item.remark %></td><!-- 비고 -->
+              <tr class="<%= item.class || '' %>">
+                <td><%= mergeDuplicateDepth(item, idx, 0) %></td>
+                <td><%= mergeDuplicateDepth(item, idx, 1) %></td>
+                <td><%= mergeDuplicateDepth(item, idx, 2) %></td>
+                <td><%= getCellNameByDepth(item, 3) || '' %></td>
+                <td><a target="_blank" class="link_preview"><%= item.path %></a></td>
+                <td><%= item.comments || '' %></td>
               </tr>
             <%}) %>
           </tbody>
@@ -247,7 +253,5 @@ a:visited{color:#5425e0}
     <button type="button" class="btn_top">맨 위로</button>
   </div>
 </div>
-
-
 </body>
 </html>

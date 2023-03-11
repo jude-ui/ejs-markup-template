@@ -1,24 +1,25 @@
 <%#
   {
-    "class": "",
-    "group": "그룹 1",
-    "depth1": "01. 홈",
-    "depth2": "02. 복잡한 레이아웃",
-    "depth3": "",
-    "depth4": "",
-    "remark": ""
+    'group': '그룹 1',
+    'depth': '01. 홈_복잡한레이아웃'
   }
 #%>
-<% function thumbImg(sizeX,sizeY) {
-  return 'http://via.placeholder.com/'+sizeX+'x'+sizeY;
-} %>
+<%#
+  class : tr 클래스명 (point_add(추가), point_update(수정), point_remove(삭제))
+  group : 구분 가능한 그룹명
+  depth : 뎁스 이름(각각의 뎁스는 _ 로 구분 가능)
+  comments : 비고
+%>
+<% const thumbImg = (sizeX = 200, sizeY = 200) => {
+  return `http://via.placeholder.com/${sizeX}x${sizeY}`;
+}; %>
 
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <%- include('../../partials/layout/head', {
-        title: '복잡한 레이아웃', depth: 1
-    }) %>
+<%- include('../../components/_head', {
+    title: '복잡한 레이아웃'
+}) %>
 </head>
 <body>
 <div class="direct-link"><!-- 웹접근성용 바로가기 링크 모음 -->
@@ -27,7 +28,7 @@
 </div>
 <div class="container-doc">
   <%# header 파일은 상황에 맞게 선택하여 'header' 와 같이 수정하여 사용할 것 %>
-  <%- include('../../partials/layout/header_complex') %>
+  <%- include('../../components/_header_complex') %>
 
   <main class="doc-main">
     <section class="inner-main">
@@ -73,7 +74,7 @@
     </section>
   </main>
 
-  <%- include('../../partials/layout/footer') %>
+  <%- include('../../components/_footer') %>
 </div>
 </body>
 </html>

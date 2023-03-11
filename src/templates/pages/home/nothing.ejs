@@ -1,29 +1,31 @@
 <%#
   {
-    "class": "",
-    "group": "그룹 2",
-    "depth1": "01. 1뎁스 항목",
-    "depth2": "01. 2뎁스 항목",
-    "depth3": "",
-    "depth4": "",
-    "remark": ""
+    'class': 'point_remove',
+    'group': '그룹 2',
+    'depth': '01. 제목없음'
   }
 #%>
-<% function thumbImg(sizeX,sizeY) {
-  return 'http://via.placeholder.com/'+sizeX+'x'+sizeY;
-} %>
+<%#
+  class : tr 클래스명 (point_add(추가), point_update(수정), point_remove(삭제))
+  group : 구분 가능한 그룹명
+  depth : 뎁스 이름(각각의 뎁스는 _ 로 구분 가능)
+  comments : 비고
+%>
+<% const thumbImg = (sizeX = 200, sizeY = 200) => {
+  return `http://via.placeholder.com/${sizeX}x${sizeY}`;
+}; %>
 
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <%- include('../../partials/layout/head', {
-        title: 'm top', depth: 1
-    }) %>
+<%- include('../../components/_head', {
+    title: 'm top'
+}) %>
 </head>
 <body>
 <div class="container-doc">
   <%# header 파일은 상황에 맞게 선택하여 'header' 와 같이 수정하여 사용할 것 %>
-  <%- include('../../partials/layout/header_simple') %>
+  <%- include('../../components/_header_simple') %>
 
   <main class="doc-main">
     <article class="content-article">
@@ -36,7 +38,7 @@
     </article>
   </main>
   
-  <%- include('../../partials/layout/footer') %>
+  <%- include('../../components/_footer') %>
 </div>
 </body>
 </html>

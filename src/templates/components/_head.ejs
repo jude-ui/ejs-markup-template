@@ -1,9 +1,13 @@
+<% const title = locals.title || 'none title' %>
+<% const depth = locals.depth || 1 %>
+<% const src = '../'.repeat(depth + 1) %>
+
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'><!-- 모바일 환경에서만 사용 -->
 <meta name="format-detection" content="telephone=no"><!-- 모바일 환경에서 아이폰에서 일반숫자나, Datetime 등의 타입 전화번호 인식 방지 -->
 <title><%= title %></title>
-<link href="<%= '../'.repeat(depth + 1) %>css/style.css" rel="stylesheet">
-<link href="<%= '../'.repeat(depth + 1) %>css/sprites-btn.css" rel="stylesheet">
-<script src="<%= '../'.repeat(depth + 1) %>js/main.js"></script><!-- 템플릿 작성 편의를 위해 head 에 위치 시킴 -->
-<script src="<%= '../'.repeat(depth + 1) %>js/ui.js"></script>
+<link href="<%= src %>css/style.css" rel="stylesheet">
+<link href="<%= src %>css/sprites-btn.css" rel="stylesheet">
+<script src="<%= src %>js/main.js"></script><!-- 템플릿 작성 편의를 위해 head 에 위치 시킴 -->
+<script src="<%= src %>js/ui.js"></script>
