@@ -1,4 +1,8 @@
 # boilerplate-ejs
+- `v2.1.0 ` 23.03.12 업데이트
+    - depth 구분을 _ 로 하여 한줄로 작성하도록 수정
+    - generate-index-html-plugin 리팩토링
+    - page-list.ejs 리팩토링
 - `v2.0.0 ` 23.03.07 업데이트
     - webpack 업데이트
     - webpack-cli 업데이트
