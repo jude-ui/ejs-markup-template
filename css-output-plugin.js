@@ -1,47 +1,46 @@
-const { Compilation, sources } = require('webpack');
+const { sources } = require('webpack');
 
 class CssOutputPlugin {
   constructor(options) {
-    this.options = options
+    this.options = options;
   }
 
   apply(compiler) {
     const NAME = 'css-output-plugin';
 
-    if(this.options.useSourceMap === false || this.options.mode === 'production') {
-      compiler.hooks.compilation.tap(NAME, compilation => {
-
-        compilation.hooks.processAssets.tap(
-          {
-            name: NAME,
-            stage: Compilation.PROCESS_ASSETS_STAGE_OPTIMIZE,
-          },
-          (assets) => {
-            Object.entries(assets).forEach(([pathname, source]) => {
-              const regex = /^css\//
-              if(regex.test(pathname)) {
-                const file = compilation.getAsset(pathname)
-                if(this.options.outputStyle === 'compressed') {
-                  compilation.updateAsset(pathname,
-                    new sources.RawSource('@charset "UTF-8";' + file.source.source())
-                  )
-                } else if(this.options.outputStyle === 'compact') {
-                  const updateContent = (file.source.source() + '').replace(/^\s*\n/gm, '')
-                  .replace(/\,\s/g, ',')
-                  .replace(/\s{\s/g, '{')
-                  .replace(/;\s/gm, ';')
-                  .replace(/:\s/g, ':')
-                  compilation.updateAsset(pathname,
-                    new sources.RawSource(updateContent)
-                  )
-                }
-              }
-            });
-          }
-        );
-
-      });
+    if (this.shouldApplyPlugin()) {
+      compiler.hooks.compilation.tap(NAME, this.processAssets.bind(this));
     }
+  }
+
+  shouldApplyPlugin() {
+    return this.options.useSourceMap === false || this.options.mode === 'production';
+  }
+
+  processAssets(compilation) {
+    const assets = compilation.getAssets();
+    const cssAssets = assets.filter(asset => /^css\//.test(asset.name));
+
+    cssAssets.forEach(asset => {
+      let content = asset.source.source();
+
+      if (this.options.outputStyle === 'compressed') {
+        content = '@charset "UTF-8";' + content;
+      } else if (this.options.outputStyle === 'compact') {
+        content = this.normalizeCss(content);
+      }
+
+      const newAsset = new sources.RawSource(content);
+      compilation.updateAsset(asset.name, newAsset);
+    });
+  }
+
+  normalizeCss(css) {
+    return css.replace(/^\s*\n/gm, '')
+              .replace(/\,\s/g, ',')
+              .replace(/\s{\s/g, '{')
+              .replace(/;\s/gm, ';')
+              .replace(/:\s/g, ':');
   }
 }
 

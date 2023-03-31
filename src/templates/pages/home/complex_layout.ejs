@@ -1,7 +1,7 @@
 <%#
   {
     'group': '그룹 1',
-    'depth': '01. 홈_복잡한레이아웃'
+    'depth': '01. 홈_02. 복잡한레이아웃'
   }
 #%>
 <%#
@@ -10,16 +10,18 @@
   depth : 뎁스 이름(각각의 뎁스는 _ 로 구분 가능)
   comments : 비고
 %>
-<% const thumbImg = (sizeX = 200, sizeY = 200) => {
-  return `http://via.placeholder.com/${sizeX}x${sizeY}`;
-}; %>
+<% const depth = 1 %>
+<% const thumbImg = (sizeX = 200, sizeY = 200) => `http://via.placeholder.com/${sizeX}x${sizeY}`; %>
+<% const folderCompo = '../'.repeat(depth + 2) + 'templates/components/' %><%# include components 경로  %>
+<% const src = '../'.repeat(depth + 1) %>
 
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<%- include('../../components/_head', {
-    title: '복잡한 레이아웃'
-}) %>
+<%- include(
+  `${folderCompo}_head`,
+  { 'title': '복잡한 레이아웃' }
+) %>
 </head>
 <body>
 <div class="direct-link"><!-- 웹접근성용 바로가기 링크 모음 -->
@@ -27,8 +29,7 @@
   <a href="#gnbContent">메뉴 바로가기</a>
 </div>
 <div class="container-doc">
-  <%# header 파일은 상황에 맞게 선택하여 'header' 와 같이 수정하여 사용할 것 %>
-  <%- include('../../components/_header_complex') %>
+  <%- include(folderCompo + '_header_complex') %>
 
   <main class="doc-main">
     <section class="inner-main">
@@ -74,7 +75,7 @@
     </section>
   </main>
 
-  <%- include('../../components/_footer') %>
+  <%- include(folderCompo + '_footer') %>
 </div>
 </body>
 </html>

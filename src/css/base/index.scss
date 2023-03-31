@@ -1,4 +1,10 @@
 @import 'reset_m';
 @import 'global';
 
-.ico_comm{display:block;overflow:hidden;font-size:1px;line-height:0;color:transparent}
+.tag_plain{width:40px;height:40px;background:url(#{$imgUrl}/tag_plain.jpg) 0 0 no-repeat;background-size:cover}
+.card_comm, .wrap_child{overflow:hidden;width:700px;margin:10px;padding:20px;border:1px solid royalblue}
+.card_comm .wrap_thumb{float:left;position:relative}
+.card_comm .wrap_thumb:after{position:absolute;top:0;left:0;right:0;bottom:0;border:1px solid rgba(0,0,0,.08);content: ''}
+.card_comm .cont_thumb{overflow:hidden;padding-left:20px}
+.card_comm .tit_thumb{display:block;font-size:20px}
+.card_comm .tit_thumb img{display:inline-flex;vertical-align:middle}

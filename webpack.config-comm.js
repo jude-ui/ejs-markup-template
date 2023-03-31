@@ -7,9 +7,11 @@ const { sprites, configJsEntry } = require("./config.lib");
 const fs = require('fs');
 const devServerConfig = fs.existsSync('./dev-server-config.js') ? require('./dev-server-config') : false
 const useSourceMap = devServerConfig && devServerConfig['USE_SOURCE_MAP'] ? devServerConfig['USE_SOURCE_MAP'] : false;
+const devFolder = devServerConfig && devServerConfig['DEV_FOLDER'] ? devServerConfig['DEV_FOLDER'] : 'dev';
+const prodFolder = devServerConfig && devServerConfig['PROD_FOLDER'] ? devServerConfig['PROD_FOLDER'] : 'build';
 
 module.exports = (mode) => {
-  const outputPath = mode === 'production' ? 'build' : 'dev'
+  const outputPath = mode === 'production' ? prodFolder : devFolder
   const cssOutputStyles = { // compressed < expanded
     development: 'expanded',
     production: 'compressed'

@@ -6,6 +6,7 @@ const fs = require('fs');
 const devServerConfig = fs.existsSync('./dev-server-config.js') ? require('./dev-server-config') : false;
 const port = devServerConfig && devServerConfig['DEV_SERVER_PORT'] ? devServerConfig['DEV_SERVER_PORT'] : 8080;
 const sourceMap = devServerConfig && devServerConfig['USE_SOURCE_MAP'] ? 'eval-cheap-module-source-map' : false;
+const devFolder = devServerConfig && devServerConfig['DEV_FOLDER'] ? devServerConfig['DEV_FOLDER'] : 'dev';
 
 module.exports = {
   mode: 'development',
@@ -54,7 +55,7 @@ module.exports = {
   devtool: sourceMap,
   devServer: {
     static: {
-      directory: path.resolve(__dirname, "dev"),
+      directory: path.resolve(__dirname, devFolder),
       watch: true,
     },
     devMiddleware: {

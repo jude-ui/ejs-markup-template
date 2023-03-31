@@ -1,7 +1,7 @@
 <%#
   {
     'group': '그룹 1',
-    'depth': '01. 홈_01. 심플레이아웃'
+    'depth': '01. 홈_04. parent'
   }
 #%>
 <%#
@@ -20,21 +20,21 @@
 <head>
 <%- include(
   `${folderCompo}_head`,
-  { title: '심플 레이아웃' }
+  { title: '부모 컴포넌트' }
 ) %>
 </head>
 <body>
 <div class="container-doc">
-  <%- include(folderCompo + '_header_simple') %>
-
-  <main class="doc-main">
-    <article class="content-article">
-      <h2>{main-article 제목}</h2>
-      <img src="<%= thumbImg(100, 200) %>" alt="">
-    </article>
-  </main>
-
-  <%- include(folderCompo + '_footer') %>
+  <h1>Parent components</h1>
+  <%- include(folderCompo + '_child', {
+    depth
+  }) %>
+  <div class="ico_comm ico_img_baseballbot">야구공</div>
+  <div class="ico_comm ico_img_fanwidget5">별</div>
+  <div class="ico_comm ico_img_qrcode">qr 코드</div>
+  <div class="ico_comm ico_sample_48_48">태극기</div>
+  <div class="ico_comm ico_sample_adlogo">폭스바겐</div>
+  <div class="ico_comm ico_sample_flag">독일</div>
 </div>
 </body>
 </html>
