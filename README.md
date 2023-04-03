@@ -1,72 +1,82 @@
-ejs 템플릿 엔진을 이용하여 UI 마크업 개발을 위한 보일러플레이트 입니다.
-- v2.0.0 버전부터 코드 최적화 및 node 및 웹팩 마이그레이션 대응 등을 진행하였습니다.
+# EJS Markup Template
+**ejs 템플릿 엔진을 이용하여 UI 마크업 개발을 위한 보일러플레이트 입니다.**
+v2.0.0 버전부터 대대적인 코드 최적화 및 node 및 웹팩 마이그레이션 대응 등을 진행하였습니다.
 
 ## How To Use
 
-> 이 프로젝트는 node.js 버전은 14버전 이상, 16.19.1 권장하고 있으며
-> npm 버전은 6 이상 설치하는 것을 권장 합니다.
+### 요약
+- 이 프로젝트는 `node.js` 버전은 14버전 이상, 16 버전을 권장하고 있으며, `npm` 버전은 6 이상 설치하는 것을 권장 합니다.
+
+- 사용 방법은 프로젝트를 클론 또는 다운로드(ex. `npx degit`)하고 `npm i`를 실행한 후 `npm start`를 실행하여 개발 서버를 시작하거나 `npm run build`를 실행하여 배포용 빌드를 생성합니다.
+
+    - 자동 스프라이트 기능을 사용하려면 `images/sprites` 폴더를 만들고 이미지를 추가한 후, `config.lib.js` 파일에서 스프라이트 사용 방법을 설정합니다.
+        - 자동 스프라이트 기능은 `1배만`, `2배만`, `1배와 2배 모두` 사용 등 총 3가지 옵션을 사용할 수 있습니다.
+
+    - 자동 스프라이트를 사용하지 않을 경우 `spriteRatioOptions` 객체를 `false`로 설정하고 `images/sprites` 폴더를 삭제합니다.
 
 
-- **NPX 사용시**
+### NPX 사용시
+```
+$ npx degit jude-ui/markup-temp <프로젝트 이름>
+```
+
+### 모듈 설치
+```
+$ npm i
+```
+### 시작
+```
+// 개발 서버 시작시
+$ npm start
+
+// 배포용 빌드시
+$ npm run build
+
+// 개발 서버 포트가 8080일 경우 index 페이지
+http://localhost:8080/html/page-list.html
+```
+
+아래와 같이 `--open` 을 추가하면 개발 서버 시작시 브라우저가 자동으로 열리고, `html 폴더 > page-list.html` 경로로 `index` 파일을 열 수 있음.
+```
+"start": "rimraf dev src/css/sprites && webpack serve --open --mode=development",
+```
+
+### 프로젝트 루트 경로에 `dev-server-config.js` 파일 생성
+```
+// dev-server-config.js
+
+exports.USE_SOURCE_MAP = true // sass 소스맵 사용 여부 - 기본값 false
+exports.DEV_SERVER_PORT = 8080 // 개발 서버 포트 번호 - 기본값 8080
+exports.DEV_FOLDER = 'dev' // 개발 서버 작동시 바라보는(기준이 되는) 폴더 이름 - 기본값 'dev'
+exports.PROD_FOLDER = 'build' // 빌드시 생성되는 폴더 이름 - 기본값 'build'
+```
+
+### DEV_FOLDER 와 PROD_FOLDER 이름을 바꾸고 싶을 경우
+1. `dev-server-config.js` 파일의 `DEV_FOLDER` 와 `PROD_FOLDER` 값을 변경
+2. `package.json` 의 `scripts.build`, `script.start` 명령어 쪽에 폴더명 각각 수정
+3. `config.lib.js` 파일의 `cssImageRef` 속성에서 수정
+
+### 자동 스프라이트 기능
+1. `images` 폴더 하위에 `sprites` 라는 폴더를 만들고 스프라이트 종류별로 하위 폴더 생성하여 이미지들을 추가 (ex. `images/sprites/ico`)
+    - 스프라이트 하위 폴더 및 파일이 `images/sprites/ico/qr_code.png`일 경우, 공통 스프라이트 클래스는 `ico_comm`, 스프라이트 css의 셀렉터는 `.ico_qr_code` 로 생성됨
+2. `config.lib.js` 파일에서 설정
+    - `spriteRatioOptions` 옵션 : 스프라이트 사용 방법 지정
+        - `basicRatio` 1배 이미지만 사용하여 스프라이트를 구성하고 싶을 경우 `true`(retinaSuffix 값 무시됨)
+        - `retinaOnly` 2배 이미지만 사용하여 스프라이트를 구성하고 싶을 경우 `true`(retinaSuffix 값 무시됨)
+        - `basicRatio` 1배와 2배 이미지 모두 사용하여 스프라이트를 구성하고 싶을 경우 `true`(retinaSuffix 값 필수)
+    - `retinaSuffix` 값 :  1배와 2배 이미지를 구분해주기 위한 2배 이미지명 뒤에 붙는 구분 문자를 지정
+    - `irCss` 값 : 공통 스프라이트 클래스에 들어가는 css ir 속성 - 프로젝트 환경에 따라 설정
+
+### 자동 스프라이트를 사용 안할 경우
+1. `config.lib.js` 파일의 `spriteRatioOptions` 객체의 모든 속성을 아래와 같이 false로 설정
     ```
-    $ npx degit jude-ui/markup-temp <프로젝트 이름>
+    const spriteRatioOptions = {
+        basicRatio: false,
+        retinaOnly: false,
+        withRetina: false,
+    }
     ```
-
-- **모듈 설치**
-    ```
-    $ npm i
-    ```
-- **시작**
-    ```
-    // 개발 서버 시작시
-    $ npm start
-
-    // 배포용 빌드시
-    $ npm run build
-
-    // 개발 서버 포트가 8080일 경우 index 페이지
-    http://localhost:8080/html/page-list.html
-    ```
-
-- **프로젝트 루트 경로에 `dev-server-config.js` 파일 생성**
-    ```
-    // dev-server-config.js
-
-    exports.USE_SOURCE_MAP = true // sass 소스맵 사용 여부 - 기본값 false
-    exports.DEV_SERVER_PORT = 8080 // 개발 서버 포트 번호 - 기본값 8080
-    exports.DEV_FOLDER = 'dev' // 개발 서버 작동시 바라보는(기준이 되는) 폴더 이름 - 기본값 'dev'
-    exports.PROD_FOLDER = 'build' // 빌드시 생성되는 폴더 이름 - 기본값 'build'
-    ```
-    - **DEV_FOLDER 와 PROD_FOLDER 이름을 바꾸고 싶을 경우**
-        1. `dev-server-config.js` 파일의 `DEV_FOLDER` 와 `PROD_FOLDER` 값을 변경
-        2. `package.json` 의 `scripts.build`, `script.start` 명령어 쪽에 폴더명 각각 수정
-        3. `config.lib.js` 파일의 `cssImageRef` 속성에서 수정
-
-- **자동 스프라이트 기능**
-    1. `images` 폴더 하위에 `sprites` 라는 폴더를 만들고 스프라이트 종류별로 하위 폴더 생성하여 이미지들을 추가 (ex. `images/sprites/ico`)
-        - 스프라이트 하위 폴더 및 파일이 `images/sprites/ico/qr_code.png`일 경우, 공통 스프라이트 클래스는 `ico_comm`, 스프라이트 css의 셀렉터는 `.ico_qr_code` 로 생성됨
-    2. `config.lib.js` 파일에서 설정
-        - `spriteRatioOptions` 옵션 : 스프라이트 사용 방법 지정
-            - `basicRatio` 1배 이미지만 사용하여 스프라이트를 구성하고 싶을 경우 `true`(retinaSuffix 값 무시됨)
-            - `retinaOnly` 2배 이미지만 사용하여 스프라이트를 구성하고 싶을 경우 `true`(retinaSuffix 값 무시됨)
-            - `basicRatio` 1배와 2배 이미지 모두 사용하여 스프라이트를 구성하고 싶을 경우 `true`(retinaSuffix 값 필수)
-        - `retinaSuffix` 값 :  1배와 2배 이미지를 구분해주기 위한 2배 이미지명 뒤에 붙는 구분 문자를 지정
-        - `irCss` 값 : 공통 스프라이트 클래스에 들어가는 css ir 속성 - 프로젝트 환경에 따라 설정
-
-- **자동 스프라이트를 사용 안할 경우**
-    1. `config.lib.js` 파일의 `spriteRatioOptions` 객체의 모든 속성을 false로 설정
-        ```
-        const spriteRatioOptions = {
-            basicRatio: false,
-            retinaOnly: false,
-            withRetina: false,
-        }
-        ```
-    2. `images` 폴더 하위의 `sprites` 폴더를 삭제
-
-
-
-
+2. `images` 폴더 하위의 `sprites` 폴더를 삭제
 
 ## Version Info
 ```
