@@ -18,7 +18,7 @@ v2.0.0 버전부터 대량의 코드 최적화, node 버전, 웹팩 마이그레
 
 ### NPX 사용시
 ```
-$ npx degit jude-ui/markup-temp <프로젝트 이름>
+$ npx degit jude-ui/ejs-markup-template <프로젝트 이름>
 ```
 
 ### 모듈 설치
