@@ -66,7 +66,7 @@ class GenerateIndexHtmlPlugin {
   generatePageList() {
     // page-list.json 파일을 생성하는 함수입니다.
     const sortedPages = this.groupPagesByDepth(this.pages);
-    fs.writeFileSync('src/templates/pages/page-list.json', JSON.stringify(sortedPages));
+    fs.writeFileSync('src/pages/page-list.json', JSON.stringify(sortedPages));
   }
 
   apply(compiler) {
@@ -75,7 +75,7 @@ class GenerateIndexHtmlPlugin {
     compiler.hooks.initialize.tap(NAME, async () => {
       // ejsList 변수를 클래스 생성자에서 초기화하고, 
       // 해당 변수를 사용하여 중복되는 코드를 제거합니다.
-      this.ejsList = glob.sync(`src/templates/pages/**/*.ejs`, {nosort: true})
+      this.ejsList = glob.sync(`src/pages/**/*.ejs`, {nosort: true})
         .slice(1); // 첫 번째 항목인 index.ejs를 제외합니다.
 
       for (const ejsPath of this.ejsList) {
@@ -90,7 +90,7 @@ class GenerateIndexHtmlPlugin {
           this.errorMetaPages.push(ejsPath);
         } else {
           const metaJson = JSON.parse(meta);
-          metaJson.path = ejsPath.replace(/^src\/templates\/pages\//, '')
+          metaJson.path = ejsPath.replace(/^src\/pages\//, '')
             .replace(/\.ejs$/, '.html');
           this.pages.push(metaJson);
         }

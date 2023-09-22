@@ -10,23 +10,28 @@
   depth : 뎁스 이름(각각의 뎁스는 _ 로 구분 가능)
   comments : 비고
 %>
-<% const depth = 1 %>
-<% const thumbImg = (sizeX = 200, sizeY = 200) => `http://via.placeholder.com/${sizeX}x${sizeY}`; %>
-<% const folderCompo = '../'.repeat(depth + 2) + 'templates/components/' %><%# include components 경로  %>
-<% const src = '../'.repeat(depth + 1) %>
+<%
+  const depth = 1;
+  const thumbImg = (sizeX = 200, sizeY = 200) => `http://via.placeholder.com/${sizeX}x${sizeY}`;
+  const _src = '../'.repeat(depth + 1);
+  const _components = _src + 'components/';
+%>
 
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <%- include(
-  `${folderCompo}_head`,
-  { title: '부모 컴포넌트' }
+  `${_components}_head`,
+  {
+    title: '부모 컴포넌트',
+    _src
+  }
 ) %>
 </head>
 <body>
 <div class="container-doc">
   <h1>Parent components</h1>
-  <%- include(folderCompo + '_child', {
+  <%- include(_components + '_child', {
     depth
   }) %>
   <div class="ico_comm ico_img_baseballbot">야구공</div>

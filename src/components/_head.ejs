@@ -1,13 +1,12 @@
 <% const title = locals.title || 'none title' %>
-<% const depth = locals.depth || 1 %>
-<% const src = '../'.repeat(depth + 1) %>
+<% const _src = locals._src || '../' %>
 
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'><!-- 모바일 환경에서만 사용 -->
 <meta name="format-detection" content="telephone=no"><!-- 모바일 환경에서 아이폰에서 일반숫자나, Datetime 등의 타입 전화번호 인식 방지 -->
 <title><%= title %></title>
-<link href="<%= src %>css/style.css" rel="stylesheet">
-<link href="<%= src %>css/sprites-ico.css" rel="stylesheet">
-<script src="<%= src %>js/main.js"></script>
-<script src="<%= src %>js/ui.js"></script>
+<link href="<%= _src %>css/style.css" rel="stylesheet">
+<link href="<%= _src %>css/sprites-ico.css" rel="stylesheet">
+<script src="<%= _src %>js/main.js"></script>
+<script src="<%= _src %>js/ui.js"></script>

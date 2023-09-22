@@ -10,17 +10,22 @@
   depth : 뎁스 이름(각각의 뎁스는 _ 로 구분 가능)
   comments : 비고
 %>
-<% const depth = 1 %>
-<% const thumbImg = (sizeX = 200, sizeY = 200) => `http://via.placeholder.com/${sizeX}x${sizeY}`; %>
-<% const folderCompo = '../'.repeat(depth + 2) + 'templates/components/' %><%# include components 경로  %>
-<% const src = '../'.repeat(depth + 1) %>
+<%
+  const depth = 1;
+  const thumbImg = (sizeX = 200, sizeY = 200) => `http://via.placeholder.com/${sizeX}x${sizeY}`;
+  const _src = '../'.repeat(depth + 1);
+  const _components = _src + 'components/';
+%>
 
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <%- include(
-  `${folderCompo}_head`,
-  { 'title': '복잡한 레이아웃' }
+  `${_components}_head`,
+  {
+    title: 'nothing',
+    _src
+  }
 ) %>
 </head>
 <body>
@@ -29,7 +34,7 @@
   <a href="#gnbContent">메뉴 바로가기</a>
 </div>
 <div class="container-doc">
-  <%- include(folderCompo + '_header_complex') %>
+  <%- include(_components + '_header_complex') %>
 
   <main class="doc-main">
     <section class="inner-main">
@@ -75,7 +80,7 @@
     </section>
   </main>
 
-  <%- include(folderCompo + '_footer') %>
+  <%- include(_components + '_footer') %>
 </div>
 </body>
 </html>

@@ -26,7 +26,7 @@ module.exports = {
             loader: "file-loader",
             options: {
               name(resourcePath) {
-                const remove = path.resolve(__dirname, 'src/templates/pages/')
+                const remove = path.resolve(__dirname, 'src/pages/')
                 return resourcePath.replace(remove, 'html').replace(/\.ejs$/, '.html')
               },
             }
@@ -47,7 +47,7 @@ module.exports = {
     new ExtraWatchWebpackPlugin({
       dirs: [
         path.resolve(__dirname, 'src/css'),
-        path.resolve(__dirname, 'src/templates/pages')
+        path.resolve(__dirname, 'src/pages')
       ],
     }),
     new RemoveJsFromEjsPlugin(),

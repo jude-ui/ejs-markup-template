@@ -1,8 +1,7 @@
 <%#
   {
-    'class': 'point_remove',
-    'group': '그룹 2',
-    'depth': '01. 제목없음'
+    'group': '그룹 1',
+    'depth': '01. 홈_03. sub 페이지'
   }
 #%>
 <%#
@@ -11,22 +10,27 @@
   depth : 뎁스 이름(각각의 뎁스는 _ 로 구분 가능)
   comments : 비고
 %>
-<% const depth = 1 %>
-<% const thumbImg = (sizeX = 200, sizeY = 200) => `http://via.placeholder.com/${sizeX}x${sizeY}`; %>
-<% const folderCompo = '../'.repeat(depth + 2) + 'templates/components/' %><%# include components 경로  %>
-<% const src = '../'.repeat(depth + 1) %>
+<%
+  const depth = 2;
+  const thumbImg = (sizeX = 200, sizeY = 200) => `http://via.placeholder.com/${sizeX}x${sizeY}`;
+  const _src = '../'.repeat(depth + 1);
+  const _components = _src + 'components/';
+%>
 
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <%- include(
-  `${folderCompo}_head`,
-  { title: 'nothing' }
+  `${_components}_head`,
+  {
+    title: 'sub page',
+    _src
+  }
 ) %>
 </head>
 <body>
 <div class="container-doc">
-  <%- include(folderCompo + '_header_simple') %>
+  <%- include(_components + '_header_simple') %>
 
   <main class="doc-main">
     <article class="content-article">
@@ -37,14 +41,16 @@
         <% } %>
       </ul>
       <img src="<%= thumbImg() %>" width="100" height="100" alt=""><br>
-      <img src="<%= src %>images/temp_covscroll.jpg" width="140" height="91" alt="">
+      <img src="<%= _src %>images/temp_covscroll.jpg" width="140" height="91" alt="">
       <div class="tag_plain"></div>
 
-      <%- include(folderCompo + '_card') %>
+      <%- include(_components + '_card', {
+        depth
+      }) %>
     </article>
   </main>
   
-  <%- include(folderCompo + '_footer') %>
+  <%- include(_components + '_footer') %>
 </div>
 </body>
 </html>

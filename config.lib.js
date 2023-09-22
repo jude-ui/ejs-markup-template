@@ -17,10 +17,10 @@ exports.configJsEntry = true
 
 exports.ejsEntries = () => {
   let result = {}
-  const ejsList = glob.sync(`src/templates/pages/**/*.ejs`)
+  const ejsList = glob.sync(`src/pages/**/*.ejs`)
 
   ejsList.forEach(item => {
-    const key = item.replace(/^src\/templates\/pages\//, 'js-from-html/')
+    const key = item.replace(/^src\/pages\//, 'js-from-html/')
     .replace(/\.ejs$/, '')
     const value = "./" + item;
     result[key] = value
@@ -61,10 +61,10 @@ exports.jsEntries = () => {
 }
 
 exports.HtmlWebpackPlugins = () => {
-  const templates = glob.sync('src/templates/pages/**/[!_]*.ejs');
+  const templates = glob.sync('src/pages/**/[!_]*.ejs');
   return templates.map((template) => {
     let filename = template
-      .replace(/^src\/templates\/pages/, 'html')
+      .replace(/^src\/pages/, 'html')
       .replace(/\.ejs$/, '.html');
     if (filename === 'html/page-list.html') {
       filename = 'html/index.html';
