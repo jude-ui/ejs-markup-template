@@ -228,7 +228,7 @@ a:visited{color:#5425e0}
           </thead>
           <tbody>
             <%# 뎁스 구분 세퍼레이터 %>
-            <% const separator = '_' %>
+            <% const separator = '__' %>
             <% const getCellNameByDepth = (item, depth) => item?.depth.split(separator)[depth] %>
             <% const mergeDuplicateDepth = (item, idx, depth) => { %>
               <% return idx === 0 || getCellNameByDepth(item, depth) !== getCellNameByDepth(pages[group][idx - 1], depth)
