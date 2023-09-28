@@ -1,7 +1,6 @@
-<% const depth = locals.depth || 1 %>
-<% const src = '../'.repeat(depth + 1) %>
+<% const _images = locals._images || '../' %>
 
 <div class="wrap_child">
   <h2>Child components</h2>
-  <img src="<%= src %>images/symbol_kakaotvlive.png" width="48" height="48" alt="">
+  <img src="<%= _images %>symbol_kakaotvlive.png" width="48" height="48" alt="">
 </div>

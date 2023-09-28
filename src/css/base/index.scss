@@ -1,6 +1,8 @@
 @import 'reset_m';
 @import 'global';
 
+.doc-header, .doc-footer{margin:10px;padding:10px;border:1px solid red}
+
 .tag_plain{width:40px;height:40px;background:url(#{$imgUrl}/tag_plain.jpg) 0 0 no-repeat;background-size:cover}
 .card_comm, .wrap_child{overflow:hidden;width:700px;margin:10px;padding:20px;border:1px solid royalblue}
 .card_comm .wrap_thumb{float:left;position:relative}

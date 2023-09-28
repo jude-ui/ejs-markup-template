@@ -5,16 +5,10 @@ v2.0.0 버전부터 대량의 코드 최적화, node 버전, 웹팩 마이그레
 
 ## How To Use
 
-### 요약
-- 이 프로젝트는 `git`이 설치되어 있어야 하고, `node.js` 버전은 14버전 이상, 16 버전을 권장하고 있으며, `npm` 버전은 6 이상 설치하는 것을 권장 합니다.
-
-- 사용 방법은 프로젝트를 클론 또는 다운로드(ex. `npx degit`)하고 `npm i`를 실행한 후 `npm start`를 실행하여 개발 서버를 시작하거나 `npm run build`를 실행하여 배포용 빌드를 생성합니다.
-
-    - 자동 스프라이트 기능을 사용하려면 `images/sprites` 폴더를 만들고 이미지를 추가한 후, `config.lib.js` 파일에서 스프라이트 사용 방법을 설정합니다.
-        - 자동 스프라이트 기능은 `1배만`(ex. pc 프로젝트), `2배만`(ex. m 또는 레티나,4k 지원 필요하며 트래픽이 많지 않은 pc 프로젝트), `1배와 2배 모두`(ex. 일반 모니터 사용자에게 1배 이미지, 레티나,4k 모니터 사용자에게 2배 이미지 구분할 필요가 있는 pc 프로젝트) 사용 등 총 3가지 옵션을 사용할 수 있습니다.
-
-    - 자동 스프라이트를 사용하지 않을 경우 `spriteRatioOptions` 객체를 `false`로 설정하고 `images/sprites` 폴더를 삭제합니다.
-
+### 필요 개발 환경
+- `git`
+- `node.js (14 버전 이상 16 버전 권장)`
+- `npm (6버전 이상 권장)`
 
 ### NPX 사용시
 ```
@@ -25,21 +19,26 @@ $ npx degit jude-ui/ejs-markup-template <프로젝트 이름>
 ```
 $ npm i
 ```
-### 시작
+### CLI
 ```
 // 개발 서버 시작시
-$ npm start
+$ npm run dev
 
 // 배포용 빌드시
 $ npm run build
+```
 
+### 페이지 목록(Index Page)
+
+```
 // 개발 서버 포트가 8080일 경우 index 페이지
 http://localhost:8080/html/page-list.html
 ```
 
+#### 페이지 목록 자동 열기
 아래와 같이 `--open` 을 추가하면 개발 서버 시작시 브라우저가 자동으로 열리고, `html 폴더 > page-list.html` 경로로 `index` 파일을 열 수 있음.
 ```
-"start": "rimraf dev src/css/sprites && webpack serve --open --mode=development",
+"dev": "rimraf dev src/css/sprites && webpack serve --open --mode=development",
 ```
 
 ### 프로젝트 루트 경로에 `dev-server-config.js` 파일 생성
@@ -54,27 +53,31 @@ exports.PROD_FOLDER = 'build' // 빌드시 생성되는 폴더 이름 - 기본�
 
 ### DEV_FOLDER 와 PROD_FOLDER 이름을 바꾸고 싶을 경우
 1. `dev-server-config.js` 파일의 `DEV_FOLDER` 와 `PROD_FOLDER` 값을 변경
-2. `package.json` 의 `scripts.build`, `script.start` 명령어 쪽에 폴더명 각각 수정
+2. `package.json` 의 `scripts.build`, `script.dev` 명령어 쪽에 폴더명 각각 수정
 3. `config.lib.js` 파일의 `cssImageRef` 속성에서 수정
 
 ### 자동 스프라이트 기능
-1. `images` 폴더 하위에 `sprites` 라는 폴더를 만들고 스프라이트 종류별로 하위 폴더 생성하여 이미지들을 추가 (ex. `images/sprites/ico`)
+1. 폴더 생성 경로 (각각의 이미지들을 모아놓은 폴더)
+    - `images` 폴더 하위에 `sprites` 라는 폴더를 만들고 스프라이트 종류별로 하위 폴더 생성하여 이미지들을 추가<br>ex). `images/sprites/ico`, `images/sprites/txt`
+2. 폴더 생성 규칙
     - 스프라이트 하위 폴더 및 파일이 `images/sprites/ico/qr_code.png`일 경우, 공통 스프라이트 클래스는 `ico_comm`, 스프라이트 css의 셀렉터는 `.ico_qr_code` 로 생성됨
-2. `config.lib.js` 파일에서 설정
-    - `spriteRatioOptions` 옵션 : 스프라이트 사용 방법 지정
-        - `basicRatio` 1배 이미지만 사용하여 스프라이트를 구성하고 싶을 경우 `true`(retinaSuffix 값 무시됨)
-        - `retinaOnly` 2배 이미지만 사용하여 스프라이트를 구성하고 싶을 경우 `true`(retinaSuffix 값 무시됨)
-        - `basicRatio` 1배와 2배 이미지 모두 사용하여 스프라이트를 구성하고 싶을 경우 `true`(retinaSuffix 값 필수)
-    - `retinaSuffix` 값 :  1배와 2배 이미지를 구분해주기 위한 2배 이미지명 뒤에 붙는 구분 문자를 지정
-    - `irCss` 값 : 공통 스프라이트 클래스에 들어가는 css ir 속성 - 프로젝트 환경에 따라 설정
+3. 옵션 설정 파일 (`sprite-options.js`)
+    - `spriteFolderName` - 스프라이트 이미지를 만들기 위한 소스 이미지들을 모아놓은 폴더 이름 (`주의` : images 폴더 하위에 생성해야 함)
+    - `spriteRatioOptions` - 스프라이트 사용 방법 지정 (3개의 옵션 모두 `false`일 경우 스프라이트 이미지 생성 안됨)
+        - `basicRatio` - 1배 이미지만 사용하는 구성일 경우 `true`<br>ex). svg로만 작업된 pc,m 페이지 또는 일반 이미지로 작업된 pc 페이지 대응)
+        - `retinaOnly` - 2배 이미지만 사용하는 구성일 경우 `true`<br>ex). 보통 모바일 2배수 대응
+        - `basicRatio` - 1배와 2배 이미지 각각 사용하는 구성일 경우 `true`<br>ex). 보통 PC 레티나 대응 (`retinaSuffix` 값 필수)
+    - `retinaSuffix` :  1배와 2배 이미지를 구분해주기 위한 2배 이미지명 뒤에 붙는 구분 문자를 지정
+    - `spriteCssOutputPath` : 만들어질 스프라이트 css가 생성될 폴더 경로 지정
+    - `irCss` : 공통 스프라이트 클래스에 들어가는 css ir 속성 - 프로젝트 환경에 따라 설정
 
 ### 자동 스프라이트를 사용 안할 경우
-1. `config.lib.js` 파일의 `spriteRatioOptions` 객체의 모든 속성을 아래와 같이 false로 설정
+1. `sprite-options.js` 파일의 `spriteRatioOptions` 객체의 모든 속성을 아래와 같이 모두 `false`로 설정
     ```
-    const spriteRatioOptions = {
-        basicRatio: false,
-        retinaOnly: false,
-        withRetina: false,
+    exports.spriteRatioOptions = {
+      basicRatio: false,
+      retinaOnly: false,
+      withRetina: false,
     }
     ```
 2. `images` 폴더 하위의 `sprites` 폴더를 삭제
@@ -93,6 +96,16 @@ css-loader 6.7.3
 ```
 
 ## Boilerplate-ejs Update Info
+- `v2.3.1 ` 23.09.28 업데이트
+    - 기본 템플릿 단순화
+    - page-list.ejs 그룹 이름 및 depth 문구 정렬 로직 변경
+    - config.lib.js 변수명 수정
+    - sprite-options.js 스프라이트 옵션 설정 파일 생성
+    - 설정 파일에서 sprite 폴더명을 변경할 수 있는 옵션 추가
+- `v2.3.0 ` 23.09.22 업데이트
+    - 프로젝트 폴더 구조 단순화 (templates 폴더 제거)
+    - 개발 서버 npm script 명령어 변경 (npm start 에서 npm run dev로 명령어 균일화)
+    - 화면 뎁스 구분자 가독성 향상을 위해 _ 에서 __ 로 변경
 - `v2.2.0 ` 23.04.01 업데이트
     - 코드 최적화
     - 자동 sprite 생성 기능 커스텀 (1배, 2배, 1배 && 2배 각각 옵션 생성)

@@ -1,20 +1,23 @@
 <%#
   {
     'group': '그룹 1',
-    'depth': '01. 홈__01. 심플레이아웃'
+    'depth': '1. 홈__1. 기본 레이아웃'
   }
 #%>
+
 <%#
   class : tr 클래스명 (point_add(추가), point_update(수정), point_remove(삭제))
   group : 구분 가능한 그룹명
   depth : 뎁스 이름(각각의 뎁스는 __ 로 구분 가능)
   comments : 비고
 %>
+
 <%
   const depth = 1;
   const thumbImg = (sizeX = 200, sizeY = 200) => `http://via.placeholder.com/${sizeX}x${sizeY}`;
   const _src = '../'.repeat(depth + 1);
   const _components = _src + 'components/';
+  const _images = _src + 'images/';
 %>
 
 <!DOCTYPE html>
@@ -23,22 +26,30 @@
 <%- include(
   `${_components}_head`,
   {
-    title: '심플 레이아웃',
+    title: '기본 레이아웃',
     _src
   }
 ) %>
 </head>
 <body>
+<!-- 웹접근성용 바로가기 링크 모음 -->
+<div class="direct-link">
+  <a href="#mainContent">본문 바로가기</a>
+  <a href="#gnbContent">메뉴 바로가기</a>
+</div>
 <div class="container-doc">
-  <%- include(_components + '_header_simple') %>
-
-  <main class="doc-main">
+  <%- include(_components + '_header') %>
+  <hr class="hide">
+  
+  <main id="mainContent" class="doc-main">
     <article class="content-article">
-      <h2>제목</h2>
+      <h2>컨텐츠</h2>
+      <a href="#none">본문</a>
       <img src="<%= thumbImg(100, 200) %>" alt="">
     </article>
   </main>
-
+  
+  <hr class="hide">
   <%- include(_components + '_footer') %>
 </div>
 </body>

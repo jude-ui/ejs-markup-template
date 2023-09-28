@@ -1,15 +1,14 @@
-.ico_comm{display:block;overflow:hidden;font-size:1px;line-height:0;color:transparent;background:url(../images/sprites-ico.png) 0 0 no-repeat;background-size:99px 86px}
-.ico_img_baseballbot{width:26px;height:26px;background-position:-39px 0px}
-.ico_img_fanwidget5{width:29px;height:33px;background-position:0px 0px}
-.ico_img_qrcode{width:11px;height:11px;background-position:-32px -43px}
-.ico_sample_48_48{width:24px;height:24px;background-position:-75px 0px}
-.ico_sample_adlogo{width:18px;height:18px;background-position:0px -68px}
-.ico_sample_flag{width:22px;height:15px;background-position:0px -43px}
-
-@media
-only screen and (-webkit-min-device-pixel-ratio: 1.5),
-only screen and (min-device-pixel-ratio: 1.5),
-only screen and (min-resolution: 144dpi),
-only screen and (min-resolution: 1.5dppx) {
-  .ico_comm{background-image:url(../images/sprites-ico@2x.png)}
-}
+@charset "utf-8";
+.ico_comm{display:block;overflow:hidden;font-size:1px;line-height:0;color:transparent;background:url(../images/sprites-ico.png) 0 0 no-repeat;background-size:89px 76px}
+.ico_img_baseballbot_2x{width:26px;height:26px;background-position:-34px 0px}
+.ico_img_baseballbot{width:13px;height:13px;background-position:-27px -38px}
+.ico_img_fanwidget5_2x{width:29px;height:33px;background-position:0px 0px}
+.ico_img_fanwidget5{width:14.5px;height:16.5px;background-position:-23px -58px}
+.ico_img_qrcode_2x{width:11px;height:11px;background-position:-62px -38px}
+.ico_img_qrcode{width:5.5px;height:5.5px;background-position:-56.5px -58px}
+.ico_sample_48_48_2x{width:24px;height:24px;background-position:-65px 0px}
+.ico_sample_48_48{width:12px;height:12px;background-position:-45px -38px}
+.ico_sample_adlogo_2x{width:18px;height:18px;background-position:0px -58px}
+.ico_sample_adlogo{width:9px;height:9px;background-position:-42.5px -58px}
+.ico_sample_flag_2x{width:22px;height:15px;background-position:0px -38px}
+.ico_sample_flag{width:11px;height:7.5px;background-position:-78px -38px}

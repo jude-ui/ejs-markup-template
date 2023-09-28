@@ -2,16 +2,7 @@ const glob = require('glob');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const SpritesmithPlugin = require('webpack-spritesmith');
-
-// 3가지 옵션 중 1개만 true로 설정 필요
-const spriteRatioOptions = {
-  basicRatio: false, // 1배 이미지만 사용하여 스프라이트를 구성하고 싶을 경우(retinaSuffix 값 무시됨)
-  retinaOnly: false, // 2배 이미지만 사용하여 스프라이트를 구성하고 싶을 경우(retinaSuffix 값 무시됨)
-  withRetina: true, // 1배와 2배 이미지 모두 사용하여 스프라이트를 구성하고 싶을 경우 true(retinaSuffix 값 필수)
-}
-const retinaSuffix = '@2x'; // retina 이미지를 구분하는 이미지명의 접미사(suffix)
-const spriteCssOutputPath = '/css'; // sprite css가 빌드될 폴더 경로
-const irCss = 'display:block;overflow:hidden;font-size:1px;line-height:0;color:transparent'; // 모바일 ir 클래스(프로젝트에 따라 변경)
+const { spriteDirName, _spriteSourcesPath, spriteRatioOptions, retinaSuffix, spriteCssOutputPath, irCss } = require('./sprite-options');
 
 exports.configJsEntry = true
 
@@ -87,65 +78,82 @@ exports.HtmlWebpackPlugins = () => {
 }
 
 exports.sprites = (outputPath) => {
-  const spriteDirs = glob.sync('src/images/sprites*/*');
+  // outputPath는 'build' or 'dev'
+  const spriteDirsPaths = glob.sync(_spriteSourcesPath);
 
-  const getDirName = (dir) => dir.match(/([^/]+$)/)[0];
+  const getDirName = (dirPath) => dirPath.split('/').pop();
   
   // 빌드되는 sprite 이미지 경로 및 이름
-  const getSpriteImagePath = (dir, outputPath) => {
-    const dirname = dir.replace(/\/[^/]+$/, '');
-    const outputDirname = dirname.replace(/^src/, outputPath);
-    const spriteName = `sprites-${getDirName(dir)}`;
+  const getSpriteImageName = (dirPath, outputPath, spriteDirName) => {
+    const spPath = dirPath
+      .replace(/^(.*?)\//, `${outputPath}/`)
+      .replace(/\/[^/]+\/([^/]+)$/, '/');
     
-    return outputDirname.replace(/sprites/, spriteName);
-  };
-  
-  const getCssFileName = (dir) => {
-    const dirname = dir.replace(/\/[^/]+$/, '');
-    const spriteName = `sprites-${getDirName(dir)}`;
-    const cssOutputDirname = `src${spriteCssOutputPath}`;
-    
-    return dirname.replace(/^src\/images/, cssOutputDirname).replace(/sprites/, spriteName);
+    return `${spPath}${spriteDirName}-${getDirName(dirPath)}`
   };
 
-  const getTemplateFunction = (spriteRatioOptions) => {
-    const { basicRatio, retinaOnly, withRetina } = spriteRatioOptions;
-    
-    const getGeneralSpriteCss = (generalData) => {
-      const { image, width, height } = generalData;
+  const getCssFileName = (dirPath, spriteDirName) => {
+    return dirPath
+      .replace(/\/[^/]+$/, '')
+      .replace(/\/[^/]*\//, `${spriteCssOutputPath}/`)
+      .replace(/\/[^/]+$/, `/${spriteDirName}-${getDirName(dirPath)}`)
+  };
+
+  const { basicRatio, retinaOnly, withRetina } = spriteRatioOptions;
+  const getTemplateFunction = () => {
+    const getSpriteCommonCss = (generatedSpriteData) => {
+      const { image, width, height } = generatedSpriteData;
       const folderName = image.split('-')[1].match(/(.*)\./)[1];
       const backgroundSize = retinaOnly
         ? `${width/2}px ${height/2}px`
         : `${width}px ${height}px`;
 
-      return `.${folderName}_comm{${irCss};background:url(${image}) 0 0 no-repeat;background-size:${backgroundSize}}`;
+      return `@charset "utf-8";\n.[DIR_NAME]_comm{[IR_CSS];background:url([IMG]) 0 0 no-repeat;background-size:[BG_SIZE]}`
+        .replace('[DIR_NAME]', folderName)
+        .replace('[IR_CSS]', irCss)
+        .replace('[IMG]', image)
+        .replace('[BG_SIZE]', backgroundSize)
     }
     
-    const getGeneralCss = (sprites) => {
+    const getSpriteGeneralImageCss = (sprites) => {
       return sprites.map((sprite) => {
         const width = retinaOnly ? sprite.width/2 : sprite.width;
         const height = retinaOnly ? sprite.height/2 : sprite.height;
         const offset_x = retinaOnly ? sprite.offset_x/2 : sprite.offset_x;
         const offset_y = retinaOnly ? sprite.offset_y/2 : sprite.offset_y;
 
-        return `.${sprite.name}{width:${width}px;height:${height}px;background-position:${offset_x}px ${offset_y}px}`;
+        return `.${sprite.name}{width:[W]px;height:[H]px;background-position:[X]px [Y]px}`
+          .replace('[W]', width)
+          .replace('[H]', height)
+          .replace('[X]', offset_x)
+          .replace('[Y]', offset_y)
       }).join('\n');
     };
 
     const templateFunction = (data) => {
-      const generalSpriteCss = getGeneralSpriteCss(data.spritesheet);
-      const generalCss = getGeneralCss(data.sprites);
+      const commonSpriteCss = getSpriteCommonCss(data.spritesheet);
+      const generalCss = getSpriteGeneralImageCss(data.sprites);
       
       if (retinaOnly) {
-        return `${generalSpriteCss}\n${generalCss}`;
+        return `${commonSpriteCss}\n${generalCss}`;
       } else if (withRetina) {
         const generalData = data.spritesheet;
         const folderName = generalData.image.split('-')[1].match(/(.*)\./)[1];
-        const retinaMediaQuery = `@media\nonly screen and (-webkit-min-device-pixel-ratio: 1.5),\nonly screen and (min-device-pixel-ratio: 1.5),\nonly screen and (min-resolution: 144dpi),\nonly screen and (min-resolution: 1.5dppx) {`;
+        const retinaMediaQuery =  '@media' + `\n` +
+                                  'only screen and (-webkit-min-device-pixel-ratio: 1.5),' + `\n` +
+                                  'only screen and(min-device-pixel-ratio: 1.5),' + `\n` +
+                                  'only screen and(min-resolution: 144dpi),' + `\n` +
+                                  'only screen and(min-resolution: 1.5dppx)';
         const retinaSpriteCss = `  .${folderName}_comm{background-image:url(${data.retina_spritesheet.image})}`;
-        return `${generalSpriteCss}\n${generalCss}\n\n${retinaMediaQuery}\n${retinaSpriteCss}\n}`;
+        
+        return  commonSpriteCss + '\n' +
+                generalCss + '\n\n' +
+          
+                retinaMediaQuery + ` {\n` +
+                retinaSpriteCss + '\n' +
+              '}';
       } else {
-        return `${generalSpriteCss}\n${generalCss}`;
+        return `${commonSpriteCss}\n${generalCss}`;
       }
     };
     
@@ -153,37 +161,40 @@ exports.sprites = (outputPath) => {
     return { [templateType]: templateFunction }
   }
 
-  return spriteDirs.map((dir) => {
-    const pluginOptions = {
-      src: {
-        cwd: path.resolve(__dirname, dir),
-        glob: '**/*'
-      },
-      target: {
-        image: path.resolve(__dirname, `${getSpriteImagePath(dir, outputPath)}.png`),
-        css: [
-          [path.resolve(__dirname, `${getCssFileName(dir)}.css`), {
-            format: 'function_based_template'
-          }],
-        ]
-      },
-      customTemplates: getTemplateFunction(spriteRatioOptions),
-      apiOptions: {
-        cssImageRef: `../${getSpriteImagePath(dir, outputPath).replace(/^(dev|build)\//, '')}.png`,
-        generateSpriteName: (path) => {
-          const fileName = path.substring(path.lastIndexOf('/') + 1).replace('.png', '')
-          return `${getDirName(dir)}_${fileName}`
+  return (!basicRatio && !retinaOnly && !withRetina)
+    ? []
+    : spriteDirsPaths.map((dirPath) => {
+      // ex. dirPath === 'src/images/sprites/ico'
+      const pluginOptions = {
+        src: {
+          cwd: path.resolve(__dirname, dirPath),
+          glob: '**/*'
         },
-      },
-      spritesmithOptions: {
-        padding: 10
-      },
-    }
+        target: {
+          image: path.resolve(__dirname, `${getSpriteImageName(dirPath, outputPath, spriteDirName)}.png`),
+          css: [
+            [path.resolve(__dirname, `${getCssFileName(dirPath, spriteDirName)}.css`), {
+              format: 'function_based_template'
+            }],
+          ]
+        },
+        customTemplates: getTemplateFunction(),
+        apiOptions: {
+          cssImageRef: `../${getSpriteImageName(dirPath, outputPath, spriteDirName).replace(/^(dev|build)\//, '')}.png`,
+          generateSpriteName: (path) => {
+            const fileName = path.substring(path.lastIndexOf('/') + 1).replace('.png', '')
+            return `${getDirName(dirPath)}_${fileName}`
+          },
+        },
+        spritesmithOptions: {
+          padding: 10
+        },
+      }
 
-    if (spriteRatioOptions.withRetina) {
-      pluginOptions.retina = retinaSuffix
-    }
+      if (spriteRatioOptions.withRetina) {
+        pluginOptions.retina = retinaSuffix
+      }
 
-    return new SpritesmithPlugin(pluginOptions);
-  })
+      return new SpritesmithPlugin(pluginOptions);
+    });
 }

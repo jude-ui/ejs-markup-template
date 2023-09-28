@@ -1,20 +1,15 @@
 <%#
   {
     'group': '그룹 1',
-    'depth': '01. 홈__03. sub 페이지'
+    'depth': '1. 홈__2. sub 페이지'
   }
 #%>
-<%#
-  class : tr 클래스명 (point_add(추가), point_update(수정), point_remove(삭제))
-  group : 구분 가능한 그룹명
-  depth : 뎁스 이름(각각의 뎁스는 __ 로 구분 가능)
-  comments : 비고
-%>
 <%
   const depth = 2;
   const thumbImg = (sizeX = 200, sizeY = 200) => `http://via.placeholder.com/${sizeX}x${sizeY}`;
   const _src = '../'.repeat(depth + 1);
   const _components = _src + 'components/';
+  const _images = _src + 'images/';
 %>
 
 <!DOCTYPE html>
@@ -30,7 +25,7 @@
 </head>
 <body>
 <div class="container-doc">
-  <%- include(_components + '_header_simple') %>
+  <%- include(_components + '_header') %>
 
   <main class="doc-main">
     <article class="content-article">
@@ -41,11 +36,11 @@
         <% } %>
       </ul>
       <img src="<%= thumbImg() %>" width="100" height="100" alt=""><br>
-      <img src="<%= _src %>images/temp_covscroll.jpg" width="140" height="91" alt="">
+      <img src="<%= _images %>temp_covscroll.jpg" width="140" height="91" alt="">
       <div class="tag_plain"></div>
 
       <%- include(_components + '_card', {
-        depth
+        _src
       }) %>
     </article>
   </main>
