@@ -36,9 +36,17 @@ http://localhost:8080/html/page-list.html
 ```
 
 #### 페이지 목록 자동 열기
-아래와 같이 `--open` 을 추가하면 개발 서버 시작시 브라우저가 자동으로 열리고, `html 폴더 > page-list.html` 경로로 `index` 파일을 열 수 있음.
+`webpack.config-dev.js`의 `devServer.open` 옵션으로 개발 서버 시작시 `html/page-list.html` 파일을 자동 열기 가능.
+*사용 안할시 `false`로 설정
+
 ```
-"dev": "rimraf dev src/css/sprites && webpack serve --open --mode=development",
+// webpack.config-dev.js
+
+module.exports = {
+    devServer: {
+        open: ['html/page-list.html'] // 미사용시 false
+    }
+}
 ```
 
 ### 프로젝트 루트 경로에 `dev-server-config.js` 파일 생성
@@ -96,6 +104,9 @@ css-loader 6.7.3
 ```
 
 ## Boilerplate-ejs Update Info
+- `v2.3.2` 23.09.30 업데이트
+    - css-output-plugin.js 수정하여 scss 파일이 빌드시 compressed 모드로 인해 @charset이 제거되는 현상 수정
+    - readme.md 파일에 개발 서버 자동 열기 기능 설명 수정
 - `v2.3.1 ` 23.09.28 업데이트
     - 기본 템플릿 단순화
     - page-list.ejs 그룹 이름 및 depth 문구 정렬 로직 변경
