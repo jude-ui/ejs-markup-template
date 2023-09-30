@@ -1,4 +1,4 @@
-const { sources } = require('webpack');
+const { sources, Compilation } = require('webpack');
 
 class CssOutputPlugin {
   constructor(options) {
@@ -7,40 +7,32 @@ class CssOutputPlugin {
 
   apply(compiler) {
     const NAME = 'css-output-plugin';
+    if (this.options.mode === 'production') {
+      compiler.hooks.compilation.tap(NAME, (compilation) => {
+        compilation.hooks.processAssets.tapAsync(
+          {
+            name: NAME,
+            stage: Compilation.PROCESS_ASSETS_STAGE_ADDITIONAL,
+          },
+          (assets, callback) => {
+            Object.keys(assets).forEach((assetName) => {
+              // 자원중에서 CSS 파일을 찾고 처리
+              if (assetName.endsWith('.css')) {
+                let content = assets[assetName].source();
 
-    if (this.shouldApplyPlugin()) {
-      compiler.hooks.compilation.tap(NAME, this.processAssets.bind(this));
+                // 빌드된 CSS 내용을 후처리
+                content = '@charset "utf-8";' + content; // @charset 추가
+
+                const newAsset = new sources.RawSource(content);
+                compilation.updateAsset(assetName, newAsset);
+              }
+            });
+
+            callback();
+          }
+        );
+      });
     }
-  }
-
-  shouldApplyPlugin() {
-    return this.options.useSourceMap === false || this.options.mode === 'production';
-  }
-
-  processAssets(compilation) {
-    const assets = compilation.getAssets();
-    const cssAssets = assets.filter(asset => /^css\//.test(asset.name));
-
-    cssAssets.forEach(asset => {
-      let content = asset.source.source();
-
-      if (this.options.outputStyle === 'compressed') {
-        content = '@charset "UTF-8";' + content;
-      } else if (this.options.outputStyle === 'compact') {
-        content = this.normalizeCss(content);
-      }
-
-      const newAsset = new sources.RawSource(content);
-      compilation.updateAsset(asset.name, newAsset);
-    });
-  }
-
-  normalizeCss(css) {
-    return css.replace(/^\s*\n/gm, '')
-              .replace(/\,\s/g, ',')
-              .replace(/\s{\s/g, '{')
-              .replace(/;\s/gm, ';')
-              .replace(/:\s/g, ':');
   }
 }
 

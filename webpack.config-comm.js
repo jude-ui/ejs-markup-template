@@ -7,7 +7,6 @@ const { sprites, configJsEntry } = require("./config.lib");
 const { spriteDirName } = require('./sprite-options')
 const fs = require('fs');
 const devServerConfig = fs.existsSync('./dev-server-config.js') ? require('./dev-server-config') : false
-const useSourceMap = devServerConfig && devServerConfig['USE_SOURCE_MAP'] ? devServerConfig['USE_SOURCE_MAP'] : false;
 const devFolder = devServerConfig && devServerConfig['DEV_FOLDER'] ? devServerConfig['DEV_FOLDER'] : 'dev';
 const prodFolder = devServerConfig && devServerConfig['PROD_FOLDER'] ? devServerConfig['PROD_FOLDER'] : 'build';
 
@@ -100,7 +99,9 @@ module.exports = (mode) => {
     plugins: [
       ...sprites(outputPath),
       new GenerateIndexHtmlPlugin(),
-      new CssOutputPlugin({ outputStyle: cssOutputStyles[mode], mode: mode, useSourceMap: useSourceMap }),
+      new CssOutputPlugin({
+        mode,
+      }),
       new CopyPlugin({
         patterns: [
           {
