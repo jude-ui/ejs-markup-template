@@ -36,7 +36,7 @@ http://localhost:8080/html/page-list.html
 ```
 
 #### 페이지 목록 자동 열기
-`webpack.config-dev.js`의 `devServer.open` 옵션으로 개발 서버 시작시 `html/page-list.html` 파일을 자동 열기 가능.
+`webpack.config-dev.js`의 `devServer.open` 옵션으로 개발 서버 시작시 `html/page-list.html` 파일을 자동 열기 가능.<br>
 *사용 안할시 `false`로 설정
 
 ```
@@ -81,6 +81,7 @@ exports.PROD_FOLDER = 'build' // 빌드시 생성되는 폴더 이름 - 기본�
 
 ### 자동 스프라이트를 사용 안할 경우
 1. `sprite-options.js` 파일의 `spriteRatioOptions` 객체의 모든 속성을 아래와 같이 모두 `false`로 설정
+
     ```
     exports.spriteRatioOptions = {
       basicRatio: false,
