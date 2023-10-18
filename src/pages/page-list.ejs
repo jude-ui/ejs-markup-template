@@ -99,7 +99,8 @@ a:visited{color:#5425e0}
       // 링크 href 생성
       const linkPreview = document.querySelectorAll('.link_preview')
       linkPreview.forEach(el => {
-        const link = window.location.href.split('/').slice(0, -1).join('/') + `/html/${el.innerHTML}`;
+        const src = window.location.href.indexOf('localhost') > -1 ? '/' : '/html/';
+        const link = window.location.href.split('/').slice(0, -1).join('/') + src + el.innerHTML;
         el.setAttribute('href', link)
       })
 
