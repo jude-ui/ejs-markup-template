@@ -58,7 +58,7 @@ exports.HtmlWebpackPlugins = () => {
       .replace(/^src\/pages/, 'html')
       .replace(/\.ejs$/, '.html');
     if (filename === 'html/page-list.html') {
-      filename = 'html/index.html';
+      filename = 'index.html';
     }
     return new HtmlWebpackPlugin({
       template,

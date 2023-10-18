@@ -105,6 +105,8 @@ css-loader 6.7.3
 ```
 
 ## Boilerplate-ejs Update Info
+- `v2.3.3` 23.10.18 업데이트
+    - index.html 파일을 build 폴더 바로 하위로 경로 수정
 - `v2.3.2` 23.09.30 업데이트
     - css-output-plugin.js 수정하여 scss 파일이 빌드시 compressed 모드로 인해 @charset이 제거되는 현상 수정
     - readme.md 파일에 개발 서버 자동 열기 기능 설명 수정
