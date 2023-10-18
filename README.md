@@ -103,7 +103,7 @@ sass 1.58.3
 sass-loader 13.2.0
 css-loader 6.7.3
 ```
-ssh test
+
 ## Boilerplate-ejs Update Info
 - `v2.3.2` 23.09.30 업데이트
     - css-output-plugin.js 수정하여 scss 파일이 빌드시 compressed 모드로 인해 @charset이 제거되는 현상 수정
