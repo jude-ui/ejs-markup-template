@@ -14,17 +14,17 @@
 
 <%
   const depth = 1;
-  const thumbImg = (sizeX = 200, sizeY = 200) => `http://via.placeholder.com/${sizeX}x${sizeY}`;
+  const thumbImg = (sizeX = 200, sizeY = 200) => `https://placehold.co/${sizeX}x${sizeY}`;
   const _src = '../'.repeat(depth + 1);
-  const _components = _src + 'components/';
-  const _images = _src + 'images/';
+  const _components = _src + 'components';
+  const _images = _src + 'images';
 %>
 
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <%- include(
-  `${_components}_head`,
+  `${_components}/_head`,
   {
     title: '기본 레이아웃',
     _src
@@ -38,19 +38,16 @@
   <a href="#gnbContent">메뉴 바로가기</a>
 </div>
 <div class="container-doc">
-  <%- include(_components + '_header') %>
+  <%- include(_components + '/_header') %>
   <hr class="hide">
   
-  <main id="mainContent" class="doc-main">
-    <article class="content-article">
-      <h2>컨텐츠</h2>
-      <a href="#none">본문</a>
-      <img src="<%= thumbImg(100, 200) %>" alt="">
-    </article>
+  <main id="mainContent">
+    <h2>메인</h2>
+    <img src="<%= thumbImg(250, 250) %>" alt="">
   </main>
   
   <hr class="hide">
-  <%- include(_components + '_footer') %>
+  <%- include(_components + '/_footer') %>
 </div>
 </body>
 </html>
