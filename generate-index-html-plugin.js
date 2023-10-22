@@ -30,31 +30,56 @@ class GenerateIndexHtmlPlugin {
     }
   }
 
+  // page-list.json 에 들어갈 정보를 만드는 함수
   groupPagesByDepth(pages) {
-    // 그룹명, 깊이(depth)별로 오름차순 정렬
-    const groups = {};
-
+    // 그릅명을 키값으로 하는 정렬되지 않은 객체 생성
+    const newGroups = {};
     for (const page of pages) {
       const groupName = page.group;
-      if (!groups[groupName]) {
-        groups[groupName] = [];
+      if (!newGroups[groupName]) {
+        newGroups[groupName] = [];
       }
-      groups[groupName].push(page);
+      newGroups[groupName].push(page);
     }
 
-    const sortedGroups = Object.fromEntries(
-      Object.entries(groups).sort((a, b) => a[0].localeCompare(b[0]))
-    );
+    // 숫자를 기준으로 문자열을 오름차순으로 정렬 기능
+    const sortByNumeric = ( a, b ) => {
+      // 숫자가 없는 항목은 다른 항목보다 앞에 오도록 비교
+      if (!/^\d/.test(a) && /^\d/.test(b)) return -1;
+      if (/^\d/.test(a) && !/^\d/.test(b)) return 1;
+    
+      // 숫자가 있는 항목들은 숫자로 비교
+      const numA = parseInt(a.match(/\d+/)) || 0;
+      const numB = parseInt(b.match(/\d+/)) || 0;
+      if (numA !== numB) {
+        return numA - numB;
+      }
+      
+      // 숫자가 같을 경우, 나머지 문자열을 비교
+      const strA = a.replace(/^\d+/, '');
+      const strB = b.replace(/^\d+/, '');
+      
+      return strA.localeCompare(strB);
+    }
 
-    for (const groupName in sortedGroups) {
-      sortedGroups[groupName].sort((a, b) => {
-        const depthA = parseInt(a.depth, 10);
-        const depthB = parseInt(b.depth, 10);
-        return depthA - depthB;
+    // newGroups 객체의 키 값들로 배열 생성 및 배열 오름차순 정렬
+    const sortedKeys = Object.keys(newGroups).slice().sort((a, b) => {
+      return sortByNumeric(a, b);
+    });
+
+    // 오름차순 그룹명이 정렬된 배열에 파일 정보를 연결한 객체 생성
+    const resultFileIndex = {};
+    for (const key of sortedKeys) {
+      resultFileIndex[key] = newGroups[key];
+    }
+
+    for (const groupName in resultFileIndex) {
+      resultFileIndex[groupName].sort((a, b) => {
+        return sortByNumeric(a.depth, b.depth);
       });
     }
 
-    return sortedGroups;
+    return resultFileIndex;
   }
 
   logPagesWithoutMetaInfo() {
