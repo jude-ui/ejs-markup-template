@@ -49,7 +49,7 @@ module.exports = {
 }
 ```
 
-### 프로젝트 루트 경로에 `dev-server-config.js` 파일 생성
+### 프로젝트 루트 경로의 `dev-server-config.js` 파일로 소스맵 또는 포트 번호 변경
 ```
 // dev-server-config.js
 
