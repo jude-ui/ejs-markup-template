@@ -3,5 +3,3 @@
 node_modules/
 dev
 build
-
-dev-server-config.js
