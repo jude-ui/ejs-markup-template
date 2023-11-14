@@ -1,0 +1,201 @@
+<h3 class="c-tit">
+  <a href="#form" id="form" class="c-tit-link">폼</a>
+</h3>
+
+<div class="c-code-wrap">
+  <!-- 실제 코드 -->
+  <div class="c-code-box">
+    <div class="form_wrap">
+      <dl>
+        <dt>일반 인풋 스타일</dt>
+        <dd>
+          <div class="align_wrap gap10">
+            <input type="text" class="inp_comm" title="연결할 label 태그가 없다면 title 속성은 필수로 넣어주세요." placeholder="내용을 입력하세요">
+            <input type="text" class="inp_comm" title="연결할 label 태그가 없다면 title 속성은 필수로 넣어주세요." placeholder="내용을 입력하세요" value="내용을 입력중일 때">
+            <input type="text" class="inp_comm" title="연결할 label 태그가 없다면 title 속성은 필수로 넣어주세요." placeholder="내용을 입력하세요" value="비활성화 &amp; 입력된 상태" disabled="">
+          </div>
+        </dd>
+      </dl>
+      <dl>
+        <dt>셀렉트</dt>
+        <dd>
+          <div class="align_wrap gap30">
+            <div class="align_wrap gap10">
+              <div class="opt_comm">
+                <select name="opt" id="opt" title="연결할 label 태그가 없다면 title 속성은 필수로 넣어주세요.">
+                  <option value="0" selected="selected" disabled="disabled">내용을 선택하세요. 일이삼사오육칠팔구십일이삼사오육칠팔구십</option>
+                  <option value="1">내용 1</option>
+                  <option value="2">내용 2</option>
+                </select>
+                <i class="fa-solid fa-sort-down"></i>
+              </div>
+              
+              <button type="button" class="btn btn8">중복확인</button>
+            </div>
+
+            <div class="align_wrap gap10">
+              <div class="date_comm">
+                <input type="date" title="연결할 label 태그가 없다면 title 속성은 필수로 넣어주세요.">
+                <i class="fa-solid fa-calendar-lines"></i>
+              </div>
+              부터
+              <div class="date_comm">
+                <input type="date" title="연결할 label 태그가 없다면 title 속성은 필수로 넣어주세요.">
+                <i class="fa-solid fa-calendar-lines"></i>
+              </div>
+              까지
+            </div>
+          </div>
+        </dd>
+      </dl>
+      <dl>
+        <dt>체크박스와 라디오 박스</dt>
+        <dd>
+          <div class="align_wrap gap50">
+            <div class="align_wrap gap20">
+              <div class="item_choice check">
+                <input type="checkbox" id="check50" name="check">
+                <label for="check50">
+                  <span class="ico_choice"></span>미선택
+                </label>
+              </div>
+              
+              <div class="item_choice check">
+                <input type="checkbox" id="check51" name="check" checked="">
+                <label for="check51">
+                  <span class="ico_choice"></span>선택했을때
+                </label>
+              </div>
+            </div>
+
+            <div class="align_wrap gap20">
+              <div class="item_choice radio">
+                <input type="radio" id="radio50" name="radio50">
+                <label for="radio50">
+                  <span class="ico_choice"></span>미선택
+                </label>
+              </div>
+
+              <div class="item_choice radio">
+                <input type="radio" id="radio51" name="radio50" checked="">
+                <label for="radio51">
+                  <span class="ico_choice"></span>선택했을때
+                </label>
+              </div>
+            </div>
+          </div>
+        </dd>
+      </dl>
+      <dl>
+        <dt>일반 텍스트에어리어</dt>
+        <dd>
+          <textarea title="연결할 label 태그가 없다면 title 속성은 필수로 넣어주세요." placeholder="내용을 입력하세요"></textarea>
+        </dd>
+      </dl>
+    </div>
+  </div>
+  <!-- // 실제 코드 -->
+
+  <!-- 설명 -->
+  <ul class="list type5">
+    <li>기본 dt 264px / dd 나머지 공간</li>
+    <li>하나의 dl에 dt dd dt dd 와 같이 2개 타이틀 삽입 가능</li>
+    <li>요소 요소 사이 간격은 <strong>.align_wrap 중첩과 .gap 클래스</strong>를 사용하여 해결</li>
+    <li><strong>기본 768px</strong> 이하일 경우 컬럼 형태로 레이아웃 변경</li>
+  </ul>
+  <!-- // 설명 -->
+
+  <!-- 코드 하이라이트 -->
+  <button type="button" class="c-btn-toggle">코드 보기</button>
+  <pre><code class="lang-html">
+    <div class="form_wrap">
+      <dl>
+        <dt>일반 인풋 스타일</dt>
+        <dd>
+          <div class="align_wrap gap10">
+            <input type="text" class="inp_comm" title="연결할 label 태그가 없다면 title 속성은 필수로 넣어주세요." placeholder="내용을 입력하세요">
+            <input type="text" class="inp_comm" title="연결할 label 태그가 없다면 title 속성은 필수로 넣어주세요." placeholder="내용을 입력하세요" value="내용을 입력중일 때">
+            <input type="text" class="inp_comm" title="연결할 label 태그가 없다면 title 속성은 필수로 넣어주세요." placeholder="내용을 입력하세요" value="비활성화 &amp; 입력된 상태" disabled="">
+          </div>
+        </dd>
+      </dl>
+      <dl>
+        <dt>셀렉트</dt>
+        <dd>
+          <div class="align_wrap gap30">
+            <div class="align_wrap gap10">
+              <div class="opt_comm">
+                <select name="opt" id="opt" title="연결할 label 태그가 없다면 title 속성은 필수로 넣어주세요.">
+                  <option value="0" selected="selected" disabled="disabled">내용을 선택하세요. 일이삼사오육칠팔구십일이삼사오육칠팔구십</option>
+                  <option value="1">내용 1</option>
+                  <option value="2">내용 2</option>
+                </select>
+                <i class="fa-solid fa-sort-down"></i>
+              </div>
+              
+              <button type="button" class="btn btn8">중복확인</button>
+            </div>
+
+            <div class="align_wrap gap10">
+              <div class="date_comm">
+                <input type="date" title="연결할 label 태그가 없다면 title 속성은 필수로 넣어주세요.">
+                <i class="fa-solid fa-calendar-lines"></i>
+              </div>
+              부터
+              <div class="date_comm">
+                <input type="date" title="연결할 label 태그가 없다면 title 속성은 필수로 넣어주세요.">
+                <i class="fa-solid fa-calendar-lines"></i>
+              </div>
+              까지
+            </div>
+          </div>
+        </dd>
+      </dl>
+      <dl>
+        <dt>체크박스와 라디오 박스</dt>
+        <dd>
+          <div class="align_wrap gap50">
+            <div class="align_wrap gap20">
+              <div class="item_choice check">
+                <input type="checkbox" id="check52" name="check">
+                <label for="check52">
+                  <span class="ico_choice"></span>미선택
+                </label>
+              </div>
+              
+              <div class="item_choice check">
+                <input type="checkbox" id="check54" name="check" checked="">
+                <label for="check54">
+                  <span class="ico_choice"></span>선택했을때
+                </label>
+              </div>
+            </div>
+
+            <div class="align_wrap gap20">
+              <div class="item_choice radio">
+                <input type="radio" id="radio55" name="radio51">
+                <label for="radio55">
+                  <span class="ico_choice"></span>미선택
+                </label>
+              </div>
+
+              <div class="item_choice radio">
+                <input type="radio" id="radio56" name="radio51" checked="">
+                <label for="radio56">
+                  <span class="ico_choice"></span>선택했을때
+                </label>
+              </div>
+            </div>
+          </div>
+        </dd>
+      </dl>
+      <dl>
+        <dt>일반 텍스트에어리어</dt>
+        <dd>
+          <textarea title="연결할 label 태그가 없다면 title 속성은 필수로 넣어주세요." placeholder="내용을 입력하세요"></textarea>
+        </dd>
+      </dl>
+    </div>
+  </code></pre>
+  <!-- // 코드 하이라이트 -->
+</div>

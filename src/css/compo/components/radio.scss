@@ -1,0 +1,16 @@
+.item_choice{
+  &.radio{
+    label .ico_choice{
+      background-image: url(#{$imgUrl}/common/ico_radio.png);
+    }
+    input:checked + label .ico_choice{
+      background-image: url(#{$imgUrl}/common/ico_radio_on.png);
+    }
+    input:checked + label i{ /* 폰트 어썸 아이콘 체크시 스타일 커스텀 */
+      font-weight: 400;
+      &::before{
+        content: '\f192';
+      }
+    }
+  }
+}

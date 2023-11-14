@@ -1,0 +1,15 @@
+.list_tab{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(246px, 1fr));
+  column-gap: 10px;
+  row-gap: 10px;
+  text-align: center;
+  a[aria-selected=true], a:hover{
+    border-color: #2073C5;
+    font-weight: 700;
+    color:#fff;
+    background-color: #2073C5;
+    box-shadow: 0 5px 10px rgba(#2F51B2, .13);
+    opacity: 1;
+  }
+}

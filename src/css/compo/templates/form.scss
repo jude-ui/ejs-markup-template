@@ -1,0 +1,39 @@
+.align_wrap{display: flex;flex-wrap: wrap;align-items: center}
+.align_wrap.reverse{flex-wrap: nowrap;flex-direction: column;align-items: normal}
+.form_wrap{
+  overflow: hidden;
+  border-top:1px solid #858585;
+  dl {
+    display: flex;
+    dt, dd{
+      box-sizing: border-box;
+      font-size: 18px;
+      line-height: 21px;
+    }
+    dt{
+      flex: 0 0 264px;
+      display: flex;
+      padding: 32px 14px;
+      font-weight: 500;
+      color: #232323;
+    }
+    dd{
+      flex: 1;
+      padding: 16px 16px 16px 0;
+    }
+  }
+}
+@media
+only screen and (max-width: 768px){
+  .form_wrap{
+    dl{
+      flex-direction: column;
+      dt{
+        flex-basis: auto;
+        padding-bottom: 10px;
+        padding-left: 0;
+        border-bottom:1px solid #ddd;
+      }
+    }
+  }
+}

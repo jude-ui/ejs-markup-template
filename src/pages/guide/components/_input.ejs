@@ -1,0 +1,159 @@
+<h3 class="c-tit">
+  <a href="#input" id="input" class="c-tit-link">인풋</a>
+</h3>
+
+<!-- input text / password -->
+<div class="c-code-wrap">
+  <!-- 실제 코드 -->
+  <div class="c-code-box">
+    <div class="align_wrap gap10 reverse">
+      <div class="align_wrap gap10">
+        <input type="text" class="inp_comm" title="연결할 label 태그가 없다면 title 속성은 필수로 넣어주세요." placeholder="내용을 입력하세요">
+        <input type="text" class="inp_comm" title="연결할 label 태그가 없다면 title 속성은 필수로 넣어주세요." placeholder="내용을 입력하세요" value="내용을 입력중일 때">
+        <input type="text" class="inp_comm" title="연결할 label 태그가 없다면 title 속성은 필수로 넣어주세요." placeholder="내용을 입력하세요" value="비활성화 &amp; 입력된 상태" disabled>
+      </div>
+      <div class="align_wrap gap10">
+        <input type="password" class="inp_comm" title="연결할 label 태그가 없다면 title 속성은 필수로 넣어주세요." placeholder="내용을 입력하세요">
+        <input type="password" class="inp_comm" title="연결할 label 태그가 없다면 title 속성은 필수로 넣어주세요." placeholder="내용을 입력하세요" value="123456">
+        <input type="password" class="inp_comm" title="연결할 label 태그가 없다면 title 속성은 필수로 넣어주세요." placeholder="내용을 입력하세요" value="123456" disabled>
+      </div>
+    </div>
+  </div>
+  <!-- // 실제 코드 -->
+
+  <!-- 설명 -->
+  <ul class="list type5">
+    <li><strong>text</strong>, <strong>password</strong> 공통 스타일</li>
+    <li>기본 너비 300px / disabled 속성을 추가하여 비활성화</li>
+  </ul>
+  <!-- // 설명 -->
+
+  <!-- 코드 하이라이트 -->
+  <button type="button" class="c-btn-toggle">코드 보기</button>
+  <pre><code class="lang-html">
+    <div class="align_wrap gap10 reverse">
+      <div class="align_wrap gap10">
+        <input type="text" class="inp_comm max_w_300" title="연결할 label 태그가 없다면 title 속성은 필수로 넣어주세요." placeholder="내용을 입력하세요">
+        <input type="text" class="inp_comm max_w_300" title="연결할 label 태그가 없다면 title 속성은 필수로 넣어주세요." placeholder="내용을 입력하세요" value="내용을 입력중일 때">
+        <input type="text" class="inp_comm max_w_300" title="연결할 label 태그가 없다면 title 속성은 필수로 넣어주세요." placeholder="내용을 입력하세요" value="비활성화 &amp; 입력된 상태" disabled>
+      </div>
+      <div class="align_wrap gap10">
+        <input type="password" class="inp_comm max_w_300" title="연결할 label 태그가 없다면 title 속성은 필수로 넣어주세요." placeholder="내용을 입력하세요">
+        <input type="password" class="inp_comm max_w_300" title="연결할 label 태그가 없다면 title 속성은 필수로 넣어주세요." placeholder="내용을 입력하세요" disabled>
+      </div>
+    </div>
+  </code></pre>
+  <!-- // 코드 하이라이트 -->
+</div>
+
+
+
+
+
+
+
+
+<!-- input date -->
+<div class="c-code-wrap">
+  <!-- 실제 코드 -->
+  <div class="c-code-box">
+    <div class="align_wrap gap10">
+      <div class="date_comm">
+        <input type="date" required data-placeholder="시작일" title="연결할 label 태그가 없다면 title 속성은 필수로 넣어주세요.">
+        <i class="fa-solid fa-calendar-lines"></i>
+      </div>
+      <div class="date_comm">
+        <input type="date" required data-placeholder="종료일" title="연결할 label 태그가 없다면 title 속성은 필수로 넣어주세요." value="2023-12-24" disabled>
+        <i class="fa-solid fa-calendar-lines"></i>
+      </div>
+    </div>
+  </div>
+  <!-- // 실제 코드 -->
+
+  <!-- 설명 -->
+  <ul class="list type5">
+    <li>기본 너비 170px / disabled 속성 추가하여 비활성화</li>
+  </ul>
+  <!-- // 설명 -->
+
+  <!-- 코드 하이라이트 -->
+  <button type="button" class="c-btn-toggle">코드 보기</button>
+  <pre><code class="lang-html">
+    <div class="align_wrap gap10">
+      <div class="date_comm">
+        <input type="date" required data-placeholder="시작일" title="연결할 label 태그가 없다면 title 속성은 필수로 넣어주세요.">
+        <i class="fa-solid fa-calendar-lines"></i>
+      </div>
+      <div class="date_comm">
+        <input type="date" required data-placeholder="종료일" title="연결할 label 태그가 없다면 title 속성은 필수로 넣어주세요." value="2023-12-24" disabled>
+        <i class="fa-solid fa-calendar-lines"></i>
+      </div>
+    </div>
+  </code></pre>
+  <!-- // 코드 하이라이트 -->
+</div>
+
+
+
+
+
+
+
+
+
+<!-- input file -->
+<div class="c-code-wrap">
+  <!-- 실제 코드 -->
+  <div class="c-code-box">
+    <div class="align_wrap gap10">
+      
+      <div class="file_comm">
+        <input type="text" class="inp_comm" readonly>
+        <input type="file" id="inpFile" title="연결할 label 태그가 없다면 title 속성은 필수로 넣어주세요.">
+        <label for="inpFile" class="btn btn5">File</label>
+      </div>
+      <div class="file_comm">
+        <input type="file" id="inpFile2" title="연결할 label 태그가 없다면 title 속성은 필수로 넣어주세요.">
+        <label for="inpFile2" class="btn btn5">File</label>
+      </div>
+      
+    </div>
+  </div>
+  <!-- // 실제 코드 -->
+
+  <!-- 설명 -->
+  <ul class="list type5">
+    <li>기본 너비 170px / disabled 속성 추가하여 비활성화</li>
+  </ul>
+  <!-- // 설명 -->
+
+  <!-- 코드 하이라이트 -->
+  <button type="button" class="c-btn-toggle">코드 보기</button>
+  <pre><code class="lang-html">
+    <div class="align_wrap gap10">
+      <div class="date_comm">
+        <input type="date" required data-placeholder="시작일" title="연결할 label 태그가 없다면 title 속성은 필수로 넣어주세요.">
+        <i class="fa-solid fa-calendar-lines"></i>
+      </div>
+      <div class="date_comm">
+        <input type="date" required data-placeholder="종료일" title="연결할 label 태그가 없다면 title 속성은 필수로 넣어주세요." value="2023-12-24" disabled>
+        <i class="fa-solid fa-calendar-lines"></i>
+      </div>
+    </div>
+  </code></pre>
+  <!-- // 코드 하이라이트 -->
+</div>
+
+<script>
+  // File add
+  $('.file_comm').each(function() {
+    $(this).find('input[type="file"]').on('input', function() {
+      const $self = $(this);
+      const fileFullPath = $self.val();
+
+      if ($self.prev('.inp_comm').length) {
+        $self.prev('.inp_comm').val(fileFullPath.replace(/^.*[\\\/]/, ''));
+      }
+    });
+  });
+</script>

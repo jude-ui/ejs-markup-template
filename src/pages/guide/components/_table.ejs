@@ -1,0 +1,338 @@
+<h3 class="c-tit">
+  <a href="#tableForm" id="tableForm" class="c-tit-link">테이블</a>
+</h3>
+
+<div class="c-code-wrap">
+  <!-- 실제 코드 -->
+  <div class="c-code-box">
+    <div class="align_wrap gap30 reverse">
+      <!-- default -->
+      <table class="tbl_comm">
+        <caption class="blind">테이블 제목</caption>
+        <colgroup>
+          <col style="width: 33.33%">
+          <col style="width: 33.33%">
+          <col>
+        </colgroup>
+        <thead>
+          <tr>
+            <th scope="col">th : mddium</th>
+            <th scope="col">#232323</th>
+            <th scope="col">텍스트</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>td : regular</td>
+            <td>#616161</td>
+            <td>텍스트</td>
+          </tr>
+          <tr>
+            <td rowspan="2">td : regular</td>
+            <td>.tbl_comm 테이블은 row, col 타입 및 혼합형 모두 적용 됩니다.</td>
+            <td rowspan="2">일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십</td>
+          </tr>
+          <tr>
+            <td>#616161</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- // default -->
+
+      <!-- default -->
+      <table class="tbl_comm">
+        <caption class="blind">테이블 제목</caption>
+        <colgroup>
+          <col style="width: 25%">
+          <col style="width: 25%">
+          <col style="width: 25%">
+          <col>
+        </colgroup>
+        <thead>
+          <tr>
+            <th scope="row">th : medium</th>
+            <th scope="col">th : medium</th>
+            <th scope="col">th : #232323</th>
+            <th scope="col">th : 텍스트</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">#232323</th>
+            <td>.tbl_comm 테이블은 row, col 타입 및 혼합형 모두 적용 됩니다.</td>
+            <td>td : #616161</td>
+            <td>td : 텍스트</td>
+          </tr>
+          <tr>
+            <th scope="row" rowspan="2">텍스트</th>
+            <td>td : regular</td>
+            <td>td : #616161</td>
+            <td>td : 텍스트</td>
+          </tr>
+          <tr>
+            <td>td : regular</td>
+            <td>td : #616161</td>
+            <td>td : 텍스트</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- // default -->
+    </div>
+  </div>
+  <!-- // 실제 코드 -->
+
+  <!-- 설명 -->
+  <ul class="list type5">
+    <li>테이블 기본 클래스는 <strong>.tbl_comm</strong></li>
+    <li>table 태그에 .td_left 또는 .td_right 클래스를 붙이면 td가 좌측 또는 우측 정렬 됩니다.</li>
+    <li>행 타입과 열 타입 및 혼합형 모두 적용 가능합니다.</li>
+  </ul>
+  <!-- // 설명 -->
+
+  <!-- 코드 하이라이트 -->
+  <button type="button" class="c-btn-toggle">코드 보기</button>
+  <pre><code class="lang-html">
+    <div class="align_wrap gap30 reverse">
+      <!-- default -->
+      <table class="tbl_comm">
+        <caption class="blind">테이블 제목</caption>
+        <colgroup>
+          <col style="width: 33.33%">
+          <col style="width: 33.33%">
+          <col>
+        </colgroup>
+        <thead>
+          <tr>
+            <th scope="col">th : mddium</th>
+            <th scope="col">#232323</th>
+            <th scope="col">텍스트</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>td : regular</td>
+            <td>#616161</td>
+            <td>텍스트</td>
+          </tr>
+          <tr>
+            <td rowspan="2">td : regular</td>
+            <td>.tbl_comm 테이블은 row, col 타입 및 혼합형 모두 적용 됩니다.</td>
+            <td rowspan="2">일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십</td>
+          </tr>
+          <tr>
+            <td>#616161</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- // default -->
+
+      <!-- default -->
+      <table class="tbl_comm">
+        <caption class="blind">테이블 제목</caption>
+        <colgroup>
+          <col style="width: 25%">
+          <col style="width: 25%">
+          <col style="width: 25%">
+          <col>
+        </colgroup>
+        <thead>
+          <tr>
+            <th scope="row">th : medium</th>
+            <th scope="col">th : medium</th>
+            <th scope="col">th : #232323</th>
+            <th scope="col">th : 텍스트</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">#232323</th>
+            <td>.tbl_comm 테이블은 row, col 타입 및 혼합형 모두 적용 됩니다.</td>
+            <td>td : #616161</td>
+            <td>td : 텍스트</td>
+          </tr>
+          <tr>
+            <th scope="row" rowspan="2">텍스트</th>
+            <td>td : regular</td>
+            <td>td : #616161</td>
+            <td>td : 텍스트</td>
+          </tr>
+          <tr>
+            <td>td : regular</td>
+            <td>td : #616161</td>
+            <td>td : 텍스트</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- // default -->
+    </div>
+  </code></pre>
+  <!-- // 코드 하이라이트 -->
+
+  <!-- 실제 코드 -->
+  <div class="c-code-box">
+    <div class="align_wrap gap30 reverse">
+      <!-- table type2 -->
+      <table class="tbl_comm type2">
+        <caption class="blind">테이블 제목</caption>
+        <colgroup>
+          <col style="width: 33.33%">
+          <col style="width: 33.33%">
+          <col>
+        </colgroup>
+        <thead>
+          <tr>
+            <th scope="col">th : mddium</th>
+            <th scope="col">#232323</th>
+            <th scope="col">텍스트</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>td : regular</td>
+            <td>#616161</td>
+            <td>텍스트</td>
+          </tr>
+          <tr>
+            <td rowspan="2">td : regular</td>
+            <td>.tbl_comm.type2 테이블은 색상타입2 입니다.</td>
+            <td>텍스트</td>
+          </tr>
+          <tr>
+            <td>#616161</td>
+            <td>일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- // table type2 -->
+
+      <!-- table type2 -->
+      <table class="tbl_comm type2">
+        <caption class="blind">테이블 제목</caption>
+        <colgroup>
+          <col style="width: 25%">
+          <col style="width: 25%">
+          <col style="width: 25%">
+          <col>
+        </colgroup>
+        <thead>
+          <tr>
+            <th scope="row">th : medium</th>
+            <th scope="col">th : medium</th>
+            <th scope="col">th : #232323</th>
+            <th scope="col">th : 텍스트</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">#232323</th>
+            <td>.tbl_comm 테이블은 row, col 타입 및 혼합형 모두 적용 됩니다.</td>
+            <td>td : #616161</td>
+            <td>td : 텍스트</td>
+          </tr>
+          <tr>
+            <th scope="row" rowspan="2">텍스트</th>
+            <td>.tbl_comm.type2 테이블은 색상타입2 입니다.</td>
+            <td>td : #616161</td>
+            <td>td : 텍스트</td>
+          </tr>
+          <tr>
+            <td>td : regular</td>
+            <td>td : #616161</td>
+            <td>td : 텍스트</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- // table type2 -->
+    </div>
+  </div>
+  <!-- // 실제 코드 -->
+
+  <!-- 설명 -->
+  <ul class="list type5">
+    <li>테이블 2번째 색상 타입은 <strong>.tbl_comm.type2</strong></li>
+    <li>table 태그에 .td_left 또는 .td_right 클래스를 붙이면 td가 좌측 또는 우측 정렬 됩니다.</li>
+    <li>행 타입과 열 타입 및 혼합형 모두 적용 가능합니다.</li>
+  </ul>
+  <!-- // 설명 -->
+
+  <!-- 코드 하이라이트 -->
+  <button type="button" class="c-btn-toggle">코드 보기</button>
+  <pre><code class="lang-html">
+    <div class="align_wrap gap30 reverse">
+      <!-- table type2 -->
+      <table class="tbl_comm type2">
+        <caption class="blind">테이블 제목</caption>
+        <colgroup>
+          <col style="width: 33.33%">
+          <col style="width: 33.33%">
+          <col>
+        </colgroup>
+        <thead>
+          <tr>
+            <th scope="col">th : mddium</th>
+            <th scope="col">#232323</th>
+            <th scope="col">텍스트</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>td : regular</td>
+            <td>#616161</td>
+            <td>텍스트</td>
+          </tr>
+          <tr>
+            <td rowspan="2">td : regular</td>
+            <td>.tbl_comm.type2 테이블은 색상타입2 입니다.</td>
+            <td>텍스트</td>
+          </tr>
+          <tr>
+            <td>#616161</td>
+            <td>일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- // table type2 -->
+
+      <!-- table type2 -->
+      <table class="tbl_comm type2">
+        <caption class="blind">테이블 제목</caption>
+        <colgroup>
+          <col style="width: 25%">
+          <col style="width: 25%">
+          <col style="width: 25%">
+          <col>
+        </colgroup>
+        <thead>
+          <tr>
+            <th scope="row">th : medium</th>
+            <th scope="col">th : medium</th>
+            <th scope="col">th : #232323</th>
+            <th scope="col">th : 텍스트</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">#232323</th>
+            <td>.tbl_comm 테이블은 row, col 타입 및 혼합형 모두 적용 됩니다.</td>
+            <td>td : #616161</td>
+            <td>td : 텍스트</td>
+          </tr>
+          <tr>
+            <th scope="row" rowspan="2">텍스트</th>
+            <td>.tbl_comm.type2 테이블은 색상타입2 입니다.</td>
+            <td>td : #616161</td>
+            <td>td : 텍스트</td>
+          </tr>
+          <tr>
+            <td>td : regular</td>
+            <td>td : #616161</td>
+            <td>td : 텍스트</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- // table type2 -->
+    </div>
+  </code></pre>
+  <!-- // 코드 하이라이트 -->
+</div>
+<!-- // c-code-wrap -->

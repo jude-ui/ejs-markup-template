@@ -1,0 +1,709 @@
+<p class="c-desc">
+  <strong>공통 클래스를 사용하여 작업하거나 유지보수하면 정말 편리하지만, 너무 많은 남용은 삼가야 합니다.</strong><br>
+  시간이 흐를수록 코드들은 파편화되고 파악하기 힘들며 유지보수가 점점 어려워집니다.<br>
+  특히 규모가 큰 프로젝트에서 동일한 ui를 여러 페이지에 걸쳐 변경을 하려면 여러 곳을 같이 수정을 해야하기 때문에 어느 한 곳이 누락될 위험이 커집니다.<br>
+  공통으로 사용되는 ui에 사용할 때에는 주의하세요.
+</p>
+
+<h3 class="c-tit"><a href="#display" id="display" class="c-tit-link">display</a></h3>
+<table class="c-tbl">
+  <caption class="screen_out">속성 표</caption>
+  <colgroup>
+    <col style="width: 35%">
+    <col>
+  </colgroup>
+  <thead>
+    <tr>
+      <th scope="col">클래스</th>
+      <th scope="col">속성</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr><td>.block</td><td>display: block</td></tr>
+      <tr><td>.inline</td><td>display: inline</td></tr>
+      <tr><td>.inline_block</td><td>display: inline-block</td></tr>
+      <tr><td>.flex</td><td>display: flex</td></tr>
+      <tr><td>.inline_flex</td><td>display: inline-flex</td></tr>
+      <tr><td>.table</td><td>display: table</td></tr>
+      <tr><td>.table_cell</td><td>display: table-cell</td></tr>
+      <tr><td>.grid</td><td>display: grid</td></tr>
+      <tr><td>.inline_grid</td><td>display: inline-grid</td></tr>
+      <tr><td>.hidden</td><td>display: none</td></tr>
+      <tr><td>.visible</td><td>visibility: visible</td></tr>
+      <tr><td>.invisible</td><td>visibility: hidden</td></tr>
+      <tr><td>.f_wrap</td><td>flex-wrap: wrap</td></tr>
+      <tr><td>.f_nowrap</td><td>flex-wrap: nowrap</td></tr>
+  </tbody>
+</table>
+
+<h3 class="c-tit"><a href="#overflow" id="overflow" class="c-tit-link">overflow</a></h3>
+<table class="c-tbl">
+  <caption class="screen_out">속성 표</caption>
+  <colgroup>
+    <col style="width: 35%">
+    <col>
+  </colgroup>
+  <thead>
+    <tr>
+      <th scope="col">클래스</th>
+      <th scope="col">속성</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>.overflow_visible</td><td>overflow: visible</td></tr>
+    <tr><td>.overflow_hidden</td><td>overflow: hidden</td></tr>
+    <tr><td>.overflow_auto</td><td>overflow: auto</td></tr>
+    <tr><td>.overflow_scroll</td><td>overflow: scroll</td></tr>
+    <tr><td>.overflow_x_auto</td><td>overflow-x: auto</td></tr>
+    <tr><td>.overflow_y_auto</td><td>overflow-y: auto</td></tr>
+    <tr><td>.overflow_x_hidden</td><td>overflow-x: hidden</td></tr>
+    <tr><td>.overflow_y_hidden</td><td>overflow-y: hidden</td></tr>
+    <tr><td>.overflow_x_visible</td><td>overflow-x: visible</td></tr>
+    <tr><td>.overflow_y_visible</td><td>overflow-y: visible</td></tr>
+    <tr><td>.overflow_x_scroll</td><td>overflow-x: scroll</td></tr>
+    <tr><td>.overflow_y_scroll</td><td>overflow-y: scroll</td></tr>
+  </tbody>
+</table>
+
+<h3 class="c-tit"><a href="#float" id="float" class="c-tit-link">float</a></h3>
+<table class="c-tbl">
+  <caption class="screen_out">속성 표</caption>
+  <colgroup>
+    <col style="width: 35%">
+    <col>
+  </colgroup>
+  <thead>
+    <tr>
+      <th scope="col">클래스</th>
+      <th scope="col">속성</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>.f_n</td><td>float: none</td></tr>
+    <tr><td>.f_l</td><td>float: left</td></tr>
+    <tr><td>.f_r</td><td>float: right</td></tr>
+  </tbody>
+</table>
+
+<h3 class="c-tit"><a href="#position" id="position" class="c-tit-link">position</a></h3>
+<table class="c-tbl">
+  <caption class="screen_out">속성 표</caption>
+  <colgroup>
+    <col style="width: 35%">
+    <col>
+  </colgroup>
+  <thead>
+    <tr>
+      <th scope="col">클래스</th>
+      <th scope="col">속성</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>.static</td><td>position: static</td></tr>
+    <tr><td>.relative</td><td>position: relative</td></tr>
+    <tr><td>.absolute</td><td>position: absolute</td></tr>
+    <tr><td>.fixed</td><td>position: fixed</td></tr>
+    <tr><td>.sticky</td><td>position: sticky</td></tr>
+  </tbody>
+</table>
+
+<h3 class="c-tit"><a href="#width" id="width" class="c-tit-link">width</a></h3>
+<table class="c-tbl">
+  <caption class="screen_out">속성 표</caption>
+  <colgroup>
+    <col style="width: 35%">
+    <col>
+  </colgroup>
+  <thead>
+    <tr>
+      <th scope="col">클래스</th>
+      <th scope="col">속성</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>.w_full</td><td>width: 100%</td></tr>
+    <tr><td>.w_auto</td><td>width: auto</td></tr>
+    <tr><td>.w_0</td><td>width: 0px</td></tr>
+    <tr><td>.w_25</td><td>width: 25px</td></tr>
+    <tr><td>.w_50</td><td>width: 50px</td></tr>
+    <tr><td>.w_75</td><td>width: 75px</td></tr>
+    <tr><td>.w_100</td><td>width: 100px</td></tr>
+    <tr><td>.w_125</td><td>width: 125px</td></tr>
+    <tr><td>.w_150</td><td>width: 150px</td></tr>
+    <tr><td>.w_175</td><td>width: 175px</td></tr>
+    <tr><td>.w_200</td><td>width: 200px</td></tr>
+  </tbody>
+</table>
+
+<h3 class="c-tit"><a href="#height" id="height" class="c-tit-link">height</a></h3>
+<table class="c-tbl">
+  <caption class="screen_out">속성 표</caption>
+  <colgroup>
+    <col style="width: 35%">
+    <col>
+  </colgroup>
+  <thead>
+    <tr>
+      <th scope="col">클래스</th>
+      <th scope="col">속성</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>.h_full</td><td>height: 100%</td></tr>
+    <tr><td>.h_auto</td><td>height: auto</td></tr>
+    <tr><td>.h_0</td><td>height: 0px</td></tr>
+    <tr><td>.h_25</td><td>height: 25px</td></tr>
+    <tr><td>.h_50</td><td>height: 50px</td></tr>
+    <tr><td>.h_75</td><td>height: 75px</td></tr>
+    <tr><td>.h_100</td><td>height: 100px</td></tr>
+    <tr><td>.h_125</td><td>height: 125px</td></tr>
+    <tr><td>.h_150</td><td>height: 150px</td></tr>
+    <tr><td>.h_175</td><td>height: 175px</td></tr>
+    <tr><td>.h_200</td><td>height: 200px</td></tr>
+  </tbody>
+</table>
+
+<h3 class="c-tit"><a href="#maxWidth" id="maxWidth" class="c-tit-link">max-width</a></h3>
+<table class="c-tbl">
+  <caption class="screen_out">속성 표</caption>
+  <colgroup>
+    <col style="width: 35%">
+    <col>
+  </colgroup>
+  <thead>
+    <tr>
+      <th scope="col">클래스</th>
+      <th scope="col">속성</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>.max_w_none</td><td>max-width: none</td></tr>
+    <tr><td>.max_w_25</td><td>max-width: 25px</td></tr>
+    <tr><td>.max_w_50</td><td>max-width: 50px</td></tr>
+    <tr><td>.max_w_75</td><td>max-width: 75px</td></tr>
+    <tr><td>.max_w_100</td><td>max-width: 100px</td></tr>
+    <tr><td>.max_w_125</td><td>max-width: 125px</td></tr>
+    <tr><td>.max_w_150</td><td>max-width: 150px</td></tr>
+    <tr><td>.max_w_175</td><td>max-width: 175px</td></tr>
+    <tr><td>.max_w_200</td><td>max-width: 200px</td></tr>
+    <tr><td>.max_w_225</td><td>max-width: 225px</td></tr>
+    <tr><td>.max_w_250</td><td>max-width: 250px</td></tr>
+    <tr><td>.max_w_275</td><td>max-width: 275px</td></tr>
+    <tr><td>.max_w_300</td><td>max-width: 300px</td></tr>
+    <tr><td>.max_w_325</td><td>max-width: 325px</td></tr>
+    <tr><td>.max_w_350</td><td>max-width: 350px</td></tr>
+    <tr><td>.max_w_375</td><td>max-width: 375px</td></tr>
+    <tr><td>.max_w_400</td><td>max-width: 400px</td></tr>
+  </tbody>
+</table>
+
+<h3 class="c-tit"><a href="#maxHeight" id="maxHeight" class="c-tit-link">max-height</a></h3>
+<table class="c-tbl">
+  <caption class="screen_out">속성 표</caption>
+  <colgroup>
+    <col style="width: 35%">
+    <col>
+  </colgroup>
+  <thead>
+    <tr>
+      <th scope="col">클래스</th>
+      <th scope="col">속성</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>.max_h_none</td><td>max-height: none</td></tr>
+    <tr><td>.max_h_25</td><td>max-height: 25px</td></tr>
+    <tr><td>.max_h_50</td><td>max-height: 50px</td></tr>
+    <tr><td>.max_h_75</td><td>max-height: 75px</td></tr>
+    <tr><td>.max_h_100</td><td>max-height: 100px</td></tr>
+    <tr><td>.max_h_125</td><td>max-height: 125px</td></tr>
+    <tr><td>.max_h_150</td><td>max-height: 150px</td></tr>
+    <tr><td>.max_h_175</td><td>max-height: 175px</td></tr>
+    <tr><td>.max_h_200</td><td>max-height: 200px</td></tr>
+    <tr><td>.max_h_225</td><td>max-height: 225px</td></tr>
+    <tr><td>.max_h_250</td><td>max-height: 250px</td></tr>
+    <tr><td>.max_h_275</td><td>max-height: 275px</td></tr>
+    <tr><td>.max_h_300</td><td>max-height: 300px</td></tr>
+    <tr><td>.max_h_325</td><td>max-height: 325px</td></tr>
+    <tr><td>.max_h_350</td><td>max-height: 350px</td></tr>
+    <tr><td>.max_h_375</td><td>max-height: 375px</td></tr>
+    <tr><td>.max_h_400</td><td>max-height: 400px</td></tr>
+  </tbody>
+</table>
+
+<h3 class="c-tit"><a href="#margin" id="margin" class="c-tit-link">margin</a></h3>
+<table class="c-tbl">
+  <caption class="screen_out">속성 표</caption>
+  <colgroup>
+    <col style="width: 35%">
+    <col>
+  </colgroup>
+  <thead>
+    <tr>
+      <th scope="col">클래스</th>
+      <th scope="col">속성</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>.m0</td><td>margin: 0</td></tr>
+    <tr><td>.mx0</td><td>margin-left: 0;margin-right: 0</td></tr>
+    <tr><td>.my0</td><td>margin-top: 0;margin-bottom: 0</td></tr>
+    <tr><td>.mt0</td><td>margin-top: 0</td></tr>
+    <tr><td>.mr0</td><td>margin-right: 0</td></tr>
+    <tr><td>.mb0</td><td>margin-bottom: 0</td></tr>
+    <tr><td>.ml0</td><td>margin-left: 0</td></tr>
+    <tr><td>.mpx</td><td>margin: 1px</td></tr>
+    <tr><td>.mxpx</td><td>margin-left: 1px;margin-right: 1px</td></tr>
+    <tr><td>.mypx</td><td>margin-top: 1px;margin-bottom: 1px</td></tr>
+    <tr><td>.mtpx</td><td>margin-top: 1px</td></tr>
+    <tr><td>.mrpx</td><td>margin-right: 1px</td></tr>
+    <tr><td>.mbpx</td><td>margin-bottom: 1px</td></tr>
+    <tr><td>.mlpx</td><td>margin-left: 1px</td></tr>
+    <tr><td>.m5</td><td>margin: 5px</td></tr>
+    <tr><td>.mx5</td><td>margin-left: 5px;margin-right: 5px</td></tr>
+    <tr><td>.my5</td><td>margin-top: 5px;margin-bottom: 5px</td></tr>
+    <tr><td>.mt5</td><td>margin-top: 5px</td></tr>
+    <tr><td>.mr5</td><td>margin-right: 5px</td></tr>
+    <tr><td>.mb5</td><td>margin-bottom: 5px</td></tr>
+    <tr><td>.ml5</td><td>margin-left: 5px</td></tr>
+    <tr><td>.m10</td><td>margin: 10px</td></tr>
+    <tr><td>.mx10</td><td>margin-left: 10px;margin-right: 10px</td></tr>
+    <tr><td>.my10</td><td>margin-top: 10px;margin-bottom: 10px</td></tr>
+    <tr><td>.mt10</td><td>margin-top: 10px</td></tr>
+    <tr><td>.mr10</td><td>margin-right: 10px</td></tr>
+    <tr><td>.mb10</td><td>margin-bottom: 10px</td></tr>
+    <tr><td>.ml10</td><td>margin-left: 10px</td></tr>
+    <tr><td>.m15</td><td>margin: 15px</td></tr>
+    <tr><td>.mx15</td><td>margin-left: 15px;margin-right: 15px</td></tr>
+    <tr><td>.my15</td><td>margin-top: 15px;margin-bottom: 15px</td></tr>
+    <tr><td>.mt15</td><td>margin-top: 15px</td></tr>
+    <tr><td>.mr15</td><td>margin-right: 15px</td></tr>
+    <tr><td>.mb15</td><td>margin-bottom: 15px</td></tr>
+    <tr><td>.ml15</td><td>margin-left: 15px</td></tr>
+    <tr><td>.m20</td><td>margin: 20px</td></tr>
+    <tr><td>.mx20</td><td>margin-left: 20px;margin-right: 20px</td></tr>
+    <tr><td>.my20</td><td>margin-top: 20px;margin-bottom: 20px</td></tr>
+    <tr><td>.mt20</td><td>margin-top: 20px</td></tr>
+    <tr><td>.mr20</td><td>margin-right: 20px</td></tr>
+    <tr><td>.mb20</td><td>margin-bottom: 20px</td></tr>
+    <tr><td>.ml20</td><td>margin-left: 20px</td></tr>
+    <tr><td>.m25</td><td>margin: 25px</td></tr>
+    <tr><td>.mx25</td><td>margin-left: 25px;margin-right: 25px</td></tr>
+    <tr><td>.my25</td><td>margin-top: 25px;margin-bottom: 25px</td></tr>
+    <tr><td>.mt25</td><td>margin-top: 25px</td></tr>
+    <tr><td>.mr25</td><td>margin-right: 25px</td></tr>
+    <tr><td>.mb25</td><td>margin-bottom: 25px</td></tr>
+    <tr><td>.ml25</td><td>margin-left: 25px</td></tr>
+    <tr><td>.m30</td><td>margin: 30px</td></tr>
+    <tr><td>.mx30</td><td>margin-left: 24px;margin-right: 30px</td></tr>
+    <tr><td>.my30</td><td>margin-top: 24px;margin-bottom: 30px</td></tr>
+    <tr><td>.mt30</td><td>margin-top: 30px</td></tr>
+    <tr><td>.mr30</td><td>margin-right: 30px</td></tr>
+    <tr><td>.mb30</td><td>margin-bottom: 30px</td></tr>
+    <tr><td>.ml30</td><td>margin-left: 30px</td></tr>
+    <tr><td>.m35</td><td>margin: 35px</td></tr>
+    <tr><td>.mx35</td><td>margin-left: 28px;margin-right: 35px</td></tr>
+    <tr><td>.my35</td><td>margin-top: 28px;margin-bottom: 35px</td></tr>
+    <tr><td>.mt35</td><td>margin-top: 35px</td></tr>
+    <tr><td>.mr35</td><td>margin-right: 35px</td></tr>
+    <tr><td>.mb35</td><td>margin-bottom: 35px</td></tr>
+    <tr><td>.ml35</td><td>margin-left: 35px</td></tr>
+    <tr><td>.m40</td><td>margin: 40px</td></tr>
+    <tr><td>.mx40</td><td>margin-left: 32px;margin-right: 40px</td></tr>
+    <tr><td>.my40</td><td>margin-top: 32px;margin-bottom: 40px</td></tr>
+    <tr><td>.mt40</td><td>margin-top: 40px</td></tr>
+    <tr><td>.mr40</td><td>margin-right: 40px</td></tr>
+    <tr><td>.mb40</td><td>margin-bottom: 40px</td></tr>
+    <tr><td>.ml40</td><td>margin-left: 40px</td></tr>
+    <tr><td>.m45</td><td>margin: 45px</td></tr>
+    <tr><td>.mx45</td><td>margin-left: 36px;margin-right: 45px</td></tr>
+    <tr><td>.my45</td><td>margin-top: 36px;margin-bottom: 45px</td></tr>
+    <tr><td>.mt45</td><td>margin-top: 45px</td></tr>
+    <tr><td>.mr45</td><td>margin-right: 45px</td></tr>
+    <tr><td>.mb45</td><td>margin-bottom: 45px</td></tr>
+    <tr><td>.ml45</td><td>margin-left: 45px</td></tr>
+    <tr><td>.m50</td><td>margin: 50px</td></tr>
+    <tr><td>.mx50</td><td>margin-left: 40px;margin-right: 50px</td></tr>
+    <tr><td>.my50</td><td>margin-top: 40px;margin-bottom: 50px</td></tr>
+    <tr><td>.mt50</td><td>margin-top: 50px</td></tr>
+    <tr><td>.mr50</td><td>margin-right: 50px</td></tr>
+    <tr><td>.mb50</td><td>margin-bottom: 50px</td></tr>
+    <tr><td>.ml50</td><td>margin-left: 50px</td></tr>
+    <tr><td>.m55</td><td>margin: 55px</td></tr>
+    <tr><td>.mx55</td><td>margin-left: 44px;margin-right: 55px</td></tr>
+    <tr><td>.my55</td><td>margin-top: 44px;margin-bottom: 55px</td></tr>
+    <tr><td>.mt55</td><td>margin-top: 55px</td></tr>
+    <tr><td>.mr55</td><td>margin-right: 55px</td></tr>
+    <tr><td>.mb55</td><td>margin-bottom: 55px</td></tr>
+    <tr><td>.ml55</td><td>margin-left: 55px</td></tr>
+    <tr><td>.m60</td><td>margin: 60px</td></tr>
+    <tr><td>.mx60</td><td>margin-left: 48px;margin-right: 60px</td></tr>
+    <tr><td>.my60</td><td>margin-top: 48px;margin-bottom: 60px</td></tr>
+    <tr><td>.mt60</td><td>margin-top: 60px</td></tr>
+    <tr><td>.mr60</td><td>margin-right: 60px</td></tr>
+    <tr><td>.mb60</td><td>margin-bottom: 60px</td></tr>
+    <tr><td>.ml60</td><td>margin-left: 60px</td></tr>
+  </tbody>
+</table>
+
+<h3 class="c-tit"><a href="#padding" id="padding" class="c-tit-link">padding</a></h3>
+<table class="c-tbl">
+  <caption class="screen_out">속성 표</caption>
+  <colgroup>
+    <col style="width: 35%">
+    <col>
+  </colgroup>
+  <thead>
+    <tr>
+      <th scope="col">클래스</th>
+      <th scope="col">속성</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>.p0</td><td>padding: 0</td></tr>
+    <tr><td>.px0</td><td>padding-left: 0;padding-right: 0</td></tr>
+    <tr><td>.py0</td><td>padding-top: 0;padding-bottom: 0</td></tr>
+    <tr><td>.pt0</td><td>padding-top: 0</td></tr>
+    <tr><td>.pr0</td><td>padding-right: 0</td></tr>
+    <tr><td>.pb0</td><td>padding-bottom: 0</td></tr>
+    <tr><td>.pl0</td><td>padding-left: 0</td></tr>
+    <tr><td>.ppx</td><td>padding: 1px</td></tr>
+    <tr><td>.pxpx</td><td>padding-left: 1px;padding-right: 1px</td></tr>
+    <tr><td>.pypx</td><td>padding-top: 1px;padding-bottom: 1px</td></tr>
+    <tr><td>.ptpx</td><td>padding-top: 1px</td></tr>
+    <tr><td>.prpx</td><td>padding-right: 1px</td></tr>
+    <tr><td>.pbpx</td><td>padding-bottom: 1px</td></tr>
+    <tr><td>.plpx</td><td>padding-left: 1px</td></tr>
+    <tr><td>.p5</td><td>padding: 5px</td></tr>
+    <tr><td>.px5</td><td>padding-left: 4px;padding-right: 5px</td></tr>
+    <tr><td>.py5</td><td>padding-top: 4px;padding-bottom: 5px</td></tr>
+    <tr><td>.pt5</td><td>padding-top: 5px</td></tr>
+    <tr><td>.pr5</td><td>padding-right: 5px</td></tr>
+    <tr><td>.pb5</td><td>padding-bottom: 5px</td></tr>
+    <tr><td>.pl5</td><td>padding-left: 5px</td></tr>
+    <tr><td>.p10</td><td>padding: 10px</td></tr>
+    <tr><td>.px10</td><td>padding-left: 8px;padding-right: 10px</td></tr>
+    <tr><td>.py10</td><td>padding-top: 8px;padding-bottom: 10px</td></tr>
+    <tr><td>.pt10</td><td>padding-top: 10px</td></tr>
+    <tr><td>.pr10</td><td>padding-right: 10px</td></tr>
+    <tr><td>.pb10</td><td>padding-bottom: 10px</td></tr>
+    <tr><td>.pl10</td><td>padding-left: 10px</td></tr>
+    <tr><td>.p15</td><td>padding: 15px</td></tr>
+    <tr><td>.px15</td><td>padding-left: 15px;padding-right: 15px</td></tr>
+    <tr><td>.py15</td><td>padding-top: 15px;padding-bottom: 15px</td></tr>
+    <tr><td>.pt15</td><td>padding-top: 15px</td></tr>
+    <tr><td>.pr15</td><td>padding-right: 15px</td></tr>
+    <tr><td>.pb15</td><td>padding-bottom: 15px</td></tr>
+    <tr><td>.pl15</td><td>padding-left: 15px</td></tr>
+    <tr><td>.p20</td><td>padding: 20px</td></tr>
+    <tr><td>.px20</td><td>padding-left: 16px;padding-right: 20px</td></tr>
+    <tr><td>.py20</td><td>padding-top: 16px;padding-bottom: 20px</td></tr>
+    <tr><td>.pt20</td><td>padding-top: 20px</td></tr>
+    <tr><td>.pr20</td><td>padding-right: 20px</td></tr>
+    <tr><td>.pb20</td><td>padding-bottom: 20px</td></tr>
+    <tr><td>.pl20</td><td>padding-left: 20px</td></tr>
+    <tr><td>.p25</td><td>padding: 25px</td></tr>
+    <tr><td>.px25</td><td>padding-left: 20px;padding-right: 25px</td></tr>
+    <tr><td>.py25</td><td>padding-top: 20px;padding-bottom: 25px</td></tr>
+    <tr><td>.pt25</td><td>padding-top: 25px</td></tr>
+    <tr><td>.pr25</td><td>padding-right: 25px</td></tr>
+    <tr><td>.pb25</td><td>padding-bottom: 25px</td></tr>
+    <tr><td>.pl25</td><td>padding-left: 25px</td></tr>
+    <tr><td>.p30</td><td>padding: 30px</td></tr>
+    <tr><td>.px30</td><td>padding-left: 24px;padding-right: 30px</td></tr>
+    <tr><td>.py30</td><td>padding-top: 24px;padding-bottom: 30px</td></tr>
+    <tr><td>.pt30</td><td>padding-top: 30px</td></tr>
+    <tr><td>.pr30</td><td>padding-right: 30px</td></tr>
+    <tr><td>.pb30</td><td>padding-bottom: 30px</td></tr>
+    <tr><td>.pl30</td><td>padding-left: 30px</td></tr>
+    <tr><td>.p35</td><td>padding: 35px</td></tr>
+    <tr><td>.px35</td><td>padding-left: 28px;padding-right: 35px</td></tr>
+    <tr><td>.py35</td><td>padding-top: 28px;padding-bottom: 35px</td></tr>
+    <tr><td>.pt35</td><td>padding-top: 35px</td></tr>
+    <tr><td>.pr35</td><td>padding-right: 35px</td></tr>
+    <tr><td>.pb35</td><td>padding-bottom: 35px</td></tr>
+    <tr><td>.pl35</td><td>padding-left: 35px</td></tr>
+    <tr><td>.p40</td><td>padding: 40px</td></tr>
+    <tr><td>.px40</td><td>padding-left: 32px;padding-right: 40px</td></tr>
+    <tr><td>.py40</td><td>padding-top: 32px;padding-bottom: 40px</td></tr>
+    <tr><td>.pt40</td><td>padding-top: 40px</td></tr>
+    <tr><td>.pr40</td><td>padding-right: 40px</td></tr>
+    <tr><td>.pb40</td><td>padding-bottom: 40px</td></tr>
+    <tr><td>.pl40</td><td>padding-left: 40px</td></tr>
+    <tr><td>.p45</td><td>padding: 45px</td></tr>
+    <tr><td>.px45</td><td>padding-left: 36px;padding-right: 45px</td></tr>
+    <tr><td>.py45</td><td>padding-top: 36px;padding-bottom: 45px</td></tr>
+    <tr><td>.pt45</td><td>padding-top: 45px</td></tr>
+    <tr><td>.pr45</td><td>padding-right: 45px</td></tr>
+    <tr><td>.pb45</td><td>padding-bottom: 45px</td></tr>
+    <tr><td>.pl45</td><td>padding-left: 45px</td></tr>
+    <tr><td>.p50</td><td>padding: 50px</td></tr>
+    <tr><td>.px50</td><td>padding-left: 40px;padding-right: 50px</td></tr>
+    <tr><td>.py50</td><td>padding-top: 40px;padding-bottom: 50px</td></tr>
+    <tr><td>.pt50</td><td>padding-top: 50px</td></tr>
+    <tr><td>.pr50</td><td>padding-right: 50px</td></tr>
+    <tr><td>.pb50</td><td>padding-bottom: 50px</td></tr>
+    <tr><td>.pl50</td><td>padding-left: 50px</td></tr>
+    <tr><td>.p55</td><td>padding: 55px</td></tr>
+    <tr><td>.px55</td><td>padding-left: 44px;padding-right: 55px</td></tr>
+    <tr><td>.py55</td><td>padding-top: 44px;padding-bottom: 55px</td></tr>
+    <tr><td>.pt55</td><td>padding-top: 55px</td></tr>
+    <tr><td>.pr55</td><td>padding-right: 55px</td></tr>
+    <tr><td>.pb55</td><td>padding-bottom: 55px</td></tr>
+    <tr><td>.pl55</td><td>padding-left: 55px</td></tr>
+    <tr><td>.p60</td><td>padding: 60px</td></tr>
+    <tr><td>.px60</td><td>padding-left: 48px;padding-right: 60px</td></tr>
+    <tr><td>.py60</td><td>padding-top: 48px;padding-bottom: 60px</td></tr>
+    <tr><td>.pt60</td><td>padding-top: 60px</td></tr>
+    <tr><td>.pr60</td><td>padding-right: 60px</td></tr>
+    <tr><td>.pb60</td><td>padding-bottom: 60px</td></tr>
+    <tr><td>.pl60</td><td>padding-left: 60px</td></tr>
+  </tbody>
+</table>
+
+<h3 class="c-tit"><a href="#font" id="font" class="c-tit-link">font</a></h3>
+<table class="c-tbl">
+  <caption class="screen_out">속성 표</caption>
+  <colgroup>
+    <col style="width: 35%">
+    <col>
+  </colgroup>
+  <thead>
+    <tr>
+      <th scope="col">클래스</th>
+      <th scope="col">속성</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>.fw100</td><td>font-weight: 100</td></tr>
+    <tr><td>.fw200</td><td>font-weight: 200</td></tr>
+    <tr><td>.fw300</td><td>font-weight: 300</td></tr>
+    <tr><td>.fw400</td><td>font-weight: 400</td></tr>
+    <tr><td>.fw500</td><td>font-weight: 500</td></tr>
+    <tr><td>.fw600</td><td>font-weight: 600</td></tr>
+    <tr><td>.fw700</td><td>font-weight: 700</td></tr>
+    <tr><td>.fw800</td><td>font-weight: 800</td></tr>
+    <tr><td>.fw900</td><td>font-weight: 900</td></tr>
+    <tr><td>.fs10</td><td>font-size: 10px</td></tr>
+    <tr><td>.fs12</td><td>font-size: 12px</td></tr>
+    <tr><td>.fs14</td><td>font-size: 14px</td></tr>
+    <tr><td>.fs16</td><td>font-size: 16px</td></tr>
+    <tr><td>.fs18</td><td>font-size: 18px</td></tr>
+    <tr><td>.fs20</td><td>font-size: 20px</td></tr>
+    <tr><td>.fs22</td><td>font-size: 22px</td></tr>
+    <tr><td>.fs24</td><td>font-size: 24px</td></tr>
+    <tr><td>.fs26</td><td>font-size: 26px</td></tr>
+    <tr><td>.fs28</td><td>font-size: 28px</td></tr>
+    <tr><td>.fs20</td><td>font-size: 20px</td></tr>
+    <tr><td>.fs30</td><td>font-size: 30px</td></tr>
+    <tr><td>.fs32</td><td>font-size: 32px</td></tr>
+  </tbody>
+</table>
+
+<h3 class="c-tit"><a href="#table" id="table" class="c-tit-link">table</a></h3>
+<table class="c-tbl">
+  <caption class="screen_out">속성 표</caption>
+  <colgroup>
+    <col style="width: 35%">
+    <col>
+  </colgroup>
+  <thead>
+    <tr>
+      <th scope="col">클래스</th>
+      <th scope="col">속성</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>.table-auto</td><td>table-layout: auto</td></tr>
+    <tr><td>.table-fixed</td><td>table-layout: fixed</td></tr>
+  </tbody>
+</table>
+
+<h3 class="c-tit"><a href="#align" id="align" class="c-tit-link">align</a></h3>
+<table class="c-tbl">
+  <caption class="screen_out">속성 표</caption>
+  <colgroup>
+    <col style="width: 35%">
+    <col>
+  </colgroup>
+  <thead>
+    <tr>
+      <th scope="col">클래스</th>
+      <th scope="col">속성</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>.tl</td><td>text-align: left</td></tr>
+    <tr><td>.tr</td><td>text-align: right</td></tr>
+    <tr><td>.tc</td><td>text-align: center</td></tr>
+    <tr><td>.j_center</td><td>justify-content: center</td></tr>
+    <tr><td>.j_start</td><td>justify-content: flex-start</td></tr>
+    <tr><td>.j_end</td><td>justify-content: flex-end</td></tr>
+    <tr><td>.j_around</td><td>justify-content: space-around</td></tr>
+    <tr><td>.j_between</td><td>justify-content: space-between</td></tr>
+    <tr><td>.j_evenly</td><td>justify-content: space-evenly</td></tr>
+    <tr><td>.a_center</td><td>align-items: center</td></tr>
+    <tr><td>.a_start</td><td>align-items: flex-start</td></tr>
+    <tr><td>.a_end</td><td>align-items: flex-end</td></tr>
+    <tr><td>.f_d_col</td><td>flex-direction: column</td></tr>
+    <tr><td>.f_d_row</td><td>flex-direction: row</td></tr>
+    <tr><td>.gap0</td><td>gap: 0</td></tr>
+    <tr><td>.c_gap0</td><td>column-gap: 0</td></tr>
+    <tr><td>.r_gap0</td><td>row-gap: 0</td></tr>
+    <tr><td>.gap2</td><td>gap: 2px</td></tr>
+    <tr><td>.c_gap2</td><td>column-gap: 2px</td></tr>
+    <tr><td>.r_gap2</td><td>row-gap: 2px</td></tr>
+    <tr><td>.gap4</td><td>gap: 4px</td></tr>
+    <tr><td>.c_gap4</td><td>column-gap: 4px</td></tr>
+    <tr><td>.r_gap4</td><td>row-gap: 4px</td></tr>
+    <tr><td>.gap6</td><td>gap:6px</td></tr>
+    <tr><td>.c_gap6</td><td>column-gap: 6px</td></tr>
+    <tr><td>.r_gap6</td><td>row-gap: 6px</td></tr>
+    <tr><td>.gap8</td><td>gap:8px</td></tr>
+    <tr><td>.c_gap8</td><td>column-gap: 8px</td></tr>
+    <tr><td>.r_gap8</td><td>row-gap: 8px</td></tr>
+    <tr><td>.gap10</td><td>gap: 10px</td></tr>
+    <tr><td>.c_gap10</td><td>column-gap: 10px</td></tr>
+    <tr><td>.r_gap10</td><td>row-gap: 10px</td></tr>
+    <tr><td>.gap12</td><td>gap: 12px</td></tr>
+    <tr><td>.c_gap12</td><td>column-gap: 12px</td></tr>
+    <tr><td>.r_gap12</td><td>row-gap: 12px</td></tr>
+    <tr><td>.gap14</td><td>gap: 14px</td></tr>
+    <tr><td>.c_gap14</td><td>column-gap: 14px</td></tr>
+    <tr><td>.r_gap14</td><td>row-gap: 14px</td></tr>
+    <tr><td>.gap16</td><td>gap: 16px</td></tr>
+    <tr><td>.c_gap16</td><td>column-gap: 16px</td></tr>
+    <tr><td>.r_gap16</td><td>row-gap: 16px</td></tr>
+    <tr><td>.gap18</td><td>gap: 18px</td></tr>
+    <tr><td>.c_gap18</td><td>column-gap: 18px</td></tr>
+    <tr><td>.r_gap18</td><td>row-gap: 18px</td></tr>
+    <tr><td>.gap20</td><td>gap: 20px</td></tr>
+    <tr><td>.c_gap20</td><td>column-gap: 20px</td></tr>
+    <tr><td>.r_gap20</td><td>row-gap: 20px</td></tr>
+    <tr><td>.gap22</td><td>gap: 22px</td></tr>
+    <tr><td>.c_gap22</td><td>column-gap: 22px</td></tr>
+    <tr><td>.r_gap22</td><td>row-gap: 22px</td></tr>
+    <tr><td>.gap24</td><td>gap: 24px</td></tr>
+    <tr><td>.c_gap24</td><td>column-gap: 24px</td></tr>
+    <tr><td>.r_gap24</td><td>row-gap: 24px</td></tr>
+    <tr><td>.gap26</td><td>gap: 26px</td></tr>
+    <tr><td>.c_gap26</td><td>column-gap: 26px</td></tr>
+    <tr><td>.r_gap26</td><td>row-gap: 26px</td></tr>
+    <tr><td>.gap28</td><td>gap: 28px</td></tr>
+    <tr><td>.c_gap28</td><td>column-gap: 28px</td></tr>
+    <tr><td>.r_gap28</td><td>row-gap: 28px</td></tr>
+    <tr><td>.gap30</td><td>gap: 30px</td></tr>
+    <tr><td>.c_gap30</td><td>column-gap: 30px</td></tr>
+    <tr><td>.r_gap30</td><td>row-gap: 30px</td></tr>
+    <tr><td>.gap32</td><td>gap: 32px</td></tr>
+    <tr><td>.c_gap32</td><td>column-gap: 32px</td></tr>
+    <tr><td>.r_gap32</td><td>row-gap: 32px</td></tr>
+    <tr><td>.gap34</td><td>gap: 34px</td></tr>
+    <tr><td>.c_gap34</td><td>column-gap: 34px</td></tr>
+    <tr><td>.r_gap34</td><td>row-gap: 34px</td></tr>
+    <tr><td>.gap36</td><td>gap: 36px</td></tr>
+    <tr><td>.c_gap36</td><td>column-gap: 36px</td></tr>
+    <tr><td>.r_gap36</td><td>row-gap: 36px</td></tr>
+    <tr><td>.gap38</td><td>gap: 38px</td></tr>
+    <tr><td>.c_gap38</td><td>column-gap: 38px</td></tr>
+    <tr><td>.r_gap38</td><td>row-gap: 38px</td></tr>
+    <tr><td>.gap40</td><td>gap: 40px</td></tr>
+    <tr><td>.c_gap40</td><td>column-gap: 40px</td></tr>
+    <tr><td>.r_gap40</td><td>row-gap: 40px</td></tr>
+    <tr><td>.gap42</td><td>gap: 42px</td></tr>
+    <tr><td>.c_gap42</td><td>column-gap: 42px</td></tr>
+    <tr><td>.r_gap42</td><td>row-gap: 42px</td></tr>
+    <tr><td>.gap44</td><td>gap: 44px</td></tr>
+    <tr><td>.c_gap44</td><td>column-gap: 44px</td></tr>
+    <tr><td>.r_gap44</td><td>row-gap: 44px</td></tr>
+    <tr><td>.gap46</td><td>gap: 46px</td></tr>
+    <tr><td>.c_gap46</td><td>column-gap: 46px</td></tr>
+    <tr><td>.r_gap46</td><td>row-gap: 46px</td></tr>
+    <tr><td>.gap48</td><td>gap: 48px</td></tr>
+    <tr><td>.c_gap48</td><td>column-gap: 48px</td></tr>
+    <tr><td>.r_gap48</td><td>row-gap: 48px</td></tr>
+    <tr><td>.gap50</td><td>gap: 50px</td></tr>
+    <tr><td>.c_gap50</td><td>column-gap: 50px</td></tr>
+    <tr><td>.r_gap50</td><td>row-gap: 50px</td></tr>
+  </tbody>
+</table>
+
+<h3 class="c-tit"><a href="#verticalAlign" id="verticalAlign" class="c-tit-link">vertical-align</a></h3>
+<table class="c-tbl">
+  <caption class="screen_out">속성 표</caption>
+  <colgroup>
+    <col style="width: 35%">
+    <col>
+  </colgroup>
+  <thead>
+    <tr>
+      <th scope="col">클래스</th>
+      <th scope="col">속성</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>.v_top</td><td>vertical-align: top</td></tr>
+    <tr><td>.v_middle</td><td>vertical-align: middle</td></tr>
+    <tr><td>.v_bottom</td><td>vertical-align: bottom</td></tr>
+  </tbody>
+</table>
+
+<h3 class="c-tit"><a href="#decoration" id="decoration" class="c-tit-link">decoration</a></h3>
+<table class="c-tbl">
+  <caption class="screen_out">속성 표</caption>
+  <colgroup>
+    <col style="width: 35%">
+    <col>
+  </colgroup>
+  <thead>
+    <tr>
+      <th scope="col">클래스</th>
+      <th scope="col">속성</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>.underline</td><td>text-decoration: underline</td></tr>
+    <tr><td>.line_through</td><td>text-decoration: line-through</td></tr>
+    <tr><td>.no_underline</td><td>text-decoration: none</td></tr>
+  </tbody>
+</table>
+
+<h3 class="c-tit"><a href="#boxSizing" id="boxSizing" class="c-tit-link">box-sizing</a></h3>
+<table class="c-tbl">
+  <caption class="screen_out">속성 표</caption>
+  <colgroup>
+    <col style="width: 35%">
+    <col>
+  </colgroup>
+  <thead>
+    <tr>
+      <th scope="col">클래스</th>
+      <th scope="col">속성</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>.content_box</td><td>box-sizing: content-box</td></tr>
+    <tr><td>.border_box</td><td>box-sizing: border-box</td></tr>
+  </tbody>
+</table>
+
+<h3 class="c-tit"><a href="#objectFit" id="objectFit" class="c-tit-link">object-fit</a></h3>
+<table class="c-tbl">
+  <caption class="screen_out">속성 표</caption>
+  <colgroup>
+    <col style="width: 35%">
+    <col>
+  </colgroup>
+  <thead>
+    <tr>
+      <th scope="col">클래스</th>
+      <th scope="col">속성</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>.object_fill</td><td>object-fit: fill</td></tr>
+    <tr><td>.object_cover</td><td>object-fit: cover</td></tr>
+    <tr><td>.object_contain</td><td>object-fit: contain</td></tr>
+    <tr><td>.object_none</td><td>object-fit: none</td></tr>
+  </tbody>
+</table>

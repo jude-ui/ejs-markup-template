@@ -1,0 +1,79 @@
+@import './compo/common/mixins'; // sass - 믹스인, 변수
+@import './compo/common/variable'; // sass - 믹스인, 변수
+$color-line-gray: #c9c9c9;
+$color-line-gray2: #676767;
+$color-line-tit: #888;
+
+// prism.css 오버라이드
+.c-wrapper div.code-toolbar > .toolbar{opacity:1}
+.c-wrapper pre[class*=language-]{padding-top:18px;padding-left:40px;border-bottom-left-radius:5px;border-bottom-right-radius:5px}
+.c-wrapper div.code-toolbar > .toolbar > .toolbar-item > span{font-size:10px;color:rgba(255,255,255,.4);background:none;box-shadow:none}
+.c-wrapper div.code-toolbar > .toolbar > .toolbar-item .copy-to-clipboard-button{position:absolute;top:0;right:0;width:30px;height:30px;padding:0;border-radius:2px;color:transparent;background:#424242 url(#{$imgUrl}/guide_frame/file_copy.svg) 50% 50% no-repeat;background-size:20px 20px;box-shadow:none;opacity:0;transition:opacity .2s}
+.c-wrapper div.code-toolbar > .toolbar > .toolbar-item .copy-to-clipboard-button[data-copy-state="copy-success"] span{position:absolute;top:0;right:100%;height:30px;margin-right:2px;padding:0 8px;color:#ccc;line-height:30px;border-radius:2px;background:#424242;white-space:nowrap}
+.c-wrapper div.code-toolbar:hover > .toolbar > .toolbar-item > span{display:none}
+.c-wrapper div.code-toolbar:hover > .toolbar > .toolbar-item .copy-to-clipboard-button{opacity:1}
+.c-wrapper div.code-toolbar > .toolbar > .toolbar-item > .copy-to-clipboard-button[data-copy-state="copy-success"]{background-image:url(#{$imgUrl}/guide_frame/file_copy_fill.svg)}
+
+// GUIDE
+html, body{height: 100%}
+.c-wrapper{position:relative;min-height:100%}
+.c-wrapper pre{margin:0;font-size: 14px;line-height: 1.4}
+.c-header{display: flex;align-items: center;gap: 5px;position:fixed;top:0;left:0;width:100%;z-index:100;padding:12px 15px;border-bottom:1px solid $color-line-gray;background-color:#fff;box-sizing:border-box}
+.c-header .tit_head{margin: -12px 0 -12px -15px;font-size:30px;line-height:36px}
+.c-header .tit_head a{display:inline-block;padding:12px 15px;color:#2a2a2a;vertical-align:top}
+.c-header .btn{display: none}
+.c-main{padding:61px 0 0 200px;transition: padding .4s}
+.c-nav{overflow-y:auto;overflow-x:hidden;position:fixed;top:61px;left:0;bottom:0;z-index: 100;width:200px;border-right: 1px solid $color-line-gray;background-color: #fff;transition: transform .4s}
+.c-list-nav{padding:15px 0 25px}
+.c-list-nav span{display:inline-block;overflow:hidden;position:relative;padding-bottom:2px;margin-bottom:-2px;vertical-align:top}
+.c-list-nav span:before{position: absolute;bottom: 0;left: 0;width: 100%;height: 2px;background: currentColor;transform: translateX(-100%);transition: transform .3s;content:''}
+.c-sublist span{padding-bottom:1px;margin-bottom:-1px}
+.c-list-nav a:hover span:before{transform: translateX(0)}
+.c-list-nav a{display:block}
+.c-list-nav a:hover{text-decoration: none}
+.c-list-nav a.active{background:pink}
+.c-list-nav > li > a{position:relative;padding:6px 10px;font-size: 18px;line-height: 22px;font-weight: 700;color:rgba(28,28,28,.8)}
+.c-list-nav > li > a:hover{font-weight:800;color:#2a2a2a}
+.c-sublist a{position: relative;padding:4px 10px 4px 20px;font-weight:500;font-size:14px;line-height:20px;color:rgba(60,60,60,.7);transition: color .5s}
+.c-sublist a:hover{font-weight:700;color:rgb(33,53,71)}
+.c-sublist a:before{position: absolute;top:50%;left:12px;width: 4px;height: 4px;border-radius:50%;background-color: currentColor;transform:translateY(-50%);content: ''}
+.c-article{padding: 20px 20px 40px}
+
+h2.c-tit{margin-bottom:10px;border-bottom: 2px solid $color-line-tit;font-size: 30px;line-height:1.6;font-weight: 600}
+h2.c-tit ~ h2.c-tit{padding-top:60px}
+h3.c-tit{padding-top:20px;font-size: 24px;line-height: 30px}
+h3.c-tit a{border-bottom: 4px solid #383838}
+.c-tit .link{display:block}
+.c-tit-link{display:inline-block;padding-top:10px;color:#383838;vertical-align:top}
+
+.code-toolbar{display:none}
+.c-code-wrap{padding:20px 0}
+.c-code-wrap + .c-code-wrap{margin-top:30px}
+.c-code-wrap .c-btn-toggle{display:block;width:100%;padding:6px 0;margin-top:15px;border-radius: 5px;font-size:16px;font-weight:700;color:#484848;background-color:#ddd;transition: all .3s}
+.c-code-wrap .c-btn-toggle.active{border-bottom-left-radius: 0;border-bottom-right-radius: 0}
+.c-code-wrap .c-btn-toggle.active + .code-toolbar{display: block}
+
+.c-tbl{width:100%;max-width:550px;margin-top:20px;border-top:1px solid $color-line-tit;border-collapse:collapse;border-spacing: 0;table-layout:fixed}
+.c-tbl th, .c-tbl td{padding:10px 5px;font-size: 14px;line-height: 18px;color:#424242;letter-spacing: 0.5px}
+.c-tbl th{border-bottom: 2px solid #676767}
+.c-tbl td{border-bottom: 1px solid #ccc;font-weight: 500;}
+.c-desc{font-size: 18px;line-height: 1.5;color:#424242}
+.c-list-color{display:grid;grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));grid-gap:10px}
+.c-list-color + .c-list-color{padding-top: 0;}
+.c-list-color [class*=color]{display: flex;align-items: center;justify-content: center;width:50px;height:50px;border-radius:50%;font-size: 14px;font-weight: 600}
+.c-code-box + .c-desc,
+.c-code-box + .list{padding-top: 10px}
+.code-toolbar + .c-code-box{margin-top:60px}
+.dimmed_nav{position:fixed;top:61px;left:0;right:0;bottom:0;z-index:1000;background-color: rgba(0,0,0,.7);transition: visibility .3s, opacity .3s;visibility: hidden;opacity: 0}
+.c-btn-menu{display: none;padding:4px 10px;font-size: 28px;margin-left: -10px}
+
+@media
+only screen and (max-width: 768px) {
+  .c-header .tit_head{margin-left: 0}
+  .c-main{padding-left: 0}
+  .c-header .btn{display: block}
+  .menu_on .dimmed_nav{visibility: visible;opacity: 1;}
+  .c-nav{transform:translateX(-100%)}
+  .menu_on .c-nav{z-index:1010;transform:translate(0)}
+  .c-btn-menu{display: block}
+}

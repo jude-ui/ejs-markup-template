@@ -24,7 +24,7 @@
 <html lang="ko">
 <head>
 <%- include(
-  `${_components}/_head`,
+  `../layout/_head`,
   {
     title: '기본 레이아웃',
     _src
@@ -38,7 +38,7 @@
   <a href="#gnbContent">메뉴 바로가기</a>
 </div>
 <div class="container-doc">
-  <%- include(_components + '/_header') %>
+  <%- include('../layout/_header') %>
   <hr class="hide">
   
   <main id="mainContent">
@@ -47,7 +47,7 @@
   </main>
   
   <hr class="hide">
-  <%- include(_components + '/_footer') %>
+  <%- include( '../layout/_footer') %>
 </div>
 </body>
 </html>

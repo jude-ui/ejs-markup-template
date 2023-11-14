@@ -1,0 +1,84 @@
+.inp_comm{
+  display: inline-flex;
+  width: 300px;
+  height: 52px;
+  padding:15px 17px 14px;
+  border-radius: 3px;
+  border:1px solid $border-color2;
+  font-size: 18px;
+  line-height: 21px;
+  color: $border-color3;
+  box-sizing: border-box;
+  vertical-align: top;
+  &::-webkit-input-placeholder{
+    opacity: .38;
+  } /* Chrome/Opera/Safari */
+  &::-moz-placeholder{
+    opacity: .38;
+  } /* Firefox 19+ */
+  &:-ms-input-placeholder{
+    opacity: .38;
+  } /* IE 10+ */
+  &:-moz-placeholder{
+    opacity: .38;
+  } /* Firefox 18- */
+  &:focus {
+    border-color: $border-color3;
+  }
+  &:disabled, &[disabled]{
+    border-color: $border-color1;
+    color:$border-color2;
+    background-color: $bg-color2;
+  }
+}
+.date_comm{
+  position: relative;
+  color:$border-color3;
+  input{
+    display: inline-flex;
+    position: relative;
+    width: 170px;
+    height: 52px;
+    padding: 15px 17px 14px;
+    border:1px solid $border-color2;
+    border-radius: 3px;
+    font-size: 18px;
+    line-height: 21px;
+    color: $border-color3;
+    background-color: #fff;
+    vertical-align: top;
+    box-sizing: border-box;
+    &:disabled, &[disabled]{
+      border-color: $border-color1;
+      color:$border-color2;
+      background-color: $bg-color2;
+      & + i{
+        color:$border-color2;
+      }
+    }
+  }
+  input::-webkit-calendar-picker-indicator {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0);
+    color: rgba(0,0,0,0);
+    cursor: pointer;
+  }
+  i{
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+}
+
+.file_comm{display:flex;gap:10px;position: relative}
+.file_comm label{min-width: 80px;border-radius: 3px}
+.file_comm input[type=file]:focus-visible ~ label{outline:#265DC5 auto 1px}
+.file_comm input[type=file]{position: absolute;top:0;left:0;z-index:-10;width:1px;height:1px;padding:0;border:0;opacity: 0.001;cursor: pointer;clip:rect(0 0 0 0);margin:-1px;overflow:hidden}
+.file_comm .inp_comm{overflow:hidden;text-overflow:ellipsis}

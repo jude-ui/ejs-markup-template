@@ -1,0 +1,202 @@
+<h3 class="c-tit">
+  <a href="#infobox" id="infobox" class="c-tit-link">Info 박스</a>
+</h3>
+
+<div class="c-code-wrap">
+  <!-- 실제 코드 -->
+  <div class="c-code-box">
+    <div class="align_wrap gap50 reverse">
+      <div class="info_box ico_info5">
+        <h5>H5 Bold 24px / 29px #2F51B2 페이지 타이틀</h5>
+        <p>
+          기본 P 스타일에 모든 기본 박스의 라인은 #ddd, 최소 박스의 크기는 140px입니다.
+        </p>
+      </div>
+      <!-- // info_box -->
+
+      <div class="box_wrap">
+        <div class="info_box">
+          <h5>H5 Bold 24px / 29px #2F51B2 페이지 타이틀</h5>
+          <p>
+            기본 P 스타일에 모든 기본 박스의 라인은 #ddd, 최소 박스의 크기는 140px입니다.
+          </p>
+        </div>
+  
+        <div class="info_box ico_info4">
+          <h5>H5 Bold 24px / 29px #2F51B2 페이지 타이틀</h5>
+          <p>
+            기본 P 스타일에 모든 기본 박스의 라인은 #ddd, 최소 박스의 크기는 140px입니다.
+          </p>
+        </div>
+      </div>
+      <!-- // box_wrap -->
+  
+      <div class="box_wrap wrap3">
+        <div class="info_box">
+          <h5>H5 Bold 24px / 29px #2F51B2 페이지 타이틀</h5>
+          <p>
+            기본 P 스타일에 모든 기본 박스의 라인은 #ddd, 최소 박스의 크기는 140px입니다.
+          </p>
+        </div>
+  
+        <div class="info_box ico_info4">
+          <h5>H5 Bold 24px / 29px #2F51B2 페이지 타이틀</h5>
+          <p>
+            기본 P 스타일에 모든 기본 박스의 라인은 #ddd, 최소 박스의 크기는 140px입니다.
+          </p>
+        </div>
+        
+        <div class="info_box dash ico_info2">
+          <h4>H4 Extrabold 26px / 31px #000 페이지 타이틀</h4>
+          <p>
+            기본 P 스타일에 모든 기본 박스의 라인은 dash의 경우 #858585,  최소 박스의 크기는 140px입니다.
+          </p>
+        </div>
+      </div>
+      <!-- // box_wrap wrap3 -->
+  
+      <div class="box_wrap wrap4">
+        <a href="#none">
+          <div class="info_box">
+            <h5>H5 Bold 24px / 29px #2F51B2 페이지 타이틀</h5>
+            <p>
+              기본 P 스타일에 모든 기본 박스의 라인은 #ddd, 최소 박스의 크기는 140px입니다.
+            </p>
+          </div>
+        </a>
+  
+        <div class="info_box ico_info4">
+          <h5>H5 Bold 24px / 29px #2F51B2 페이지 타이틀</h5>
+          <p>
+            기본 P 스타일에 모든 기본 박스의 라인은 #ddd, 최소 박스의 크기는 140px입니다.
+          </p>
+        </div>
+        
+        <div class="info_box dash ico_info2">
+          <h4>H4 Extrabold 26px / 31px #000 페이지 타이틀</h4>
+          <p>
+            기본 P 스타일에 모든 기본 박스의 라인은 dash의 경우 #858585,  최소 박스의 크기는 140px입니다.
+          </p>
+        </div>
+        <div class="info_box bg ico_info3">
+          <h6><span class="ico_bullet"></span>H6 Bold 22px / 26px #000 페이지타이틀</h6>
+          <p>
+            기본 P 스타일에 모든 기본 박스의 라인은 #ddd, 최소 박스의 크기는 140px입니다. 길게 작성될 경우는 참고 하셔서 마크업 해주시기 바랍니다. 기본적인 스타일이며, 모든 항목은 그때그때 추가 될 수도 있음을 알려드립니다.
+          </p>
+        </div>
+      </div>
+      <!-- // box_wrap wrap4 -->
+    </div>
+    <!-- // align_wrap -->
+  </div>
+  <!-- // 실제 코드 -->
+
+  <!-- 설명 -->
+  <ul class="list type5">
+    <li>최소 박스 너비 300px로 자동으로 채워지거나 하단으로 떨어지도록 설계됨</li>
+    <li>박스 2개 부터 .info_box를 <strong>.box_wrap 구조로 감싸줘야 함</strong></li>
+    <li>박스 3개와 4개는 <strong>.box_wrap.wrap3</strong>, <strong>.box_wrap.wrap4</strong> 래퍼 클래스를 추가해줘야 함.</li>
+    <li>
+      아이콘 좌측에서 상단으로 변경되는 중단점
+      <ul class="list type6">
+        <li>박스 1개일 때 : 768px 이하부터 / gap 8px</li>
+        <li>박스 2개일 때 : 1000px 이하부터 / gap 10px</li>
+        <li>박스 3개일 때 : 1400px 이하부터 / gap 15px</li>
+        <li>박스 4개일 때 : 1800px 이하부터 / gap 20px</li>
+        <li>1800px 이상일 때 gap 25px</li>
+      </ul>
+    </li>
+    <li>.info_box를 a 태그로 감싸서 사용도 가능</li>
+    <li>박스 요소의 너비를 기준으로 레이아웃을 변경되게 하는 기술이 있지만(container queries) 크롬 조차 22년 4분기에 구현한 상황이라 브라우저 지원범위가 너무 좁아서 사용 불가</li>
+  </ul>
+  <!-- // 설명 -->
+
+  <!-- 코드 하이라이트 -->
+  <button type="button" class="c-btn-toggle">코드 보기</button>
+  <pre><code class="lang-html">
+    <div class="align_wrap gap50 reverse">
+      <div class="info_box ico_info5">
+        <h5>H5 Bold 24px / 29px #2F51B2 페이지 타이틀</h5>
+        <p>
+          기본 P 스타일에 모든 기본 박스의 라인은 #ddd, 최소 박스의 크기는 140px입니다.
+        </p>
+      </div>
+      <!-- // info_box -->
+
+      <div class="box_wrap">
+        <div class="info_box">
+          <h5>H5 Bold 24px / 29px #2F51B2 페이지 타이틀</h5>
+          <p>
+            기본 P 스타일에 모든 기본 박스의 라인은 #ddd, 최소 박스의 크기는 140px입니다.
+          </p>
+        </div>
+  
+        <div class="info_box ico_info4">
+          <h5>H5 Bold 24px / 29px #2F51B2 페이지 타이틀</h5>
+          <p>
+            기본 P 스타일에 모든 기본 박스의 라인은 #ddd, 최소 박스의 크기는 140px입니다.
+          </p>
+        </div>
+      </div>
+      <!-- // box_wrap -->
+  
+      <div class="box_wrap wrap3">
+        <div class="info_box">
+          <h5>H5 Bold 24px / 29px #2F51B2 페이지 타이틀</h5>
+          <p>
+            기본 P 스타일에 모든 기본 박스의 라인은 #ddd, 최소 박스의 크기는 140px입니다.
+          </p>
+        </div>
+  
+        <div class="info_box ico_info4">
+          <h5>H5 Bold 24px / 29px #2F51B2 페이지 타이틀</h5>
+          <p>
+            기본 P 스타일에 모든 기본 박스의 라인은 #ddd, 최소 박스의 크기는 140px입니다.
+          </p>
+        </div>
+        
+        <div class="info_box dash ico_info2">
+          <h4>H4 Extrabold 26px / 31px #000 페이지 타이틀</h4>
+          <p>
+            기본 P 스타일에 모든 기본 박스의 라인은 dash의 경우 #858585,  최소 박스의 크기는 140px입니다.
+          </p>
+        </div>
+      </div>
+      <!-- // box_wrap wrap3 -->
+  
+      <div class="box_wrap wrap4">
+        <a href="#none">
+          <div class="info_box">
+            <h5>H5 Bold 24px / 29px #2F51B2 페이지 타이틀</h5>
+            <p>
+              기본 P 스타일에 모든 기본 박스의 라인은 #ddd, 최소 박스의 크기는 140px입니다.
+            </p>
+          </div>
+        </a>
+  
+        <div class="info_box ico_info4">
+          <h5>H5 Bold 24px / 29px #2F51B2 페이지 타이틀</h5>
+          <p>
+            기본 P 스타일에 모든 기본 박스의 라인은 #ddd, 최소 박스의 크기는 140px입니다.
+          </p>
+        </div>
+        
+        <div class="info_box dash ico_info2">
+          <h4>H4 Extrabold 26px / 31px #000 페이지 타이틀</h4>
+          <p>
+            기본 P 스타일에 모든 기본 박스의 라인은 dash의 경우 #858585,  최소 박스의 크기는 140px입니다.
+          </p>
+        </div>
+        <div class="info_box bg ico_info3">
+          <h6><span class="ico_bullet"></span>H6 Bold 22px / 26px #000 페이지타이틀</h6>
+          <p>
+            기본 P 스타일에 모든 기본 박스의 라인은 #ddd, 최소 박스의 크기는 140px입니다. 길게 작성될 경우는 참고 하셔서 마크업 해주시기 바랍니다. 기본적인 스타일이며, 모든 항목은 그때그때 추가 될 수도 있음을 알려드립니다.
+          </p>
+        </div>
+      </div>
+      <!-- // box_wrap wrap4 -->
+    </div>
+    <!-- // align_wrap -->
+  </code></pre>
+  <!-- // 코드 하이라이트 -->
+</div>

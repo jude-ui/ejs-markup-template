@@ -1,0 +1,60 @@
+.align_wrap .list + .list{
+  padding-top:0;
+}
+.list{
+  li{
+    padding-left: 22px;
+    font-size: 18px;
+    line-height: 24px;
+    color: #575757;
+    text-indent: -22px;
+  }
+  & + .list{
+    padding-top: 20px;
+  }
+  &[class*=type]{
+    position: relative;
+    & > li{
+      position: relative;
+      padding-left: 14px;
+      text-indent: 0;
+      &:before{
+        position:absolute;
+        top: 9px;
+        left: 0;
+        width: 6px;
+        content:'';
+      }
+    }
+  }
+  &.type1 > li:before{
+    height: 6px;
+    border-radius: 50%;
+    background-color: #269BFF;
+  }
+  &.type2 > li:before{
+    height: 6px;
+    border-radius: 50%;
+    background-color: #000;
+  }
+  &.type3 > li:before{
+    height: 6px;
+    border-radius: 50%;
+    background-color: #B4B4B4;
+  }
+  &.type4 > li:before{
+    top: 11px;
+    height: 2px;
+    background-color: #269BFF;
+  }
+  &.type5 > li:before{
+    top: 11px;
+    height: 2px;
+    background-color: #000;
+  }
+  &.type6 > li:before{
+    top: 11px;
+    height: 2px;
+    background-color: #B4B4B4;
+  }
+}

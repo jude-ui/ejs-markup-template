@@ -1,14 +1,7 @@
+// html 파싱 후 호출
 $(function () {
   "use strict";
-  $(document).ready(function () {
-    console.log('after document loading');
-  });
-
-  // 이미지 로딩 후 호출
-  // window.onload = function () {
-  //   console.log('after image loading');
-  // }
-  $(window).on('load', function () {
-    console.log('after image load')
-  });
+});
+// 이미지 로딩 후 호출
+$(window).on('load', function () {
 });
