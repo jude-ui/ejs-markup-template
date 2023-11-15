@@ -3,16 +3,19 @@
   const _src = locals._src || '../';
 %>
 
-<meta charset="utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'><!-- 모바일 환경에서만 사용 -->
 <meta name="format-detection" content="telephone=no"><!-- 모바일 환경에서 아이폰에서 일반숫자나, Datetime 등의 타입 전화번호 인식 방지 -->
 <title><%= title %></title>
-<link href="<%= _src %>css/style_compo_231114.css" rel="stylesheet"><!-- css -->
-<link href="<%= _src %>css/lib/fontawesome.min.css" rel="stylesheet"><!-- css -->
-<link href="<%= _src %>css/lib/all.min.css" rel="stylesheet"><!-- css -->
-<link href="<%= _src %>css/lib/prism.css" rel="stylesheet">
-<link href="<%= _src %>css/guide_frame.css" rel="stylesheet">
-
-<script src="<%= _src %>js/main.js"></script>
-<script src="<%= _src %>js/prism.js"></script>
+<!-- css -->
+<link href="<%= _src %>css/lib/prism-1.29.0.min.css" rel="stylesheet"><!-- guide 코드 하이라이트 css -->
+<link href="<%= _src %>css/guide_frame.css" rel="stylesheet"><!-- guide 페이지 css -->
+<link href="<%= _src %>css/lib/fontawesome.min.css" rel="stylesheet"><!-- 폰트어썸 공통 css -->
+<link href="<%= _src %>css/lib/all-6.1.1.min.css" rel="stylesheet"><!-- 폰트어썸 6.1.1 아이콘 css -->
+<link href="<%= _src %>css/style_compo_231114.css" rel="stylesheet"><!-- 컴포넌트 css -->
+<!-- js -->
+<script src="<%= _src %>js/jquery.js" defer></script>
+<script src="<%= _src %>js/prism-1.29.0.min.js" defer></script><!-- guide 코드 하이라이트 -->
+<script src="<%= _src %>js/guide.js" defer></script><!-- guide js -->
+<script src="<%= _src %>js/ui.js" defer></script><!-- guide js -->

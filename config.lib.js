@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const SpritesmithPlugin = require('webpack-spritesmith');
 const { spriteDirName, _spriteSourcesPath, spriteRatioOptions, retinaSuffix, spriteCssOutputPath, irCss } = require('./sprite-options');
 
-exports.configJsEntry = true
+exports.configJsEntry = false
 
 exports.ejsEntries = () => {
   let result = {}
@@ -42,10 +42,12 @@ exports.jsEntries = () => {
     let key = item.replace(/^src\/js\//, '')
     .replace(/\.js$/, '')
 
-    key = key === 'index'? 'main': key
-
-    const value = "./" + item;
-    result[key] = value
+    // 파일명이 '_'로 시작하지 않을 때만 엔트리 객체에 추가
+    if (!key.startsWith('_')) {
+      key = key === 'index' ? 'main' : key;
+      const value = "./" + item;
+      result[key] = value;
+    }
   })
 
   return result

@@ -146,14 +146,14 @@
 
 <script>
   // File add
-  $('.file_comm').each(function() {
-    $(this).find('input[type="file"]').on('input', function() {
-      const $self = $(this);
-      const fileFullPath = $self.val();
+  // $('.file_comm').each(function() {
+  //   $(this).find('input[type="file"]').on('input', function() {
+  //     const $self = $(this);
+  //     const fileFullPath = $self.val();
 
-      if ($self.prev('.inp_comm').length) {
-        $self.prev('.inp_comm').val(fileFullPath.replace(/^.*[\\\/]/, ''));
-      }
-    });
-  });
+  //     if ($self.prev('.inp_comm').length) {
+  //       $self.prev('.inp_comm').val(fileFullPath.replace(/^.*[\\\/]/, ''));
+  //     }
+  //   });
+  // });
 </script>

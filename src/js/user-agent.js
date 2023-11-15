@@ -89,10 +89,14 @@ const getPlatform = (ua) => {
   }
 }
 
-
-module.exports = {
+const uaTexts = {
   os: `os_${getOs(ua)}`,
   // browser: getBrowser(ua).name,
   // platform: getPlatform(ua),
   // version: `version_${getBrowser(ua).version.replace(/\./gi, '_')}`
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+  const uaClasses = Object.values(uaTexts).join(' ')
+  document.querySelector('html').className += `${uaClasses}`;
+});
