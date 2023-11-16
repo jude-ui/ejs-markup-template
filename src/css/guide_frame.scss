@@ -64,7 +64,7 @@ h3.c-tit a{border-bottom: 4px solid #383838}
 .c-code-box + .c-desc,
 .c-code-box + .list{padding-top: 10px}
 .code-toolbar + .c-code-box{margin-top:60px}
-.dimmed_nav{position:fixed;top:61px;left:0;right:0;bottom:0;z-index:1000;background-color: rgba(0,0,0,.7);transition: visibility .3s, opacity .3s;visibility: hidden;opacity: 0}
+.dimmed-nav{position:fixed;top:61px;left:0;right:0;bottom:0;z-index:1000;background-color: rgba(0,0,0,.7);transition: visibility .3s, opacity .3s;visibility: hidden;opacity: 0}
 .c-btn-menu{display: none;padding:4px 10px;font-size: 28px;margin-left: -10px}
 
 @media
@@ -72,8 +72,8 @@ only screen and (max-width: 768px) {
   .c-header .tit_head{margin-left: 0}
   .c-main{padding-left: 0}
   .c-header .btn{display: block}
-  .menu_on .dimmed_nav{visibility: visible;opacity: 1;}
+  .menu-on .dimmed-nav{visibility: visible;opacity: 1;}
   .c-nav{transform:translateX(-100%)}
-  .menu_on .c-nav{z-index:1010;transform:translate(0)}
+  .menu-on .c-nav{z-index:1010;transform:translate(0)}
   .c-btn-menu{display: block}
 }

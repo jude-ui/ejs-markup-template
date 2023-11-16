@@ -42,12 +42,9 @@ exports.jsEntries = () => {
     let key = item.replace(/^src\/js\//, '')
     .replace(/\.js$/, '')
 
-    // 파일명이 '_'로 시작하지 않을 때만 엔트리 객체에 추가
-    if (!key.startsWith('_')) {
-      key = key === 'index' ? 'main' : key;
-      const value = "./" + item;
-      result[key] = value;
-    }
+    key = key === 'index' ? 'main' : key;
+    const value = "./" + item;
+    result[key] = value;
   })
 
   return result

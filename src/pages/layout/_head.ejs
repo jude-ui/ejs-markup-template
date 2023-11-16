@@ -1,16 +1,18 @@
 <% const title = locals.title || 'none title' %>
 <% const _src = locals._src || '../' %>
 
-<meta charset="utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'><!-- 모바일 환경에서만 사용 -->
 <meta name="format-detection" content="telephone=no"><!-- 모바일 환경에서 아이폰에서 일반숫자나, Datetime 등의 타입 전화번호 인식 방지 -->
 <title><%= title %></title>
+<!-- css -->
 <link href="<%= _src %>css/lib/fontawesome.min.css" rel="stylesheet"><!-- 폰트어썸 공통 css -->
 <link href="<%= _src %>css/lib/all-6.1.1.min.css" rel="stylesheet"><!-- 폰트어썸 6.1.1 아이콘 css -->
 <link href="<%= _src %>css/lib/slick.min.css" rel="stylesheet"><!-- slick css -->
 <link href="<%= _src %>css/style_compo_231114.css" rel="stylesheet"><!-- 컴포넌트 css -->
 <link href="<%= _src %>css/style.css" rel="stylesheet"><!-- 프로젝트 css -->
-
-<script src="<%= _src %>js/main.js"></script><!-- js 모듈 머지 -->
-<script src="<%= _src %>js/ui.js"></script><!-- ui js -->
+<!-- js -->
+<script src="<%= _src %>js/jquery-1.12.4.min.js" defer></script><!-- Jquery -->
+<script src="<%= _src %>js/slick-1.9.0.min.js" defer></script><!-- slick js -->
+<script src="<%= _src %>js/ui.js" defer></script><!-- 프로젝트 ui js -->
