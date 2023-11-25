@@ -1,6 +1,7 @@
 const RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
 const BeautifyHtmlWebpackPlugin = require('beautify-html-webpack-plugin');
-const { HtmlWebpackPlugins, cssEntries, jsEntries, configJsEntry } = require("./config.lib");
+const { HtmlWebpackPlugins, cssEntries, jsEntries } = require("./config.lib");
+const { CONFIG_JS_ENTRY, IS_JS_MINIFY } = require('./config.settings');
 
 module.exports = {
   mode: 'production',
@@ -8,10 +9,10 @@ module.exports = {
     const entry = {
       ...cssEntries(),
     }
-    return configJsEntry ? { ...entry, ...jsEntries() } : { ...entry }
+    return CONFIG_JS_ENTRY ? { ...entry, ...jsEntries() } : { ...entry }
   },
   optimization: {
-    minimize: configJsEntry ? true : false
+    minimize: IS_JS_MINIFY
   },
   module: {
     rules: [

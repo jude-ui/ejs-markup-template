@@ -20,9 +20,6 @@ class CssOutputPlugin {
               if (assetName.endsWith('.css')) {
                 let content = assets[assetName].source();
 
-                // 빌드된 CSS 내용을 후처리
-                content = '@charset "utf-8";' + content; // @charset 추가
-
                 const newAsset = new sources.RawSource(content);
                 compilation.updateAsset(assetName, newAsset);
               }

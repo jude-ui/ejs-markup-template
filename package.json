@@ -1,10 +1,11 @@
 {
   "name": "ui-boilerplate",
-  "version": "2.3.3",
+  "version": "2.4.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "build": "rimraf build src/css/sprites && webpack --mode=production",
+    "build:pass": "rimraf build src/css/sprites && webpack --mode=production && rimraf build/js/{guide.js, user-agent.js} build/css/lib/prism-1.29.0.min.css build/css/guide_frame.css",
     "dev": "rimraf dev src/css/sprites && webpack serve --mode=development",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -35,8 +36,5 @@
     "webpack-merge": "^5.7.3",
     "webpack-remove-empty-scripts": "^0.7.1",
     "webpack-spritesmith": "^1.1.0"
-  },
-  "dependencies": {
-    "jquery": "^3.5.1"
   }
 }

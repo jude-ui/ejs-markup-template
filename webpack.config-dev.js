@@ -1,12 +1,8 @@
 const path = require('path');
-const { cssEntries, ejsEntries, jsEntries, configJsEntry } = require("./config.lib");
-const RemoveJsFromEjsPlugin = require('./remove-js-from-ejs-plugin')
-const ExtraWatchWebpackPlugin = require('extra-watch-webpack-plugin')
-const fs = require('fs');
-const devServerConfig = fs.existsSync('./dev-server-config.js') ? require('./dev-server-config') : false;
-const port = devServerConfig && devServerConfig['DEV_SERVER_PORT'] ? devServerConfig['DEV_SERVER_PORT'] : 8080;
-const sourceMap = devServerConfig && devServerConfig['USE_SOURCE_MAP'] ? 'eval-cheap-module-source-map' : false;
-const devFolder = devServerConfig && devServerConfig['DEV_FOLDER'] ? devServerConfig['DEV_FOLDER'] : 'dev';
+const { cssEntries, ejsEntries, jsEntries } = require("./config.lib");
+const RemoveJsFromEjsPlugin = require('./remove-js-from-ejs-plugin');
+const ExtraWatchWebpackPlugin = require('extra-watch-webpack-plugin');
+const { DEV_FOLDER, USE_SOURCE_MAP, CONFIG_JS_ENTRY } = require('./config.settings');
 
 module.exports = {
   mode: 'development',
@@ -15,7 +11,7 @@ module.exports = {
       ...cssEntries(),
       ...ejsEntries()
     }
-    return configJsEntry ? { ...entry, ...jsEntries() } : { ...entry }
+    return CONFIG_JS_ENTRY ? { ...entry, ...jsEntries() } : { ...entry }
   },
   module: {
     rules: [
@@ -52,10 +48,10 @@ module.exports = {
     }),
     new RemoveJsFromEjsPlugin(),
   ],
-  devtool: sourceMap,
+  devtool: USE_SOURCE_MAP,
   devServer: {
     static: {
-      directory: path.resolve(__dirname, devFolder),
+      directory: path.resolve(__dirname, DEV_FOLDER),
       watch: true,
     },
     devMiddleware: {
@@ -64,7 +60,7 @@ module.exports = {
     // open: ['html/index.html'],
     open: false,
     allowedHosts: 'all',
-    port,
+    // port,
     host: 'localhost',
     // client: {
     //   webSocketURL: {

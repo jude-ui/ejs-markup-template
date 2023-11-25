@@ -4,8 +4,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const SpritesmithPlugin = require('webpack-spritesmith');
 const { spriteDirName, _spriteSourcesPath, spriteRatioOptions, retinaSuffix, spriteCssOutputPath, irCss } = require('./sprite-options');
 
-exports.configJsEntry = false
-
 exports.ejsEntries = () => {
   let result = {}
   const ejsList = glob.sync(`src/pages/**/*.ejs`)
@@ -42,7 +40,6 @@ exports.jsEntries = () => {
     let key = item.replace(/^src\/js\//, '')
     .replace(/\.js$/, '')
 
-    key = key === 'index' ? 'main' : key;
     const value = "./" + item;
     result[key] = value;
   })

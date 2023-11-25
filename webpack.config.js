@@ -2,9 +2,7 @@ const { merge } = require('webpack-merge');
 const commonConfig = require('./webpack.config-comm');
 const productionConfig = require('./webpack.config-prod');
 const developmentConfig = require('./webpack.config-dev');
-const fs = require('fs');
-const devServerConfig = fs.existsSync('./dev-server-config.js') ? require('./dev-server-config') : false;
-const defaultPort = devServerConfig && devServerConfig['DEV_SERVER_PORT'] ? devServerConfig['DEV_SERVER_PORT'] : 8080;
+const { DEV_SERVER_PORT } = require('./config.settings');
 const portfinder = require('portfinder');
 
 module.exports = async (env, argv) => {
@@ -25,7 +23,7 @@ module.exports = async (env, argv) => {
 
   // 사용 가능한 포트 찾기
   const port = await portfinder.getPortPromise({
-    port: defaultPort, // 기본 포트
+    port: DEV_SERVER_PORT, // 기본 포트
   });
 
   // 개발 서버 포트 설정 업데이트

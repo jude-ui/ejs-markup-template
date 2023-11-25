@@ -1,10 +1,10 @@
-@import './compo/common/mixins'; // sass - 믹스인, 변수
-@import './compo/common/variable'; // sass - 믹스인, 변수
+@import './compo/common/mixins';
+@import './compo/common/variable';
 $color-line-gray: #c9c9c9;
 $color-line-gray2: #676767;
 $color-line-tit: #888;
 
-// prism.css 오버라이드
+/* prism.css 오버라이드 */
 .c-wrapper div.code-toolbar > .toolbar{opacity:1}
 .c-wrapper pre[class*=language-]{padding-top:18px;padding-left:40px;border-bottom-left-radius:5px;border-bottom-right-radius:5px}
 .c-wrapper div.code-toolbar > .toolbar > .toolbar-item > span{font-size:10px;color:rgba(255,255,255,.4);background:none;box-shadow:none}
@@ -14,7 +14,7 @@ $color-line-tit: #888;
 .c-wrapper div.code-toolbar:hover > .toolbar > .toolbar-item .copy-to-clipboard-button{opacity:1}
 .c-wrapper div.code-toolbar > .toolbar > .toolbar-item > .copy-to-clipboard-button[data-copy-state="copy-success"]{background-image:url(#{$imgUrl}/guide_frame/file_copy_fill.svg)}
 
-// GUIDE
+/* GUIDE */
 html, body{height: 100%}
 .c-wrapper{position:relative;min-height:100%}
 .c-wrapper pre{margin:0;font-size: 14px;line-height: 1.4}

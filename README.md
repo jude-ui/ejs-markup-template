@@ -32,11 +32,11 @@ $ npm run build
 
 ```
 // 개발 서버 포트가 8080일 경우 index 페이지
-http://localhost:8080/html/page-list.html
+http://localhost:8080/html/index.html
 ```
 
 #### 페이지 목록 자동 열기
-`webpack.config-dev.js`의 `devServer.open` 옵션으로 개발 서버 시작시 `html/page-list.html` 파일을 자동 열기 가능.<br>
+`webpack.config-dev.js`의 `devServer.open` 옵션으로 개발 서버 시작시 `html/index.html` 파일을 자동 열기 가능.<br>
 *사용 안할시 `false`로 설정
 
 ```
@@ -44,23 +44,26 @@ http://localhost:8080/html/page-list.html
 
 module.exports = {
     devServer: {
-        open: ['html/page-list.html'] // 미사용시 false
+        open: ['html/index.html'] // 미사용시 false
     }
 }
 ```
 
-### 프로젝트 루트 경로의 `dev-server-config.js` 파일로 소스맵 또는 포트 번호 변경
+### 프로젝트 루트 경로의 `config.settings.js` 파일로 소스맵 또는 포트 번호 변경
 ```
-// dev-server-config.js
+// config.settings.js
 
-exports.USE_SOURCE_MAP = true // sass 소스맵 사용 여부 - 기본값 false
-exports.DEV_SERVER_PORT = 8080 // 개발 서버 포트 번호 - 기본값 8080
-exports.DEV_FOLDER = 'dev' // 개발 서버 작동시 바라보는(기준이 되는) 폴더 이름 - 기본값 'dev'
-exports.PROD_FOLDER = 'build' // 빌드시 생성되는 폴더 이름 - 기본값 'build'
+exports.DEV_FOLDER = 'dev' // 개발 서버 작동시 바라보는(기준이 되는) 폴더 이름
+exports.PROD_FOLDER = 'build' // 빌드시 생성되는 폴더 이름
+exports.USE_SOURCE_MAP = 'eval-cheap-module-source-map'; // scss 소스맵 사용 여부 (미사용시 false), (https://webpack.kr/configuration/devtool/)
+exports.DEV_SERVER_PORT = 8080 // 개발 서버 포트 번호
+exports.CONFIG_JS_ENTRY = false // js 모듈 방식 사용 유무
+exports.IS_JS_MINIFY = false // 빌드시 js 압축 유무
+exports.CSS_OUTPUT_STYLE = 'expanded' // 개발, 빌드시 css 출력 방식 설정 ('compressed', 'expanded' 둘 중 하나로 설정 *compressed로 설정할시 언어셋 설정 및 모든 주석 사라짐)
 ```
 
 ### DEV_FOLDER 와 PROD_FOLDER 이름을 바꾸고 싶을 경우
-1. `dev-server-config.js` 파일의 `DEV_FOLDER` 와 `PROD_FOLDER` 값을 변경
+1. `config.settings.js` 파일의 `DEV_FOLDER` 와 `PROD_FOLDER` 값을 변경
 2. `package.json` 의 `scripts.build`, `script.dev` 명령어 쪽에 폴더명 각각 수정
 3. `config.lib.js` 파일의 `cssImageRef` 속성에서 수정
 

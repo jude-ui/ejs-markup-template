@@ -30,7 +30,7 @@ class GenerateIndexHtmlPlugin {
     }
   }
 
-  // page-list.json 에 들어갈 정보를 만드는 함수
+  // index.json 에 들어갈 정보를 만드는 함수
   groupPagesByDepth(pages) {
     // 그릅명을 키값으로 하는 정렬되지 않은 객체 생성
     const newGroups = {};
@@ -97,7 +97,7 @@ class GenerateIndexHtmlPlugin {
   }
 
   generatePageList() {
-    // page-list.json 파일을 생성하는 함수
+    // index.json 파일을 생성하는 함수
     const sortedPages = this.groupPagesByDepth(this.pages);
     fs.writeFileSync('src/pages/index.json', JSON.stringify(sortedPages));
   }

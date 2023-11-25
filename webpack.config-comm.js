@@ -3,22 +3,19 @@ const CopyPlugin = require("copy-webpack-plugin");
 const RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
 const GenerateIndexHtmlPlugin = require('./generate-index-html-plugin');
 const CssOutputPlugin = require('./css-output-plugin');
-const { sprites, configJsEntry } = require("./config.lib");
-const { spriteDirName } = require('./sprite-options')
-const fs = require('fs');
-const devServerConfig = fs.existsSync('./dev-server-config.js') ? require('./dev-server-config') : false
-const devFolder = devServerConfig && devServerConfig['DEV_FOLDER'] ? devServerConfig['DEV_FOLDER'] : 'dev';
-const prodFolder = devServerConfig && devServerConfig['PROD_FOLDER'] ? devServerConfig['PROD_FOLDER'] : 'build';
+const { sprites } = require("./config.lib");
+const { spriteDirName } = require('./sprite-options');
+const { DEV_FOLDER, PROD_FOLDER, CONFIG_JS_ENTRY, CSS_OUTPUT_STYLE } = require('./config.settings');
 
 module.exports = (mode) => {
-  const outputPath = mode === 'production' ? prodFolder : devFolder
+  const outputPath = mode === 'production' ? PROD_FOLDER : DEV_FOLDER
   // const cssOutputStyles = { // compressed < expanded
   //   development: 'expanded',
   //   production: 'compressed'
   // }
 
   const jsPattern = () => {
-    return configJsEntry ? [] : [{
+    return CONFIG_JS_ENTRY ? [] : [{
       context: 'src',
       from: 'js/**',
       to: path.resolve(__dirname, outputPath),
@@ -89,7 +86,7 @@ module.exports = (mode) => {
                 implementation: require("sass"),
                 sassOptions: {
                   // outputStyle: cssOutputStyles[mode]
-                  outputStyle: 'expanded'
+                  outputStyle: CSS_OUTPUT_STYLE
                 },
               },
             },
@@ -114,11 +111,11 @@ module.exports = (mode) => {
           {
             context: 'src',
             from: 'images/**/*',
+            to: path.resolve(__dirname, outputPath),
+            noErrorOnMissing: true,
             globOptions: {
               ignore: ['**/'+ spriteDirName + '*/**'],
             },
-            to: path.resolve(__dirname, outputPath),
-            noErrorOnMissing: true
           },
           {
             context: 'src',
