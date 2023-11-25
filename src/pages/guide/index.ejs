@@ -23,7 +23,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <%- include( './layout/_head', {
+  <%- include('./layout/_head', {
     title: '컴포넌트 가이드',
     _src
 } ) %>
@@ -35,53 +35,58 @@
       <h1 class="tit_head"><a href="/html/guide/index.html">컴포넌트 가이드</a></h1>
     </header>
     <main class="c-main">
-      <%- include( './layout/_nav' ) %>
+      <%- include('./layout/_nav') %>
       <article class="c-article">
         <%# ------- 소개 ------- %>
         <h2 class="c-tit"><a href="#intro" id="intro" class="c-tit-link">소개</a></h2>
-        <%- include( `./_intro`, _src ) %>
+        <%- include(`./_intro`, _src ) %>
         <%# // ------- 소개 ------- %>
 
         <%# ------- 아이콘 ------- %>
         <h2 class="c-tit"><a href="#icon" id="icon" class="c-tit-link">아이콘</a></h2>
-        <%- include( `./_icon` ) %>
+        <%- include(`./_icon` ) %>
         <%# // ------- 아이콘 ------- %>
         
         <%# ------- 공통 컬러 ------- %>
         <h2 class="c-tit"><a href="#globalColor" id="globalColor" class="c-tit-link">공통 컬러</a></h2>
-        <%- include( `./_color` ) %>
+        <%- include(`./_color` ) %>
         <%# // ------- 공통 컬러 ------- %>
 
         <%# ------- 컴포넌트 ------- %>
         <h2 class="c-tit"><a href="#components" id="components" class="c-tit-link">컴포넌트</a></h2>
         <p>컴포넌트는 작은 UI 조각 입니다.</p>
-        <%- include( './components/_title' ) %>
-        <%- include( './components/_button' ) %>
-        <%- include( './components/_tab' ) %>
-        <%- include( './components/_list' ) %>
-        <%- include( './components/_table' ) %>
-        <%- include( './components/_input' ) %>
-        <%- include( './components/_select' ) %>
-        <%- include( './components/_checkbox' ) %>
-        <%- include( './components/_radio' ) %>
-        <%- include( './components/_textarea' ) %>
+        <%- include('./components/_title') %>
+        <%- include('./components/_button') %>
+        <%- include('./components/_tab') %>
+        <%- include('./components/_list') %>
+        <%- include('./components/_table') %>
+        <%- include('./components/_input') %>
+        <%- include('./components/_select') %>
+        <%- include('./components/_checkbox') %>
+        <%- include('./components/_radio') %>
+        <%- include('./components/_textarea') %>
         <%# // ------- 컴포넌트 ------- %>
 
         <%# ------- 템플릿 ------- %>
         <h2 class="c-tit"><a href="#templates" id="templates" class="c-tit-link">템플릿</a></h2>
         <p>템플릿은 자주 사용하는 UI의 집합 또는 그룹 입니다.</p>
-        <%- include( './templates/_form' ) %>
-        <%- include( './templates/_infobox' ) %>
+        <%- include('./templates/_form') %>
+        <%- include('./templates/_infobox') %>
         <%# // ------- 템플릿 ------- %>
 
         <%# ------- 유틸리티 클래스 ------- %>
         <h2 class="c-tit"><a href="#utillClass" id="utillClass" class="c-tit-link">유틸리티 클래스</a></h2>
-        <%- include( `./_utill_class` ) %>
+        <%- include(`./_utill_class` ) %>
         <%# // ------- 유틸리티 클래스 ------- %>
       </article>
     </main>
   </div>
 
-  
+  <!-- js -->
+  <script src="<%= _src %>js/jquery-1.12.4.min.js"></script><!-- Jquery -->
+  <script src="<%= _src %>js/prism-1.29.0.min.js"></script><!-- guide 코드 하이라이트 -->
+  <script src="<%= _src %>js/guide.js"></script><!-- guide 페이지 js -->
+  <script src="<%= _src %>js/slick-1.9.0.min.js"></script><!-- slick js -->
+  <script src="<%= _src %>js/ui.js"></script><!-- 프로젝트 ui js -->
 </body>
 </html>

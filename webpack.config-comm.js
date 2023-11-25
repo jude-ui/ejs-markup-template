@@ -12,17 +12,17 @@ const prodFolder = devServerConfig && devServerConfig['PROD_FOLDER'] ? devServer
 
 module.exports = (mode) => {
   const outputPath = mode === 'production' ? prodFolder : devFolder
-  const cssOutputStyles = { // compressed < expanded
-    development: 'expanded',
-    production: 'compressed'
-  }
+  // const cssOutputStyles = { // compressed < expanded
+  //   development: 'expanded',
+  //   production: 'compressed'
+  // }
 
   const jsPattern = () => {
     return configJsEntry ? [] : [{
       context: 'src',
       from: 'js/**',
       to: path.resolve(__dirname, outputPath),
-      noErrorOnMissing: true
+      noErrorOnMissing: true,
     }]
   }
 
@@ -88,7 +88,8 @@ module.exports = (mode) => {
               options: {
                 implementation: require("sass"),
                 sassOptions: {
-                  outputStyle: cssOutputStyles[mode]
+                  // outputStyle: cssOutputStyles[mode]
+                  outputStyle: 'expanded'
                 },
               },
             },

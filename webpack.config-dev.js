@@ -15,7 +15,7 @@ module.exports = {
       ...cssEntries(),
       ...ejsEntries()
     }
-    return configJsEntry ? { ...entry, ...jsEntries() } : entry
+    return configJsEntry ? { ...entry, ...jsEntries() } : { ...entry }
   },
   module: {
     rules: [
@@ -61,7 +61,7 @@ module.exports = {
     devMiddleware: {
       writeToDisk: true
     },
-    // open: ['html/page-list.html'],
+    // open: ['html/index.html'],
     open: false,
     allowedHosts: 'all',
     port,

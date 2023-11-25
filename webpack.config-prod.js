@@ -8,7 +8,7 @@ module.exports = {
     const entry = {
       ...cssEntries(),
     }
-    return configJsEntry ? { ...entry, ...jsEntries() } : entry
+    return configJsEntry ? { ...entry, ...jsEntries() } : { ...entry }
   },
   optimization: {
     minimize: configJsEntry ? true : false

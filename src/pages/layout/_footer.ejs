@@ -1,4 +1,14 @@
+<%
+  const depth = locals.depth || 1;
+  const _src = '../'.repeat(depth + 1);
+  const $img = _src + 'images/common';
+%>
 <footer>
   <h2>Footer</h2>
 </footer>
 <!-- // footer -->
+
+<!-- js -->
+<script src="<%= _src %>js/jquery-1.12.4.min.js"></script><!-- Jquery -->
+<script src="<%= _src %>js/slick-1.9.0.min.js"></script><!-- slick js -->
+<script src="<%= _src %>js/ui.js"></script><!-- 프로젝트 ui js -->

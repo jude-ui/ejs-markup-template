@@ -99,7 +99,7 @@ class GenerateIndexHtmlPlugin {
   generatePageList() {
     // page-list.json 파일을 생성하는 함수
     const sortedPages = this.groupPagesByDepth(this.pages);
-    fs.writeFileSync('src/pages/page-list.json', JSON.stringify(sortedPages));
+    fs.writeFileSync('src/pages/index.json', JSON.stringify(sortedPages));
   }
 
   apply(compiler) {
