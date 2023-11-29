@@ -23,7 +23,9 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<%- include('../layout/_head', {
+<%- include(
+  `../layout/_head`,
+  {
     title: '기본 레이아웃',
     _src
   }
@@ -45,7 +47,7 @@
   </main>
   
   <hr class="hide">
-  <%- include('../layout/_footer', {_src}) %>
+  <%- include('../layout/_footer') %>
 </div>
 </body>
 </html>

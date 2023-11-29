@@ -11,7 +11,7 @@ module.exports = {
       ...cssEntries(),
       ...ejsEntries()
     }
-    return CONFIG_JS_ENTRY ? { ...entry, ...jsEntries() } : { ...entry }
+    return CONFIG_JS_ENTRY ? { ...entry, ...jsEntries() } : entry
   },
   module: {
     rules: [
@@ -60,6 +60,7 @@ module.exports = {
     // open: ['html/index.html'],
     open: false,
     allowedHosts: 'all',
+    // hot: true,
     // port,
     host: 'localhost',
     // client: {

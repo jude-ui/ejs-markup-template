@@ -9,7 +9,7 @@ module.exports = {
     const entry = {
       ...cssEntries(),
     }
-    return CONFIG_JS_ENTRY ? { ...entry, ...jsEntries() } : { ...entry }
+    return CONFIG_JS_ENTRY ? { ...entry, ...jsEntries() } : entry
   },
   optimization: {
     minimize: IS_JS_MINIFY

@@ -15,13 +15,24 @@ module.exports = (mode) => {
   // }
 
   const jsPattern = () => {
-    return CONFIG_JS_ENTRY ? [] : [{
+    const baseOptions = {
       context: 'src',
       from: 'js/**',
       to: path.resolve(__dirname, outputPath),
       noErrorOnMissing: true,
-    }]
-  }
+    };
+  
+    return CONFIG_JS_ENTRY
+      ? [
+          {
+            ...baseOptions,
+            globOptions: {
+              ignore: ['js/**/index.js'],
+            },
+          },
+        ]
+      : [baseOptions];
+  };
 
   return {
     output: {

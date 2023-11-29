@@ -1,5 +1,6 @@
 const glob = require('glob');
 const path = require('path');
+const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const SpritesmithPlugin = require('webpack-spritesmith');
 const { spriteDirName, _spriteSourcesPath, spriteRatioOptions, retinaSuffix, spriteCssOutputPath, irCss } = require('./sprite-options');
@@ -11,7 +12,7 @@ exports.ejsEntries = () => {
   ejsList.forEach(item => {
     const key = item.replace(/^src\/pages\//, 'js-from-html/')
     .replace(/\.ejs$/, '')
-    const value = "./" + item;
+    const value = "./" + item
     result[key] = value
   })
 
@@ -25,7 +26,7 @@ exports.cssEntries = () => {
   scssList.forEach(item => {
     const key = item.replace(/^src\/css\//, '')
     .replace(/\.scss$/, '')
-    const value = "./" + item;
+    const value = "./" + item
     result[key] = value
   })
 
@@ -34,14 +35,17 @@ exports.cssEntries = () => {
 
 exports.jsEntries = () => {
   let result = {}
-  const jsList = glob.sync(`src/js/*.js`)
+  const jsList = glob.sync('src/js/*.js')
 
   jsList.forEach(item => {
     let key = item.replace(/^src\/js\//, '')
     .replace(/\.js$/, '')
 
-    const value = "./" + item;
-    result[key] = value;
+    // 파일명이 'index.js'일 때만 엔트리 객체에 추가
+    if (key === 'index' && fs.statSync(item).isFile()) {
+      const value = `./${item}`
+      result[key] = value
+    }
   })
 
   return result
@@ -53,7 +57,7 @@ exports.HtmlWebpackPlugins = () => {
     let filename = template
       .replace(/^src\/pages/, 'html')
       .replace(/\.ejs$/, '.html');
-    if (filename === 'html/index.html') {
+    if (filename === 'html/page-list.html') {
       filename = 'index.html';
     }
     return new HtmlWebpackPlugin({
