@@ -60,7 +60,6 @@ module.exports = {
     // open: ['html/index.html'],
     open: false,
     allowedHosts: 'all',
-    // hot: true,
     // port,
     host: 'localhost',
     // client: {
