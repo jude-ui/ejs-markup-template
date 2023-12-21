@@ -1,135 +1,70 @@
-.info_box{
-  height: 100%;
-  min-height: 140px;
-  padding: 30px 40px;
-  border-radius: 10px;
-  border: 1px solid #ddd;
-  background-color: #fff;
-  background-repeat: no-repeat;
-  background-position: 50px 35px;
-  box-sizing: border-box;
-  word-wrap: break-word;
-  word-break: break-all;
-  &[class*="ico_"]{
-    padding-left: 169px;
-  }
-  p{
-    padding-top: 18px;
-  }
-}
-.box_wrap{
-  display:grid;
-  gap: 25px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-}
+.info_box{height: 100%;min-height: 140px;padding: 30px 40px;border-radius: 10px;border: 1px solid #ddd;background-color: #fff;background-repeat: no-repeat;background-position: 50px 35px;box-sizing: border-box;word-wrap: break-word;word-break: break-all}
+.info_box[class*=ico_]{padding-left: 169px}
+.info_box p{padding-top: 18px}
+.info_box p ~ p{padding-top: 0}
+.info_box.dash{border-style: dashed;border-color: #858585}
+.info_box.bg{border-color: transparent;border-color: transparent;background-color: #F9F9F9}
+.ico_info1{background-size: 62px 68px;background-image: url(#{$imgUrl}/common/ico_info1.png)}
+.ico_info2{background-size: 62px 57px;background-image: url(#{$imgUrl}/common/ico_info2.png)}
+.ico_info3{background-size: 62px 53px;background-image: url(#{$imgUrl}/common/ico_info3.png)}
+.ico_info4{background-size: 62px 53px;background-image: url(#{$imgUrl}/common/ico_info4.png)}
+.ico_info5{background-size: 62px 62px;background-image: url(#{$imgUrl}/common/ico_info5.png)}
+.box_wrap{display:grid;gap: 25px;grid-template-columns: repeat(auto-fit, minmax(450px, 1fr))}
 
 @media
-only screen and (max-width: 1800px) {
-  .box_wrap{
-    gap: 20px;
-    &.wrap4{
-      .info_box{
-        text-align: center;
-        padding-left: 30px;
-        padding-right: 30px;
-        background-position: center 30px;
-        &[class*="ico_"]{
-          padding-top: 113px;
-        }
-        h3, h4, h5, h6{
-          justify-content: center;
-        }
-      }
-    }
-  }
-}
-
-@media
-only screen and (max-width: 1400px) {
-  .box_wrap{
-    gap: 15px;
-    &.wrap3{
-      .info_box{
-        text-align: center;
-        padding-left: 30px;
-        padding-right: 30px;
-        background-position: center 30px;
-        &[class*="ico_"]{
-          padding-top: 113px;
-        }
-        h3, h4, h5, h6{
-          justify-content: center;
-        }
-      }
-    }
-  }
-}
-
-@media
-only screen and (max-width: 1000px) {
-  .box_wrap{
-    gap: 10px;
-    .info_box{
-      text-align: center;
-      padding-left: 30px;
-      padding-right: 30px;
-      background-position: center 30px;
-      &[class*="ico_"]{
-        padding-top: 113px;
-      }
-      h3, h4, h5, h6{
-        justify-content: center;
-      }
-    }
-  }
+only screen and (max-width: 490px) {
+  .box_wrap{grid-template-columns: 1fr}
 }
 
 @media
 only screen and (max-width: 768px) {
-  .box_wrap{
-    gap: 8px;
-  }
-  .info_box{
-    text-align: center;
-    padding-left: 30px;
-    padding-right: 30px;
-    background-position: center 30px;
-    &[class*="ico_"]{
-      padding: 113px 30px 30px;
-    }
-    h3, h4, h5, h6{
-      justify-content: center;
-    }
-  }
+  .box_wrap{gap: 8px}
+  .info_box{text-align: center;padding-left: 30px;padding-right: 30px;background-position: center 30px}
+  .info_box[class*=ico]{padding: 113px 30px 30px}
+  .info_box h3,
+  .info_box h4,
+  .info_box h5,
+  .info_box h6,
+  .info_box .tit_type1,
+  .info_box .tit_type2,
+  .info_box .tit_type3{justify-content: center}
 }
-
-.ico_info1{
-  background-size: 62px 68px;
-  background-image: url(#{$imgUrl}/common/ico_info1.png);
+@media
+only screen and (max-width: 1000px) {
+  .box_wrap{gap: 10px}
+  .box_wrap .info_box{text-align: center;padding-left: 30px;padding-right: 30px;background-position: center 30px}
+  .box_wrap .info_box[class*=ico_]{padding-top: 113px}
+  .box_wrap .info_box h3,
+  .box_wrap .info_box h4,
+  .box_wrap .info_box h5,
+  .box_wrap .info_box h6,
+  .box_wrap .info_box .tit_type1,
+  .box_wrap .info_box .tit_type2,
+  .box_wrap .info_box .tit_type3{justify-content: center}
 }
-.ico_info2{
-  background-size: 62px 57px;
-  background-image: url(#{$imgUrl}/common/ico_info2.png);
+@media
+only screen and (max-width: 1400px) {
+  .box_wrap {gap: 15px}
+  .box_wrap.wrap3 .info_box{text-align: center;padding-left: 30px;padding-right: 30px;background-position: center 30px}
+  .box_wrap.wrap3 .info_box[class*=ico_]{padding-top: 113px}
+  .box_wrap.wrap3 .info_box h3,
+  .box_wrap.wrap3 .info_box h4,
+  .box_wrap.wrap3 .info_box h5,
+  .box_wrap.wrap3 .info_box h6,
+  .box_wrap.wrap3 .info_box .tit_type1,
+  .box_wrap.wrap3 .info_box .tit_type2,
+  .box_wrap.wrap3 .info_box .tit_type3{justify-content: center}
 }
-.ico_info3{
-  background-size: 62px 53px;
-  background-image: url(#{$imgUrl}/common/ico_info3.png);
-}
-.ico_info4{
-  background-size: 62px 53px;
-  background-image: url(#{$imgUrl}/common/ico_info4.png);
-}
-.ico_info5{
-  background-size: 62px 62px;
-  background-image: url(#{$imgUrl}/common/ico_info5.png);
-}
-
-.info_box.dash{
-  border-style: dashed;
-  border-color: #858585;
-}
-.info_box.bg{
-  border-color: transparent;
-  border-color: transparent;
-  background-color: #F9F9F9;
+@media
+only screen and (max-width: 1800px) {
+  .box_wrap{gap: 20px}
+  .box_wrap.wrap4 .info_box{text-align: center;padding-left: 30px;padding-right: 30px;background-position: center 30px}
+  .box_wrap.wrap4 .info_box[class*=ico_]{padding-top: 113px}
+  .box_wrap.wrap4 .info_box h3,
+  .box_wrap.wrap4 .info_box h4,
+  .box_wrap.wrap4 .info_box h5,
+  .box_wrap.wrap4 .info_box h6,
+  .box_wrap.wrap4 .info_box .tit_type1,
+  .box_wrap.wrap4 .info_box .tit_type2,
+  .box_wrap.wrap4 .info_box .tit_type3{justify-content: center}
 }

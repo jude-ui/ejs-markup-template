@@ -1,3 +1,10 @@
+@mixin fa{
+  font-family: 'Font Awesome 6 Pro', sans-serif;
+}
+@mixin suite{
+  font-family: 'SUITE', sans-serif;
+}
+
 @mixin clear {
   display: block;
   clear:both;

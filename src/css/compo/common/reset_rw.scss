@@ -1,5 +1,5 @@
 /* rw reset */
-body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,select,textarea,button{margin:0;padding:0}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,select,textarea,button,main,a,address,caption,cite,dfn,em,var{margin:0;padding:0;box-sizing:border-box}
 fieldset,img{border: 0 none}
 dl,ul,ol,menu,li{list-style:none}
 blockquote,q{quotes:none}
@@ -16,14 +16,15 @@ input[type='date']{-webkit-appearance:none;appearance:none;background:#fff}
 input[type='date']::-webkit-date-and-time-value{text-align:left}
 input[type='date']::before{width:100%;content:attr(data-placeholder);color:rgba(36,36,36,.38)}
 input[type='date'][value]::before,input[type='date']:focus::before,input[type='date']:valid::before{content:normal}
-body,th,td,input,select,textarea,button{font-size:16px;line-height:22px;font-family:'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', '맑은 고딕', sans-serif;color:#575757}
+body,th,td,input,select,textarea,button{font-size:14px;line-height:19px;font-family:'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', '맑은 고딕', sans-serif;color:#575757}
 a{color:#575757;text-decoration:none}
 a:active, a:hover{text-decoration:none}
 a:active{background-color:transparent}
 address,caption,cite,code,dfn,em,var{font-style:normal;font-weight:normal}
 main{display:block}
+img{vertical-align: top}
 
 @media
-only screen and (max-width: 768px) {
-  body,th,td,input,select,textarea,button{font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue','Apple SD Gothic Neo',Arial,sans-serif}
+only screen and (min-width: 1024px) {
+  body,th,td,input,select,textarea,button{font-size: 16px;line-height: 22px}
 }

@@ -95,12 +95,6 @@
 
 
 
-
-
-
-
-
-
 <!-- input file -->
 <div class="c-code-wrap">
   <!-- 실제 코드 -->
@@ -131,29 +125,16 @@
   <button type="button" class="c-btn-toggle">코드 보기</button>
   <pre><code class="lang-html">
     <div class="align_wrap gap10">
-      <div class="date_comm">
-        <input type="date" required data-placeholder="시작일" title="연결할 label 태그가 없다면 title 속성은 필수로 넣어주세요.">
-        <i class="fa-solid fa-calendar-lines"></i>
+      <div class="file_comm">
+        <input type="text" class="inp_comm" readonly>
+        <input type="file" id="inpFile" title="연결할 label 태그가 없다면 title 속성은 필수로 넣어주세요.">
+        <label for="inpFile" class="btn btn5">File</label>
       </div>
-      <div class="date_comm">
-        <input type="date" required data-placeholder="종료일" title="연결할 label 태그가 없다면 title 속성은 필수로 넣어주세요." value="2023-12-24" disabled>
-        <i class="fa-solid fa-calendar-lines"></i>
+      <div class="file_comm">
+        <input type="file" id="inpFile2" title="연결할 label 태그가 없다면 title 속성은 필수로 넣어주세요.">
+        <label for="inpFile2" class="btn btn5">File</label>
       </div>
     </div>
   </code></pre>
   <!-- // 코드 하이라이트 -->
 </div>
-
-<script>
-  // File add
-  // $('.file_comm').each(function() {
-  //   $(this).find('input[type="file"]').on('input', function() {
-  //     const $self = $(this);
-  //     const fileFullPath = $self.val();
-
-  //     if ($self.prev('.inp_comm').length) {
-  //       $self.prev('.inp_comm').val(fileFullPath.replace(/^.*[\\\/]/, ''));
-  //     }
-  //   });
-  // });
-</script>

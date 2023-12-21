@@ -1,15 +1,19 @@
-.list_tab{
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(246px, 1fr));
-  column-gap: 10px;
-  row-gap: 10px;
-  text-align: center;
-  a[aria-selected=true], a:hover{
-    border-color: #2073C5;
-    font-weight: 700;
-    color:#fff;
-    background-color: #2073C5;
-    box-shadow: 0 5px 10px rgba(#2F51B2, .13);
-    opacity: 1;
-  }
+.btn.tab{display: flex;min-height: 50px;border: 1px solid #ddd;border-radius: 5px;font-weight: 600;color: #616161;background-color: #fafafa}
+.list_tab{display: none;position: absolute;top: 65px;left: 0;right: 0;z-index: 100;grid-template-columns: 1fr;text-align: center;margin-top: 5px}
+.list_tab li .tab{border-radius: 0}
+.list_tab li + li .tab{border-top: 0}
+.list_tab a[aria-selected=true], .list_tab a:hover{border-color: #2073c5;font-weight: 700;color: #fff;background-color: #2073c5;box-shadow: 0 5px 10px rgba(47,81,178,.13);opacity: 1}
+.list_tab li:first-child .tab{border-top-left-radius: 5px;border-top-right-radius: 5px}
+.list_tab li:last-child .tab{border-bottom-left-radius: 5px;border-bottom-right-radius: 5px}
+.tab_comm{position: relative;padding-bottom: 50px;margin-top: 20px}
+.tab_comm .tit_tab{display: flex;align-items: center;justify-content: center;position: relative;min-height: 60px;padding: 5px 34px;border: 1px solid #ddd;border-radius: 5px;font-weight: 700;font-size: 14px;color: #575757;background-color: #fafafa;text-align: center}
+.tab_comm .tit_tab:after{position: absolute;top: 50%;right: 15px;@include fa;font-weight: 700;font-size: 18px;color: #575757;transform: translateY(-50%);transition: transform .3s;content: '\f0d7'}
+.tab_comm.on .tit_tab:after{transform: translateY(-50%) rotate(180deg)}
+
+@media only screen and (min-width: 1024px) {
+  .btn.tab{min-height:60px}
+  .tab_comm .tit_tab{display: none}
+  .list_tab{display: grid;position: static;grid-template-columns: repeat(auto-fill, minmax(232px, 1fr));gap: 10px;margin-top: 0}
+  .list_tab li .tab{border-radius: 5px}
+  .list_tab li + li .tab{border-top: 1px solid #ddd}
 }

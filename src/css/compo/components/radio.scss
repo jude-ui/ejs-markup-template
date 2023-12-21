@@ -1,16 +1,4 @@
-.item_choice{
-  &.radio{
-    label .ico_choice{
-      background-image: url(#{$imgUrl}/common/ico_radio.png);
-    }
-    input:checked + label .ico_choice{
-      background-image: url(#{$imgUrl}/common/ico_radio_on.png);
-    }
-    input:checked + label i{ /* 폰트 어썸 아이콘 체크시 스타일 커스텀 */
-      font-weight: 400;
-      &::before{
-        content: '\f192';
-      }
-    }
-  }
-}
+.item_choice.radio label .ico_choice {background-image: url(../images/common/ico_radio.png)}
+.item_choice.radio input:checked+label .ico_choice {background-image: url(../images/common/ico_radio_on.png)}
+.item_choice.radio input:checked+label i {font-weight: 400}
+.item_choice.radio input:checked+label i::before {content: '\f192'}

@@ -1,88 +1,15 @@
-.item_choice{
-  position: relative;
-  display: inline-flex;
-  vertical-align: top;
-  &.top{
-    label{
-      align-items: flex-start;
-    }
-    .ico_choice, i{
-      top: 14px;
-      transform: translateY(0);
-    }
-  }
-  &.only{
-    .ico_choice, i{
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-  }
-  &.right{
-    label{
-      padding-left: 0;
-      padding-right: 34px;
-      .ico_choice, i{
-        left: auto;
-        right: 0;
-      }
-    }
-  }
-  &.check{
-    label .ico_choice{
-      background-image: url(#{$imgUrl}/common/ico_check.png);
-    }
-    input:checked + label .ico_choice{
-      background-image: url(#{$imgUrl}/common/ico_check_on.png);
-    }
-    input:checked + label i{ /* 폰트 어썸 아이콘 체크시 스타일 커스텀 */
-      font-weight: 900;
-      &::before{
-        content: '\f14a';
-      }
-    }
-  }
-  input{
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    opacity: 0.001;
-    &:checked + label{
-      color: #005EAD;
-    }
-    &:focus-visible + label{
-      outline:#265DC5 auto 1px;
-      outline-offset: -1px;
-    }
-  }
-  label{
-    display: inline-flex;
-    align-items: center;
-    position: relative;
-    min-height: 52px;
-    padding: 16px 0 15px 34px;
-    font-size: 18px;
-    line-height: 21px;
-    color: #232323;
-    vertical-align: top;
-    box-sizing: border-box;
-    cursor: pointer;
-    .ico_choice, i{
-      position: absolute;
-      top:50%;
-      left:0;
-      width: 24px;
-      height: 24px;
-      font-size: 24px;
-      background-position: 0 0;
-      background-repeat: no-repeat;
-      background-size: 24px 24px;
-      transform: translateY(-50%);
-    }
-  }
-}
+.item_choice{position: relative;display: inline-flex;vertical-align: top}
+.item_choice input{position: absolute;top: 0;left: 0;z-index: -1;width: 100%;height: 100%;margin: 0;padding: 0;border: 0;opacity: 0.001}
+.item_choice input:checked + label{color: #005EAD}
+.item_choice input:focus-visible + label{outline:#265DC5 auto 1px;outline-offset: -1px}
+.item_choice label{display: inline-flex;align-items: center;position: relative;min-height: 45px;padding: 13px 0 13px 34px;font-size: 16px;line-height: 19px;color: #232323;vertical-align: top;box-sizing: border-box;cursor: pointer}
+.item_choice label .ico_choice, .item_choice label i{position: absolute;top:50%;left:0;width: 24px;height: 24px;font-size: 24px;background-position: 0 0;background-repeat: no-repeat;background-size: 24px 24px;transform: translateY(-50%)}
+.item_choice.top label{align-items: flex-start}
+.item_choice.top .ico_choice, .item_choice.top i{top: 14px;transform: translateY(0)}
+.item_choice.only .ico_choice, .item_choice.only i{left: 50%;transform: translate(-50%, -50%)}
+.item_choice.right label{padding-left: 0;padding-right: 34px}
+.item_choice.right label .ico_choice, .item_choice.right label i{left: auto;right: 0}
+.item_choice.check label .ico_choice{background-image: url(#{$imgUrl}/common/ico_check.png);}
+.item_choice.check input:checked + label .ico_choice{background-image: url(#{$imgUrl}/common/ico_check_on.png)}
+.item_choice.check input:checked + label i{font-weight: 900}
+.item_choice.check input:checked + label i:before{content: '\f14a'}

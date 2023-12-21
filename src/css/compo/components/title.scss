@@ -1,8 +1,31 @@
-h3, h4, h5, h6{display: flex;align-items: baseline;gap: 5px}
-h3 [class*='ico_'], h4 [class*='ico_'], h5 [class*='ico_'], h6 [class*='ico_'], h3 [class*='ico_'], h4 [class*='ico_'], h5 [class*='ico_'], h6 [class*='ico_'], h3 i, h4 i, h5 i, h6 i {flex-shrink: 0}
-h3{font-family:'SUITE', sans-serif;font-weight: 800;font-size: 40px;line-height: 50px;color:#000}
-h4{font-weight: 800;font-size: 26px;line-height: 31px;color:#000}
-h5{font-size: 24px;line-height: 29px;color:#2F51B2}
-h6{font-size: 22px;line-height: 26px;color:#000}
+h3, h4, h5, h6, .tit_type1, .tit_type2, .tit_type3{display: flex;align-items: baseline;gap: 5px}
+
+h3 [class*=ico_],
+h4 [class*=ico_],
+h5 [class*=ico_],
+h6 [class*=ico_],
+.tit_type1 [class*=ico_],
+.tit_type2 [class*=ico_],
+.tit_type3 [class*=ico_],
+h3 i,
+h4 i,
+h5 i,
+h6 i,
+.tit_type1 i,
+.tit_type2 i,
+.tit_type3 i{flex-shrink: 0}
+
+h3{@include suite;font-weight: 800;font-size: 24px;line-height: 30px;color:#000}
+h4, .tit_type1{font-weight: 800;font-size: 20px;line-height: 24px;color:#000}
+h5, .tit_type2{font-size: 18px;line-height: 21px;color:#2F51B2}
+h6, .tit_type3{font-size: 16px;line-height: 21px;color:#000}
 
 .ico_bullet{width: 16px;height:16px;background:url(#{$imgUrl}/common/ico_bullet.png) 0 0 no-repeat;background-size: cover}
+
+@media
+only screen and (min-width: 1024px) {
+  h3{font-size: 40px;line-height: 50px}
+  h4, .tit_type1{font-size: 26px;line-height: 31px}
+  h5, .tit_type2{font-size: 24px;line-height: 29px}
+  h6, .tit_type3{font-size: 22px;line-height: 26px}
+}

@@ -1,24 +1,5 @@
-textarea{
-  width: 100%;
-  min-height: 260px;
-  padding: 15px 17px 20px;
-  border:1px solid $border-color2;
-  border-radius: 3px;
-  font-size: 18px;
-  line-height: 21px;
-  color: $border-color3;
-  resize: none;
-  box-sizing: border-box;
-  &::-webkit-input-placeholder{
-    opacity: .38;
-  } /* Chrome/Opera/Safari */
-  &::-moz-placeholder{
-    opacity: .38;
-  } /* Firefox 19+ */
-  &:-ms-input-placeholder{
-    opacity: .38;
-  } /* IE 10+ */
-  &:-moz-placeholder{
-    opacity: .38;
-  } /* Firefox 18- */
-}
+textarea{width: 100%;min-height: 260px;padding: 15px 17px 20px;border:1px solid #858585;border-radius: 3px;font-size: 16px;line-height: 19px;color: #232323;resize: none;box-sizing: border-box}
+textarea::-webkit-input-placeholder{opacity: .38}
+textarea::-moz-placeholder{opacity: .38}
+textarea:-ms-input-placeholder{opacity: .38}
+textarea:-moz-placeholder{opacity: .38}

@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<title>index</title>
+<title>2023 광산구청 전면개편</title>
 <style>
 @charset "UTF-8";
 body{margin:0;padding:0;font-family:'Apple SD Gothic Neo', '맑은 고딕', 'Malgun Gothic', '돋움', 'Dotum', sans-serif;background-color:#f5f5f5}
@@ -46,7 +46,7 @@ a:visited{color:#5425e0}
 .btn_top{overflow:hidden;position:fixed;bottom:30px;right:30px;width:40px;height:40px;border:1px solid #1a1a1a;border-radius:4px;font-size:0;line-height:0;background:rgba(255,255,255,.8);text-indent:-9999px;opacity:0;transition:opacity .3s;cursor:pointer;outline:0}
 .btn_top:before{position:absolute;top:calc(50% + 2px);left:50%;width:10px;height:10px;border:2px solid #1a1a1a;border-bottom:0 none;border-right:0 none;transform:translate(-50%, -50%) rotate(45deg);content:''}
 .btn_top.on{opacity:1}
-.btn_top.on:hover{opacity:.5}
+.btn_top.on:hover{opacity:.5;}
 </style>
 <script>
   (function () {
@@ -55,9 +55,9 @@ a:visited{color:#5425e0}
       const option = {
         wrap: '.wrap', // 구조 제일 뒤에 아이프레임을 추가할 wrapper 클래스
         el: 'a.link_preview', // 미리보기 할 공통된 셀렉터
-        width: 360, // 미리보기 페이지의 가로 범위
-        height: 640, // 미리보기 페이지의 세로 범위
-        scale: 0.85, // 미리보기 페이지의 축소 스케일
+        width: 1024, // 미리보기 페이지의 가로 범위
+        height: 1080, // 미리보기 페이지의 세로 범위
+        scale: 0.65, // 미리보기 페이지의 축소 스케일
         frameX: 30, // 미리보기할 프레임의 마우스로부터의 X좌표 거리
         frameY: -100, // 미리보기할 프레임의 마우스로부터의 Y좌표 거리
         btnToTop: '.btn_top'
@@ -99,8 +99,15 @@ a:visited{color:#5425e0}
       // 링크 href 생성
       const linkPreview = document.querySelectorAll('.link_preview')
       linkPreview.forEach(el => {
-        // const src = window.location.href.indexOf('localhost') > -1 ? '/' : '/html/';
-        const link = window.location.href.split('/').slice(0, -1).join('/') + '/html/' + el.innerHTML;
+        let link;
+        if (window.location.href.indexOf('file') > -1) {
+          link = window.location.href.split('/').slice(0,-1).join('/') + '/html/' + el.innerHTML
+        } else {
+          const src = window.location.href.indexOf('localhost') > -1 ? '/' : '/html/';
+          // split('/')으로 나눈 배열의 마지막 요소가 빈 문자열인지 체크하여 조건에 따라 .join('/') 적용
+          const hrefArr = window.location.href.split('/');
+          link = hrefArr.slice(0, -1).join('/') + (hrefArr[hrefArr.length - 1] === '' ? '' : '/' + hrefArr[hrefArr.length - 1]) + src + el.innerHTML;
+        }
         el.setAttribute('href', link)
       })
 
@@ -183,7 +190,7 @@ a:visited{color:#5425e0}
     <div class="tit_head">
       <div class="inner_head">
         <div class="info_tit">
-          <h1>프로젝트 이름</h1>
+          <h1>2023 광산구청 전면개편</h1>
           <!-- 불필요시 삭제 -->
           <!-- <div class="group_link">
             <strong class="screen_out">관련 링크</strong>
@@ -192,7 +199,6 @@ a:visited{color:#5425e0}
           </div> -->
           <!-- // 불필요시 삭제 -->
         </div>
-        <strong class="info_krew">Made by. jude</strong><!-- 불필요시 삭제 -->
       </div>
     </div>
     <div class="section_index box_info">

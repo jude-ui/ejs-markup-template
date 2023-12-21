@@ -106,6 +106,11 @@
 
 
 /* margin */
+.m_auto{margin: auto !important}
+.ml_auto{margin-left: auto !important}
+.mr_auto{margin-right: auto !important}
+.mt_auto{margin-top: auto !important}
+.mb_auto{margin-bottom: auto !important}
 .m0{margin:0 !important}
 .mx0{margin-left:0;margin-right:0 !important}
 .my0{margin-top:0;margin-bottom:0 !important}
@@ -207,99 +212,99 @@
 
 /* padding */
 .p0{padding:0 !important}
-.px0{padding-left:0;padding-right:0 !important}
-.py0{padding-top:0;padding-bottom:0 !important}
+.px0{padding-left:0 !important;padding-right:0 !important}
+.py0{padding-top:0 !important;padding-bottom:0 !important}
 .pt0{padding-top:0 !important}
 .pr0{padding-right:0 !important}
 .pb0{padding-bottom:0 !important}
 .pl0{padding-left:0 !important}
 .ppx{padding:1px !important}
-.pxpx{padding-left:1px;padding-right:1px !important}
-.pypx{padding-top:1px;padding-bottom:1px !important}
+.pxpx{padding-left:1px !important;padding-right:1px !important}
+.pypx{padding-top:1px !important;padding-bottom:1px !important}
 .ptpx{padding-top:1px !important}
 .prpx{padding-right:1px !important}
 .pbpx{padding-bottom:1px !important}
 .plpx{padding-left:1px !important}
 .p5{padding:5px !important}
-.px5{padding-left:5px;padding-right:5px !important}
-.py5{padding-top:5px;padding-bottom:5px !important}
+.px5{padding-left:5px !important;padding-right:5px !important}
+.py5{padding-top:5px !important;padding-bottom:5px !important}
 .pt5{padding-top:5px !important}
 .pr5{padding-right:5px !important}
 .pb5{padding-bottom:5px !important}
 .pl5{padding-left:5px !important}
 .p10{padding:10px !important}
-.px10{padding-left:10px;padding-right:10px !important}
-.py10{padding-top:10px;padding-bottom:10px !important}
+.px10{padding-left:10px !important;padding-right:10px !important}
+.py10{padding-top:10px !important;padding-bottom:10px !important}
 .pt10{padding-top:10px !important}
 .pr10{padding-right:10px !important}
 .pb10{padding-bottom:10px !important}
 .pl10{padding-left:10px !important}
 .p15{padding:15px !important}
-.px15{padding-left:15px;padding-right:15px !important}
-.py15{padding-top:15px;padding-bottom:15px !important}
+.px15{padding-left:15px !important;padding-right:15px !important}
+.py15{padding-top:15px !important;padding-bottom:15px !important}
 .pt15{padding-top:15px !important}
 .pr15{padding-right:15px !important}
 .pb15{padding-bottom:15px !important}
 .pl15{padding-left:15px !important}
 .p20{padding:20px !important}
-.px20{padding-left:20px;padding-right:20px !important}
-.py20{padding-top:20px;padding-bottom:20px !important}
+.px20{padding-left:20px !important;padding-right:20px !important}
+.py20{padding-top:20px !important;padding-bottom:20px !important}
 .pt20{padding-top:20px !important}
 .pr20{padding-right:20px !important}
 .pb20{padding-bottom:20px !important}
 .pl20{padding-left:20px !important}
 .p25{padding:25px !important}
-.px25{padding-left:25px;padding-right:25px !important}
-.py25{padding-top:25px;padding-bottom:25px !important}
+.px25{padding-left:25px !important;padding-right:25px !important}
+.py25{padding-top:25px !important;padding-bottom:25px !important}
 .pt25{padding-top:25px !important}
 .pr25{padding-right:25px !important}
 .pb25{padding-bottom:25px !important}
 .pl25{padding-left:25px !important}
 .p30{padding:30px !important}
-.px30{padding-left:30px;padding-right:30px !important}
-.py30{padding-top:30px;padding-bottom:30px !important}
+.px30{padding-left:30px !important;padding-right:30px !important}
+.py30{padding-top:30px !important;padding-bottom:30px !important}
 .pt30{padding-top:30px !important}
 .pr30{padding-right:30px !important}
 .pb30{padding-bottom:30px !important}
 .pl30{padding-left:30px !important}
 .p35{padding:35px !important}
-.px35{padding-left:35px;padding-right:35px !important}
-.py35{padding-top:35px;padding-bottom:35px !important}
+.px35{padding-left:35px !important;padding-right:35px !important}
+.py35{padding-top:35px !important;padding-bottom:35px !important}
 .pt35{padding-top:35px !important}
 .pr35{padding-right:35px !important}
 .pb35{padding-bottom:35px !important}
 .pl35{padding-left:35px !important}
 .p40{padding:40px !important}
-.px40{padding-left:40px;padding-right:40px !important}
-.py40{padding-top:40px;padding-bottom:40px !important}
+.px40{padding-left:40px !important;padding-right:40px !important}
+.py40{padding-top:40px !important;padding-bottom:40px !important}
 .pt40{padding-top:40px !important}
 .pr40{padding-right:40px !important}
 .pb40{padding-bottom:40px !important}
 .pl40{padding-left:40px !important}
 .p45{padding:45px !important}
-.px45{padding-left:45px;padding-right:45px !important}
-.py45{padding-top:45px;padding-bottom:45px !important}
+.px45{padding-left:45px !important;padding-right:45px !important}
+.py45{padding-top:45px !important;padding-bottom:45px !important}
 .pt45{padding-top:45px !important}
 .pr45{padding-right:45px !important}
 .pb45{padding-bottom:45px !important}
 .pl45{padding-left:45px !important}
 .p50{padding:50px !important}
-.px50{padding-left:50px;padding-right:50px !important}
-.py50{padding-top:50px;padding-bottom:50px !important}
+.px50{padding-left:50px !important;padding-right:50px !important}
+.py50{padding-top:50px !important;padding-bottom:50px !important}
 .pt50{padding-top:50px !important}
 .pr50{padding-right:50px !important}
 .pb50{padding-bottom:50px !important}
 .pl50{padding-left:50px !important}
 .p55{padding:55px !important}
-.px55{padding-left:55px;padding-right:55px !important}
-.py55{padding-top:55px;padding-bottom:55px !important}
+.px55{padding-left:55px !important;padding-right:55px !important}
+.py55{padding-top:55px !important;padding-bottom:55px !important}
 .pt55{padding-top:55px !important}
 .pr55{padding-right:55px !important}
 .pb55{padding-bottom:55px !important}
 .pl55{padding-left:55px !important}
 .p60{padding:60px !important}
-.px60{padding-left:60px;padding-right:60px !important}
-.py60{padding-top:60px;padding-bottom:60px !important}
+.px60{padding-left:60px !important;padding-right:60px !important}
+.py60{padding-top:60px !important;padding-bottom:60px !important}
 .pt60{padding-top:60px !important}
 .pr60{padding-right:60px !important}
 .pb60{padding-bottom:60px !important}
@@ -338,15 +343,23 @@
 .tl{text-align: left !important}
 .tr{text-align: right !important}
 .tc{text-align: center !important}
+
 .j_center{justify-content: center !important}
 .j_start{justify-content: flex-start !important}
 .j_end{justify-content: flex-end !important}
 .j_around{justify-content: space-around !important}
 .j_between{justify-content: space-between !important}
 .j_evenly{justify-content: space-evenly !important}
+.j_s_center{justify-self: center !important}
+.j_s_start{justify-self: flex-start !important}
+.j_s_end{justify-self: flex-end !important}
+
 .a_center{align-items: center !important}
 .a_start{align-items: flex-start !important}
 .a_end{align-items: flex-end !important}
+.a_s_center{align-self: center !important}
+.a_s_start{align-self: flex-start !important}
+.a_s_end{align-self: flex-end !important}
 
 .f_d_col{flex-direction: column !important}
 .f_d_row{flex-direction: row !important}

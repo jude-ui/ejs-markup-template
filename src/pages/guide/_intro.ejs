@@ -3,7 +3,7 @@
   컴포넌트는 작은 UI 단위의 집합 개념으로, 코드의 재사용성을 높여서 빠르고 편리하게 퍼블리싱 작업을 진행할 수 있게 합니다.
   
   <span class="block pt30">
-    <strong>최신 CSS</strong> : <a href="../../css/style_compo_231114.css" target="_blank" class="underline color2">style_compo_231114.css</a>
+    <strong>최신 CSS</strong> : <a href="../../css/components_231221_v3.css" target="_blank" class="underline color2">components_231221_v3.css</a>
   </span>
   <strong>CSS는 버전별로 관리합니다.</strong>
 </p>
@@ -12,11 +12,19 @@
   <!-- 코드 하이라이트 -->
   <button type="button" class="c-btn-toggle">버전 히스토리</button>
   <pre><code class="lang-html">
+    - 23.12.21_v3 : infobox.scss .tit_type 관련 css 추가
+    - 23.12.21_v2 : util_class.scss 수정 (margin auto, justify-self, align-self 관련 속성 추가)
+    - 23.12.21 : table.scss 수정 - th[colspan] + th 왼쪽 border 추가하여 colspan 하단 last-child border: 0 상쇄
+    - 23.12.20_v3 : title.ejs, title.scss - .tit_type 추가, legend, caption 태그 자체에 blind 속성 주입, 모바일에서도 전역 폰트 Pretendard 적용으로 변경
+    - 23.12.20_v2 : infobox.scss - p 태그 여백 수정
+    - 23.12.20 : form.scss - dd에 line-height:45px 추가
+    - 23.12.08 : css 네이밍 오타 수정, form 보더 추가, table noline 타입 추가
+    - 23.11.24 : css 정리 및 파일 네이밍 변경
     - 23.11.14 : 프로젝트 구조 간소화
     - 23.11.13 : 프로젝트 구조 변경 및 컴포넌트 수정
       - title 스타일 수정
       - table .td_left, .td_right 기능 추가
-      - tab 클래스 네이밍 수정 .btn.depth &gt; .btn.tab
+      - tab 클래스 네이밍 수정 .btn.depth 에서 .btn.tab 으로
       - input file 작업중
       - infobox title 수정
     - 23.11.03 : input date, select, table border 모바일 이슈 수정
